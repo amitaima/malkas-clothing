@@ -1,0 +1,147 @@
+.App-header {
+  padding: 1.8rem 4.8rem;
+  height: 17rem;
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  /* letter-spacing: 2px; */
+  font-size: 48px;
+  letter-spacing: 3.6px;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 1.8rem;
+  padding-bottom: 3.6rem;
+  // height: 9.6rem;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4.8rem;
+  list-style: none;
+  font-size: 2rem;
+}
+
+.nav-link:link,
+.nav-link:visited {
+  text-decoration: none;
+  color: #777;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover,
+.nav-link:active {
+  color: #333;
+}
+
+.nav-header {
+  .nav-link:link,
+  .nav-link:visited {
+    font-weight: 500;
+  }
+}
+
+.cart-link {
+  display: flex;
+  // flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.cart-icon {
+  width: 3.6rem;
+  height: 3.6rem;
+  color: #777;
+  transition: all 0.3s;
+}
+
+.cart-link:hover {
+  .cart-icon {
+    color: #333;
+  }
+  .cart-num {
+    color: #333;
+  }
+}
+
+.cart-num {
+  font-size: 1.8rem;
+  transition: all 0.3s;
+}
+
+.logo-link {
+  color: #333;
+  text-decoration: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.search-btn {
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  display: flex;
+  gap: 1.8rem;
+  align-items: center;
+}
+
+.search-text {
+  font-size: 2rem;
+  font-family: "Montserrat", sans-serif;
+  color: #777;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.search-icon {
+  width: 3.2rem;
+  height: 3.2rem;
+  color: #777;
+  transition: all 0.3s;
+}
+
+.search-btn:hover,
+.search-btn:active {
+  .search-icon {
+    color: #333;
+  }
+  .search-text {
+    color: #333;
+  }
+}
+
+// Adding border bottom hover affect
+.nav-menu {
+  .nav-link:link,
+  .nav-link:visited {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .nav-link:link::after,
+  .nav-link:visited::after {
+    display: block;
+    content: "";
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid #777;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav-link:hover::after,
+  .nav-link:active::after {
+    border-bottom: 1px solid #333;
+    transform: scaleX(1);
+  }
+}

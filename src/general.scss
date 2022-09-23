@@ -1,0 +1,77 @@
+/*
+
+--- 01 Typography System ---
+
+FONT STYLES
+  Priamry: 'Playfair Display', serif;
+  Secondary: 'Montserrat', sans-serif;
+
+FONT SIZE SYSTEM (px):
+ - 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+Font weights:
+ - Default: 400
+ - Medium: 500
+ - Semi-Bold: 600
+ - Bold: 700
+
+Line heights:
+ - Default: 1
+ - Small: 1.05
+ - Medium: 1.2
+ - Paragraph Degault: 1.6
+ - Large: 1.8
+
+Letter spacing:
+ - -0.5px
+ - 0.75px
+
+
+--- 02 Colors ---
+
+Primary: 
+Tints: 
+Shades: 
+Accents:
+GREYS: #555 #333 #6f6f6f #767676
+
+--- 03 Transitions ---
+
+  0.3s
+  0.5s
+  2s
+
+--- 05 Shadows ---
+
+0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+
+--- 06 Border radius ---
+ - Default: 9px
+ - Medium: 11px
+
+--- 07 Whitespace ---
+
+SPACING SYSTEM (px):
+ - 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+*/
+
+/* Makes it so only keyboard focus works */
+:focus:not(:focus-visible) {
+  outline: 0;
+  box-shadow: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* font-size: 10px; = 1 rem */
+  /* 65.5% from users font size settings */
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
