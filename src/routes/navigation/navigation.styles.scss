@@ -1,6 +1,6 @@
 .App-header {
   padding: 1.8rem 4.8rem;
-  height: 17rem;
+  height: 15rem;
 }
 
 .logo {
@@ -10,6 +10,7 @@
   /* letter-spacing: 2px; */
   font-size: 48px;
   letter-spacing: 3.6px;
+  color: #333;
 }
 
 .nav-header {
@@ -28,7 +29,7 @@
   align-items: center;
   gap: 4.8rem;
   list-style: none;
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 
 .nav-link:link,
@@ -59,8 +60,8 @@
 }
 
 .cart-icon {
-  width: 3.6rem;
-  height: 3.6rem;
+  width: 2.4rem;
+  height: 2.4rem;
   color: #777;
   transition: all 0.3s;
 }
@@ -97,7 +98,7 @@
 }
 
 .search-text {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-family: "Montserrat", sans-serif;
   color: #777;
   font-weight: 500;
@@ -105,8 +106,8 @@
 }
 
 .search-icon {
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 2.4rem;
+  height: 2.4rem;
   color: #777;
   transition: all 0.3s;
 }

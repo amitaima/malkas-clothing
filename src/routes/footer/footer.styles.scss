@@ -1,0 +1,42 @@
+.footer {
+  align-items: center;
+  padding: 4.8rem 0;
+  border-top: 1px solid #777;
+}
+
+.logo-col {
+  margin: 0 auto;
+  max-width: 130rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo--footer {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  /* letter-spacing: 2px; */
+  font-size: 48px;
+  letter-spacing: 3.6px;
+  color: #333;
+}
+
+.logo-link--footer {
+  color: #333;
+  text-decoration: none;
+}
+
+.social-links {
+  display: flex;
+  gap: 2.4rem;
+  list-style: none;
+}
+
+.social-icon {
+  color: #777;
+  width: 2.4rem;
+  height: 2.4rem;
+}

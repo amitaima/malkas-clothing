@@ -1,5 +1,8 @@
 import CategoriesMenu from "../../components/categories-menu/categories-menu.component";
+import Hero from "../../components/hero/hero.component";
 import "../../App.css";
+import "./home.styles.scss";
+import { Fragment } from "react";
 
 function Home() {
   const categories = [
@@ -7,7 +10,7 @@ function Home() {
       id: 1,
       title: "hats",
       imageUrl:
-        "https://images.unsplash.com/photo-1521369909029-2afed882baee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+        "https://images.unsplash.com/photo-1647102164120-2a266070cc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2718&q=80",
     },
     {
       id: 2,
@@ -25,7 +28,7 @@ function Home() {
       id: 4,
       title: "womens",
       imageUrl:
-        "https://images.unsplash.com/photo-1608571857139-0c0499d44f5f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=912&q=80",
+        "https://images.unsplash.com/photo-1580599044019-af4ec9f14879?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80",
     },
     {
       id: 5,
@@ -35,7 +38,12 @@ function Home() {
     },
   ];
 
-  return <CategoriesMenu categories={categories}></CategoriesMenu>;
+  return (
+    <Fragment>
+      <Hero></Hero>
+      <CategoriesMenu categories={categories}></CategoriesMenu>
+    </Fragment>
+  );
 }
 
 export default Home;

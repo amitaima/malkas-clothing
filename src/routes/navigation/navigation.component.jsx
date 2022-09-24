@@ -17,7 +17,7 @@ const Navigation = () => {
           </Link>
           <ul className="nav-list header-nav-list">
             <li>
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="/signin">
                 Sign In
               </Link>
             </li>
@@ -32,7 +32,7 @@ const Navigation = () => {
         <nav className="nav-menu">
           <ul className="nav-list">
             <li>
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="/new">
                 New
               </Link>
             </li>
