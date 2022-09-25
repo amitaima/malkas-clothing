@@ -17,11 +17,11 @@ const SignIn = () => {
   };
 
   return (
-    <div>
+    <section className="sign-in-section">
       <h1>Sign In Page</h1>
       <button onClick={logGoogleUser}>Sign in with Google</button>
       <SignUpForm></SignUpForm>
-    </div>
+    </section>
   );
 };
 
