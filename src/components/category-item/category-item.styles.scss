@@ -9,6 +9,10 @@
   // margin: 0 7.5px 15px;
   overflow: hidden;
 
+  &.gender {
+    height: 100rem;
+  }
+
   &:hover {
     cursor: pointer;
 

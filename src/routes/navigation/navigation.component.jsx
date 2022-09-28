@@ -17,7 +17,7 @@ const Navigation = () => {
           </Link>
           <ul className="nav-list header-nav-list">
             <li>
-              <Link className="nav-link" to="/signin">
+              <Link className="nav-link" to="/auth">
                 Sign In
               </Link>
             </li>

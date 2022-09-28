@@ -3,7 +3,7 @@ import { Routes, Route, Outlet } from "react-router-dom";
 import Home from "./routes/home/home.component";
 import Navigation from "./routes/navigation/navigation.component";
 import Footer from "./routes/footer/footer.component";
-import SignIn from "./routes/sign-in/sign-in.component";
+import Authentication from "./routes/authentication/authentication.component";
 
 const New = () => {
   return (
@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
-          <Route path={"signin"} element={<SignIn />} />
+          <Route path={"auth"} element={<Authentication />} />
           <Route path={"new"} element={<New />} />
         </Route>
       </Routes>

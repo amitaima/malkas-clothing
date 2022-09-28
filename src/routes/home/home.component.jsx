@@ -24,6 +24,8 @@ function Home() {
       imageUrl:
         "https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1662&q=80",
     },
+  ];
+  const genders = [
     {
       id: 4,
       title: "womens",
@@ -41,7 +43,11 @@ function Home() {
   return (
     <Fragment>
       <Hero></Hero>
-      <CategoriesMenu categories={categories}></CategoriesMenu>
+      <CategoriesMenu
+        categories={categories}
+        className="category"
+      ></CategoriesMenu>
+      <CategoriesMenu categories={genders} className="gender"></CategoriesMenu>
     </Fragment>
   );
 }
