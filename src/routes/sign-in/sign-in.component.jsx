@@ -9,6 +9,7 @@ import {
 } from "../../utils/firebase/firebase.utils";
 
 import SignUpForm from "../../components/sign-up-form/sign-up.component";
+import Button from "../../components/button/button.component";
 
 const SignIn = () => {
   const logGoogleUser = async () => {
@@ -19,7 +20,9 @@ const SignIn = () => {
   return (
     <section className="sign-in-section">
       <h1>Sign In Page</h1>
-      <button onClick={logGoogleUser}>Sign in with Google</button>
+      <Button buttonType="google" onClick={logGoogleUser}>
+        Sign in with Google
+      </Button>
       <SignUpForm></SignUpForm>
     </section>
   );
