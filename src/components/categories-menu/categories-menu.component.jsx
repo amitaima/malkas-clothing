@@ -3,7 +3,7 @@ import CategoryItem from "../category-item/category-item.component";
 
 const CategoriesMenu = ({ categories, className = "" }) => {
   return (
-    <section className="section-categories">
+    <section className={`section-categories ${className}`}>
       <div className="categories-container">
         {categories.map((category) => {
           return (

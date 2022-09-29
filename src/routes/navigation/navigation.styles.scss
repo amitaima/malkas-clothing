@@ -32,6 +32,7 @@
   font-size: 1.6rem;
 }
 
+.nav-link,
 .nav-link:link,
 .nav-link:visited {
   text-decoration: none;
@@ -46,6 +47,7 @@
 }
 
 .nav-header {
+  .nav-link,
   .nav-link:link,
   .nav-link:visited {
     font-weight: 500;
@@ -172,4 +174,24 @@
     border-bottom: 1px solid #333;
     transform: scaleX(1);
   }
+}
+
+.sticky {
+  /* STICKY NAVIGATION */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7rem;
+    padding-top: 2.4rem;
+    padding-bottom: 0;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 999;
+    // box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
+  }
+
+  // .sticky .section-hero {
+  //   margin-top: 9.6rem;
+  // }
 }

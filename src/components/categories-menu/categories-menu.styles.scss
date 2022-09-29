@@ -9,5 +9,27 @@
 }
 
 .section-categories {
-  padding-bottom: 2rem;
+  padding-bottom: 9.6rem;
+  &.gender {
+    .categories-container {
+      max-width: 200rem;
+      padding: 0 9.6rem;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      justify-content: space-between;
+    }
+  }
+  &.category {
+    .categories-container {
+      max-width: 200rem;
+      padding: 0 9.6rem;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4.8rem;
+      justify-content: space-between;
+    }
+  }
 }
