@@ -30,7 +30,7 @@ function Home() {
       id: 4,
       title: "womens",
       imageUrl:
-        "https://images.unsplash.com/photo-1580599044019-af4ec9f14879?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80",
+        "https://images.unsplash.com/photo-1638156333816-6b86b32bb7b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
     },
     {
       id: 5,
@@ -43,11 +43,11 @@ function Home() {
   return (
     <Fragment>
       <Hero></Hero>
+      <CategoriesMenu categories={genders} className="gender"></CategoriesMenu>
       <CategoriesMenu
         categories={categories}
         className="category"
       ></CategoriesMenu>
-      <CategoriesMenu categories={genders} className="gender"></CategoriesMenu>
     </Fragment>
   );
 }

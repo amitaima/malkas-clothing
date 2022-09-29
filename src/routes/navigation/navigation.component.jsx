@@ -1,16 +1,25 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import "./navigation.styles.scss";
 import { RiSearchLine, RiShoppingBagLine } from "react-icons/ri";
+import { UserContext } from "../../contexts/user.context";
 
 const Navigation = () => {
+  const { currentUser } = useContext(UserContext);
+
   return (
     <Fragment>
       <header className="App-header">
         <div className="nav-header">
           <button className="search-btn">
             <RiSearchLine className="search-icon" />
-            <span className="search-text">Search</span>
+            <input
+              className="search-input"
+              placeholder="Search"
+              type="search"
+              required
+            ></input>
+            {/* <span className="search-text">Search</span> */}
           </button>
           <Link className="logo-link" to="/">
             <h1 className="logo">Malka`s</h1>

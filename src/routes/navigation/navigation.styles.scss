@@ -97,12 +97,39 @@
   align-items: center;
 }
 
-.search-text {
+.search-input {
   font-size: 1.6rem;
   font-family: "Montserrat", sans-serif;
   color: #777;
   font-weight: 500;
   transition: all 0.3s;
+  border: none;
+  border-bottom: 1px solid #fff;
+  padding: 0.4rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+// Styling the search cancel button
+.search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 1.2rem;
+  width: 1.2rem;
+  // border-radius: 50%;
+  background: url(https://cdn-icons-png.flaticon.com/512/722/722133.png)
+    no-repeat 50% 50%;
+
+  background-size: contain;
+  cursor: pointer;
+  opacity: 0.7;
+  // pointer-events: none;
+}
+
+.search-input:focus {
+  outline: 0;
+  box-shadow: none;
+  border-bottom: 1px solid #777;
+  cursor: text;
 }
 
 .search-icon {
@@ -117,7 +144,7 @@
   .search-icon {
     color: #333;
   }
-  .search-text {
+  .search-input::placeholder {
     color: #333;
   }
 }
