@@ -19,7 +19,7 @@ const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
 
-  const { setCurrentUser } = useContext(UserContext);
+  // const { setCurrentUser } = useContext(UserContext);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -34,9 +34,10 @@ const SignUpForm = () => {
 
     try {
       const { user } = await createAuthUserWithEmail(email, password);
-      setCurrentUser(user);
+      // setCurrentUser(user);
       await createUserDocFromAuth(user, { displayName });
       resetFormFields();
+      window.location.href = "/";
     } catch (error) {
       if (error.code === "auth/email-already-in-use")
         alert("Email already taken!");

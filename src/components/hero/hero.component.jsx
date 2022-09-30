@@ -1,29 +1,29 @@
 import "./hero.styles.scss";
 
 // Sticky Navigation
-const sectionHeroEl = document.querySelector(".section-hero");
+// const sectionHeroEl = document.querySelector(".section-hero");
 
-const obs = new IntersectionObserver(
-  function (entries) {
-    const ent = entries[0];
-    console.log(ent);
+// const obs = new IntersectionObserver(
+//   function (entries) {
+//     const ent = entries[0];
+//     console.log(ent);
 
-    if (ent.isIntersecting === false) {
-      document.body.classList.add("sticky");
-    }
+//     if (ent.isIntersecting === false) {
+//       document.body.classList.add("sticky");
+//     }
 
-    if (ent.isIntersecting === true) {
-      document.body.classList.remove("sticky");
-    }
-  },
-  {
-    // In the viewport
-    root: null,
-    threshold: 0,
-    rootMargin: "-150px",
-  }
-);
-obs.observe(sectionHeroEl);
+//     if (ent.isIntersecting === true) {
+//       document.body.classList.remove("sticky");
+//     }
+//   },
+//   {
+//     // In the viewport
+//     root: null,
+//     threshold: 0,
+//     rootMargin: "-150px",
+//   }
+// );
+// obs.observe(sectionHeroEl);
 
 const Hero = () => {
   return (
