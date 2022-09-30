@@ -19,6 +19,7 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+  // resetFormFields();
 
   // const { setCurrentUser } = useContext(UserContext);
 

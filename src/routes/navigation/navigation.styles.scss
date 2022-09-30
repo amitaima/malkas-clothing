@@ -55,17 +55,6 @@
 }
 
 .cart-link {
-  display: flex;
-  // flex-direction: column;
-  gap: 0.8rem;
-  align-items: center;
-}
-
-.cart-icon {
-  width: 2.4rem;
-  height: 2.4rem;
-  color: #777;
-  transition: all 0.3s;
 }
 
 .cart-link:hover {
@@ -75,11 +64,6 @@
   .cart-num {
     color: #333;
   }
-}
-
-.cart-num {
-  font-size: 1.8rem;
-  transition: all 0.3s;
 }
 
 .logo-link {
@@ -178,7 +162,7 @@
 
 .sticky {
   /* STICKY NAVIGATION */
-  .nav-menu {
+  &.nav-menu {
     position: fixed;
     top: 0;
     left: 0;

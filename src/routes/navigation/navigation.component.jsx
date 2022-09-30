@@ -1,12 +1,31 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useState, useEffect } from "react";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import "./navigation.styles.scss";
-import { RiSearchLine, RiShoppingBagLine } from "react-icons/ri";
+import { RiSearchLine } from "react-icons/ri";
 import { UserContext } from "../../contexts/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
+import CartIcon from "../../components/cart-icon/cart-icon.components";
+import CartDropdown from "../../components/cart-dropdown/cart-dropdown.components";
+import { CartContext, CartProvider } from "../../contexts/cart.context";
 
 const Navigation = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartContext);
+  const [stickyClass, setStickyClass] = useState("");
+
+  // STICKY NAV //
+  useEffect(() => {
+    window.addEventListener("scroll", stickNavbar);
+    return () => window.removeEventListener("scroll", stickNavbar);
+  }, []);
+
+  const stickNavbar = () => {
+    if (window !== undefined) {
+      let windowHeight = window.scrollY;
+      // window height changed for the demo
+      windowHeight > 73 ? setStickyClass("sticky") : setStickyClass("");
+    }
+  };
 
   // const signOutHandler = async () => {
   //   await signOutUser();
@@ -43,17 +62,22 @@ const Navigation = () => {
               )}
             </li>
             <li>
-              <Link className="nav-link cart-link" to="/">
-                <RiShoppingBagLine className="cart-icon" />
-                <span className="cart-num">3</span>
+              <Link className="nav-link cart-link">
+                <CartIcon></CartIcon>
               </Link>
             </li>
           </ul>
+          {isCartOpen && <CartDropdown />}
         </div>
-        <nav className="nav-menu">
+        <nav className={`nav-menu ${stickyClass}`}>
           <ul className="nav-list">
             <li>
-              <Link className="nav-link" to="/new">
+              <Link className="nav-link" to="/shop">
+                Shop
+              </Link>
+            </li>
+            <li>
+              <Link className="nav-link" to="/">
                 New
               </Link>
             </li>

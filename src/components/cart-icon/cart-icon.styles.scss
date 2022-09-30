@@ -1,0 +1,17 @@
+.cart-icon-container {
+  display: flex;
+  // flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+  .cart-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    // transform: scale(1.5);
+    color: #777;
+    transition: all 0.3s;
+  }
+  .cart-num {
+    font-size: 1.8rem;
+    transition: all 0.3s;
+  }
+}
