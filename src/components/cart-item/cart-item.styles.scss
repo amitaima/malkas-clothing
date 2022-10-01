@@ -18,6 +18,19 @@
 
     .name {
       font-size: 16px;
+      font-weight: 500;
+      padding-bottom: 0.8rem;
+    }
+
+    .price-and-quantity {
+      display: flex;
+      gap: 1.6rem;
+      justify-content: center;
+      align-items: center;
+
+      .price {
+        font-weight: 500;
+      }
     }
   }
 }

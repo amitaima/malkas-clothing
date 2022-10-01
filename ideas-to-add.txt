@@ -1,0 +1,17 @@
+IDEAS TO ADD:
+
+1. Hover on products changes to different picture of product
+
+2. Wishlist - Like the Addition of cart just for a Wishlist
+
+3. Alert when adding item to cart - should be the cart dropdown with only the added item
+
+4. Sizes in products
+
+5. Size picker when adding to cart
+
+6. Sign up for newsletter section in home page
+
+7. New and Outlet section
+
+8. Change currency by country
