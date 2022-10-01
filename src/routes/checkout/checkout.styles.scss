@@ -13,13 +13,14 @@
 
   .checkout-header {
     width: 100%;
-    padding: 10px 0;
+    padding-bottom: 2.4rem;
     display: flex;
     justify-content: space-between;
     // border-bottom: 1px solid darkgrey;
 
     .header-block {
       text-transform: capitalize;
+      letter-spacing: 1px;
       width: 14%;
       color: #333;
       font-size: 2rem;
@@ -43,6 +44,7 @@
   .checkout-summary {
     align-self: flex-end;
     padding: 4.8rem 0;
+    letter-spacing: 1px;
     .subtotal {
       display: flex;
       justify-content: space-between;
