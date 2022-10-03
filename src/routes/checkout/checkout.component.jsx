@@ -3,6 +3,7 @@ import CheckoutItem from "../../components/checkout-item/checkout-item.component
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cart.context";
 import Button from "../../components/button/button.component";
+import { useEffect } from "react";
 
 const Checkout = () => {
   const { cartItems, cartCount } = useContext(CartContext);
@@ -10,6 +11,9 @@ const Checkout = () => {
     (total, item) => total + item.price * item.quantity,
     0
   );
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section className="checkout-container">

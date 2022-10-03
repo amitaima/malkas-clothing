@@ -15,7 +15,7 @@
 
   .empty-message {
     font-size: 18px;
-    margin: 50px auto;
+    margin: 6.4rem auto;
   }
 
   .cart-items {
@@ -25,6 +25,10 @@
     overflow: scroll;
     overflow-x: hidden;
     margin-bottom: 1.6rem;
+
+    &.empty {
+      overflow-y: hidden;
+    }
   }
 
   .link-to-checkout {

@@ -1,5 +1,9 @@
 IDEAS TO ADD:
 
+PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
+
+0. Add cart and search to floating navbar
+
 1. Hover on products changes to different picture of product
 
 2. Wishlist - Like the Addition of cart just for a Wishlist
@@ -15,3 +19,5 @@ IDEAS TO ADD:
 7. New and Outlet section
 
 8. Change currency by country
+
+9. Product page ????????????

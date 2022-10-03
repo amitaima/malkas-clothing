@@ -1,0 +1,25 @@
+.categories-container {
+  max-width: 150rem;
+  padding: 0 9.6rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.section-categories {
+  padding-bottom: 9.6rem;
+  &.gender {
+    .categories-container {
+      max-width: 100%;
+      padding: 0;
+      gap: 0;
+    }
+  }
+  &.category {
+    .categories-container {
+      gap: 4.8rem;
+      // height: 40rem;
+    }
+  }
+}

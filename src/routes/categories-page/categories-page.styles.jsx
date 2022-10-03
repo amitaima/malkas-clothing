@@ -1,0 +1,27 @@
+import styled from "styled-components";
+
+export const CategoriesPageContainer = styled.section`
+  max-width: 150rem;
+  padding: 4.8rem 9.6rem;
+  margin: 0 auto;
+`;
+
+//   .category-title {
+//     font-size: 2.4rem;
+//     color: #333;
+//     padding: 2.4rem 0;
+//   }
+
+//   .products-container {
+//     display: grid;
+//     grid-template-columns: repeat(4, 1fr);
+//     column-gap: 1.6rem;
+//     row-gap: 4rem;
+//     // max-width: 150rem;
+//     // padding: 4.8rem 9.6rem;
+//     // margin: 0 auto;
+//     // padding-top: 4.8rem;
+//     // justify-content: center;
+//     // align-items: center;
+//   }
+// }

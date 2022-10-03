@@ -1,17 +1,17 @@
-import "./categories-menu.styles.scss";
-import CategoryItem from "../category-item/category-item.component";
+import "./directory.styles.scss";
+import DirectoryItem from "../directory-item/directory-item.component";
 
-const CategoriesMenu = ({ categories, className = "" }) => {
+const Directory = ({ categories, className = "" }) => {
   return (
     <section className={`section-categories ${className}`}>
       <div className="categories-container">
         {categories.map((category) => {
           return (
-            <CategoryItem
+            <DirectoryItem
               className={className}
               key={category.id}
               category={category}
-            ></CategoryItem>
+            ></DirectoryItem>
           );
         })}
       </div>
@@ -19,4 +19,4 @@ const CategoriesMenu = ({ categories, className = "" }) => {
   );
 };
 
-export default CategoriesMenu;
+export default Directory;

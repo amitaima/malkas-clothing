@@ -1,6 +1,6 @@
-.category-container {
+.directory-item-container {
   min-width: 30%;
-  height: 32rem;
+  height: 46rem;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
@@ -21,7 +21,7 @@
       transition: transform 1s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
 
-    & .category-body-container {
+    & .directory-item-body-container {
       opacity: 1;
       transition: opacity 0.5s;
     }
@@ -73,7 +73,7 @@
   //     font-size: 16px;
   //   }
   // }
-  .category-body-container {
+  .directory-item-body-container {
     height: 90px;
     padding: 0 25px;
     display: flex;

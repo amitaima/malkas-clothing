@@ -26,10 +26,14 @@ const CartDropdown = () => {
       onMouseLeave={close}
       className="cart-dropdown-container"
     >
-      <div className="cart-items">
-        {cartItems.map((item) => {
-          return <CartItem key={item.id} cartItem={item} />;
-        })}
+      <div className={`cart-items ${!cartItems.length ? "empty" : "not"}`}>
+        {cartItems.length ? (
+          cartItems.map((item) => {
+            return <CartItem key={item.id} cartItem={item} />;
+          })
+        ) : (
+          <span className="empty-message">Your cart is empty</span>
+        )}
       </div>
       {/* <Link className="link-to-checkout" to="/checkout"> */}
       <Button onClick={goToCheckout}>Go to checkout</Button>
