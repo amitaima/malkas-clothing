@@ -1,36 +1,65 @@
 .cart-item-container {
   width: 100%;
   display: flex;
+  align-items: center;
   height: 80px;
   margin-bottom: 15px;
-
-  img {
-    width: 30%;
-  }
-
-  .item-details {
-    width: 70%;
+  padding-right: 4px;
+  position: relative;
+  .cart-item-info-container {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 10px 20px;
+    // height: 80px;
+    // margin-bottom: 15px;
 
-    .name {
-      font-size: 16px;
-      font-weight: 500;
-      padding-bottom: 0.8rem;
+    .cart-image-container {
+      width: 30%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
 
-    .price-and-quantity {
+    .item-details {
+      width: 70%;
       display: flex;
-      gap: 1.6rem;
+      flex-direction: column;
+      align-items: flex-start;
       justify-content: center;
-      align-items: center;
+      padding: 10px 20px;
 
-      .price {
+      .name {
+        font-size: 16px;
         font-weight: 500;
+        padding-bottom: 0.8rem;
       }
+
+      .price-and-quantity {
+        display: flex;
+        gap: 1.6rem;
+        justify-content: center;
+        align-items: center;
+
+        .price {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  .div-trash-icon {
+    // width: 10%;
+    position: absolute;
+    bottom: 0; // Change to top: 50% and uncomment transform to put in middle if i make the dropdown bigger
+    right: 1rem;
+    cursor: pointer;
+    // transform: translate(-50%, -1rem);
+    // transform: translateY(-50%);
+    .trash-icon {
+      width: 1.6rem;
+      height: 1.6rem;
+      color: #555;
     }
   }
 }

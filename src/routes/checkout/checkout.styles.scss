@@ -36,6 +36,10 @@
     }
   }
 
+  .checkout-item-container:last-child {
+    border-bottom: none;
+  }
+
   .total {
     margin-top: 30px;
     margin-left: auto;
