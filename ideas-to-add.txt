@@ -2,7 +2,7 @@ IDEAS TO ADD:
 
 PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
 
-0. Add cart and search to floating navbar
+0. Add cart and search to floating navbar ------------- V
 
 1. Hover on products changes to different picture of product
 
@@ -10,7 +10,7 @@ PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
 
 3. Alert when adding item to cart - should be the cart dropdown with only the added item
 
-4. Sizes in products
+4. Sizes and colors in products
 
 5. Size picker when adding to cart
 
@@ -20,4 +20,12 @@ PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
 
 8. Change currency by country
 
-9. Product page ????????????
+9. Implement Product page 
+
+10. Implement search
+
+11. Implement pay and checkout steps
+
+12. Recommended items in checkout and in product pages
+
+13. Add genders to products so you can categorize by gender

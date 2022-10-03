@@ -70,6 +70,16 @@ const Navigation = () => {
           {isCartOpen && <CartDropdown />}
         </div>
         <nav className={`nav-menu ${stickyClass}`}>
+          <button className={`search-btn ${stickyClass ? "" : "hidden"}`}>
+            <RiSearchLine className="search-icon" />
+            <input
+              className="search-input"
+              placeholder="Search"
+              type="search"
+              required
+            ></input>
+            {/* <span className="search-text">Search</span> */}
+          </button>
           <ul className="nav-list">
             <li>
               <Link className="nav-link" to="/shop">
@@ -97,6 +107,31 @@ const Navigation = () => {
               </Link>
             </li>
           </ul>
+          <ul
+            className={`nav-list header-nav-list ${
+              stickyClass ? "" : "hidden"
+            }`}
+          >
+            <li>
+              {currentUser ? (
+                <span className="nav-link" onClick={signOutUser}>
+                  Sign Out
+                </span>
+              ) : (
+                <Link className="nav-link" to="/auth">
+                  Sign In
+                </Link>
+              )}
+            </li>
+            <li>
+              <Link className="nav-link cart-link">
+                <CartIcon></CartIcon>
+              </Link>
+            </li>
+          </ul>
+          <div className={`cart-dropdown-div ${stickyClass ? "" : "hidden"}`}>
+            {isCartOpen && <CartDropdown />}
+          </div>
         </nav>
       </header>
       <Outlet />

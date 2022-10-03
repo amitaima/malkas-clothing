@@ -2,19 +2,19 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 45rem;
+  // height: 45rem;
   align-items: center;
   position: relative;
 
   .img-div {
     // overflow: hidden;
     width: 100%;
-    height: 35rem;
+    height: 40rem;
     margin-bottom: 5px;
     border: none;
     img {
       width: 100%;
-      height: 35rem;
+      height: 40rem;
       object-fit: cover;
       display: block;
     }
@@ -25,7 +25,13 @@
     opacity: 0;
     position: absolute;
     border: none;
-    top: 28rem;
+    top: 33rem;
+    // height: 1rem;
+    // width: 30%;
+    // top: 33rem;
+    // font-size: 1rem;
+    transform: scale(0.5);
+    // color: rgba(51, 51, 51, 0);
     // display: none;
     transition: all 0.3s;
   }
@@ -42,15 +48,18 @@
     justify-content: center;
     display: flex;
     opacity: 0;
+    transform: scale(0.5);
     transition: all 0.3s;
     cursor: pointer;
     &.active {
       opacity: 0.8;
+      transform: scale(0.8);
     }
     .favorite-icon {
       width: 2.4rem;
       height: 2.4rem;
       color: #333;
+      transition: all 0.3s;
     }
   }
 
@@ -60,21 +69,32 @@
     }
 
     button {
+      // width: 80%;
+      // height: 5rem;
+      // top: 32.5rem;
       opacity: 1;
+      // font-size: 1.5rem;
+      transform: scale(1);
+      color: #333;
       // display: flex;
     }
 
     .favorite-div {
+      transform: scale(1);
       opacity: 1;
+
+      .favorite-icon {
+      }
     }
   }
 
   .info {
     width: 100%;
-    height: 10rem;
+    // height: 10rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    // justify-content: space-between;
+    gap: 0.4rem;
     font-size: 1.6rem;
     color: #333;
     padding: 1.2rem 0;
