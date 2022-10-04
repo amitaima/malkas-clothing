@@ -82,3 +82,7 @@ html {
 section {
   padding-bottom: 9.6rem;
 }
+
+.hidden {
+  display: none !important; // Checking if doestnt work return to navigation.scss and newsletter.scss
+}

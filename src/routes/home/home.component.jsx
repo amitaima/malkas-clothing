@@ -4,6 +4,7 @@ import "../../App.css";
 import "./home.styles.scss";
 import { Fragment } from "react";
 import { useEffect } from "react";
+import NewsLetter from "../../components/newsletter/newsletter.component";
 
 function Home() {
   const categories = [
@@ -63,6 +64,7 @@ function Home() {
       <Hero></Hero>
       <Directory categories={categories} className="category"></Directory>
       <Directory categories={genders} className="gender"></Directory>
+      <NewsLetter/>
     </Fragment>
   );
 }

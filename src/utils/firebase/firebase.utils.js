@@ -14,6 +14,7 @@ import {
   doc,
   getDoc,
   setDoc,
+  deleteDoc,
   collection,
   writeBatch,
   query,
@@ -55,7 +56,7 @@ export const addCollectionAndDocuments = async (
   const batch = writeBatch(db);
 
   objectsToAdd.forEach((object) => {
-    const docref = doc(collectionRef, object.title.toLowerCase());
+    const docref = doc(collectionRef, object.email.toLowerCase());
     batch.set(docref, object);
   });
 
@@ -75,6 +76,56 @@ export const getCategoriesandDocuments = async () => {
   }, {});
 
   return categoryMap;
+};
+
+export const addNewsletterEmail = async (objectToAdd) => {
+  const newsletterRef = collection(db, "newsletter-emails");
+  const newsletterDocRef = doc(db, "newsletter-emails", objectToAdd.email);
+  const batch = writeBatch(db);
+
+  const emailSnapshot = await getDoc(newsletterDocRef);
+
+  // If email does not exist
+  // Create new email
+  if (!emailSnapshot.exists()) {
+    try {
+      const docref = doc(newsletterRef, objectToAdd.email.toLowerCase());
+      batch.set(docref, objectToAdd);
+      await batch.commit();
+      // console.log("Added email to newsletter list");
+    } catch (error) {
+      console.log("error signing up to newsletter", error);
+    }
+  } else {
+    throw "Already signed up to newsletter";
+    return "Already signed up to newsletter";
+  }
+  return "Added email to newsletter list";
+};
+export const removeNewsletterEmail = async (objectToRemove) => {
+  const newsletterRef = collection(db, "newsletter-emails");
+  const newsletterDocRef = doc(db, "newsletter-emails", objectToRemove.email);
+  const batch = writeBatch(db);
+
+  const emailSnapshot = await getDoc(newsletterDocRef);
+
+  // If email does not exist
+  // Create new email
+  if (emailSnapshot.exists()) {
+    try {
+      await deleteDoc(newsletterDocRef);
+      // const docref = doc(newsletterRef, objectToRemove.email.toLowerCase());
+      // batch.set(docref, objectToRemove);
+      // await batch.commit();
+      // console.log("Removed email");
+    } catch (error) {
+      console.log("error while removing email", error);
+    }
+  } else {
+    throw "Email is not subscribed";
+    return "Email is not subscribed";
+  }
+  return "Email has been removed";
 };
 
 export const createUserDocFromAuth = async (
