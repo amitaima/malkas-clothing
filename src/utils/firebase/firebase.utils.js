@@ -94,11 +94,12 @@ export const addNewsletterEmail = async (objectToAdd) => {
       await batch.commit();
       // console.log("Added email to newsletter list");
     } catch (error) {
-      console.log("error signing up to newsletter", error);
+      console.log("error: ", error);
+      throw { code: "2", message: "Error signing up to newsletter" };
     }
   } else {
-    throw "Already signed up to newsletter";
-    return "Already signed up to newsletter";
+    throw { code: "1", message: "Already signed up to newsletter" };
+    // return "Already signed up to newsletter";
   }
   return "Added email to newsletter list";
 };
@@ -119,11 +120,12 @@ export const removeNewsletterEmail = async (objectToRemove) => {
       // await batch.commit();
       // console.log("Removed email");
     } catch (error) {
-      console.log("error while removing email", error);
+      console.log("error: ", error);
+      throw { code: "4", message: "Error while removing email" };
     }
   } else {
-    throw "Email is not subscribed";
-    return "Email is not subscribed";
+    throw { code: "3", message: "Email is not subscribed" };
+    // return "Email is not subscribed";
   }
   return "Email has been removed";
 };

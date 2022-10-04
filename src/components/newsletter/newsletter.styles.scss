@@ -3,6 +3,25 @@
   align-items: center;
   justify-content: center;
   padding-bottom: 9.6rem;
+  position: relative;
+  .error-msg {
+    font-size: 1.8rem;
+    color: rgba(255, 85, 85, 0.8);
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .unsubscribe-container {
+    .error-msg {
+      top: 2rem;
+    }
+  }
+  .subscribe-container {
+    .error-msg {
+      top: -2rem;
+    }
+  }
 
   .success-msg {
     width: 50rem;

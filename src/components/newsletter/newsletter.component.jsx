@@ -34,6 +34,7 @@ const NewsLetter = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const [hidden, setHidden] = useState("0");
   const [unsubscribe, setunsubscribe] = useState(false);
+  const [errorMsg, seterrorMsg] = useState("");
   const { email, fullName } = formFields;
 
   // useEffect(() => {
@@ -58,21 +59,25 @@ const NewsLetter = () => {
       // sign in user
       // const { user } = await signInAuthUserWithEmail(email, fullName);
       // setCurrentUser(user);
+      seterrorMsg("");
       resetFormFields();
       setunsubscribe(true);
       setHidden("1");
       // window.location.href = "/";
     } catch (error) {
-      switch (error.code) {
-        case "auth/wrong-password":
-          alert("Incorrect password! Please try again");
-          break;
-        case "auth/user-not-found":
-          alert("Email no found! Please try again");
-          break;
-        default:
-          console.log(error.code);
-      }
+      // switch (error.code) {
+      //   case "1":
+      //     alert(`${error.message}, Please try again`);
+      //     break;
+      //   case "2":
+      //     alert(`${error.message}, Please try again`);
+      //     break;
+      //   default:
+      //     console.log(error.message);
+      // }
+      seterrorMsg(`${error.message}, Please try again`);
+      // alert(`${error.message}, Please try again`);
+      resetFormFields();
     }
   };
   const handleUnsubscribe = async (event) => {
@@ -84,22 +89,26 @@ const NewsLetter = () => {
       // sign in user
       // const { user } = await signInAuthUserWithEmail(email, fullName);
       // setCurrentUser(user);
+      seterrorMsg("");
       resetFormFields();
       setunsubscribe(false);
       setHidden("1");
       // window.location.href = "/";
     } catch (error) {
-      console.log(error);
-      switch (error.code) {
-        case "auth/wrong-password":
-          alert("Incorrect password! Please try again");
-          break;
-        case "auth/user-not-found":
-          alert("Email no found! Please try again");
-          break;
-        default:
-          console.log(error.code);
-      }
+      // console.log(error);
+      // switch (error.code) {
+      //   case "3":
+      //     alert("Incorrect password! Please try again");
+      //     break;
+      //   case "4":
+      //     alert("Email not found! Please try again");
+      //     break;
+      //   default:
+      //     console.log(error.code);
+      // }
+      seterrorMsg(`${error.message}, Please try again`);
+      // alert(`${error.message}, Please try again`);
+      resetFormFields();
     }
   };
 
@@ -125,7 +134,12 @@ const NewsLetter = () => {
           </Fragment>
         )}
       </div>
-      <div className={`newsletter-container ${hidden !== "0" ? "hidden" : ""}`}>
+      <div
+        className={`newsletter-container subscribe-container ${
+          hidden !== "0" ? "hidden" : ""
+        }`}
+      >
+        {errorMsg ? <span className="error-msg">&#9888; {errorMsg}</span> : ""}
         <h2>Never miss on any deal!</h2>
         <span>Subscripe to our newsletter</span>
         <form onSubmit={handleSubmit}>
@@ -161,11 +175,22 @@ const NewsLetter = () => {
           </Button> */}
           </div>
         </form>
-        <span onClick={() => setHidden("2")} className="unsubscribe">
+        <span
+          onClick={() => {
+            setHidden("2");
+            seterrorMsg("");
+          }}
+          className="unsubscribe"
+        >
           I want to unsubscribe
         </span>
       </div>
-      <div className={`newsletter-container ${hidden !== "2" ? "hidden" : ""}`}>
+      <div
+        className={`newsletter-container unsubscribe-container ${
+          hidden !== "2" ? "hidden" : ""
+        }`}
+      >
+        {errorMsg ? <span className="error-msg">&#9888; {errorMsg} </span> : ""}
         <h2>WANT TO UNSUBSCRIBE?</h2>
         <span>We'll make it simple</span>
         <form onSubmit={handleUnsubscribe}>
@@ -184,7 +209,13 @@ const NewsLetter = () => {
             </Button>
           </div>
         </form>
-        <span onClick={() => setHidden("0")} className="unsubscribe">
+        <span
+          onClick={() => {
+            setHidden("0");
+            seterrorMsg("");
+          }}
+          className="unsubscribe"
+        >
           I want to subscribe
         </span>
       </div>
