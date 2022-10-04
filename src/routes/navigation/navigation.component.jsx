@@ -114,17 +114,17 @@ const Navigation = () => {
           >
             <li>
               {currentUser ? (
-                <span className="nav-link" onClick={signOutUser}>
+                <span className="nav-link-sticky" onClick={signOutUser}>
                   Sign Out
                 </span>
               ) : (
-                <Link className="nav-link" to="/auth">
+                <Link className="nav-link-sticky" to="/auth">
                   Sign In
                 </Link>
               )}
             </li>
             <li>
-              <Link className="nav-link cart-link">
+              <Link className="nav-link-sticky cart-link">
                 <CartIcon></CartIcon>
               </Link>
             </li>

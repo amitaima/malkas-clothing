@@ -32,6 +32,7 @@
   font-size: 1.6rem;
 }
 
+.nav-link-sticky,
 .nav-link,
 .nav-link:link,
 .nav-link:visited {
@@ -41,6 +42,7 @@
   transition: all 0.3s ease-in-out;
 }
 
+.nav-link-sticky:hover,
 .nav-link:hover,
 .nav-link:active {
   color: #333;
@@ -182,8 +184,9 @@
     align-self: flex-start;
   }
   .header-nav-list {
+    align-self: flex-start;
     justify-self: right;
-    .nav-link {
+    .nav-link-sticky {
       text-transform: none;
       letter-spacing: 0;
       font-weight: 500;

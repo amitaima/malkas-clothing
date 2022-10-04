@@ -14,7 +14,7 @@ PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
 
 5. Size picker when adding to cart
 
-6. Sign up for newsletter section in home page -------------- V except handeling errors
+6. Sign up for newsletter section in home page -------------- V
 
 7. New and Outlet section
 
