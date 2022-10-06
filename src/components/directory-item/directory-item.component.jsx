@@ -28,3 +28,8 @@ const DirectoryItem = ({ category, className = "" }) => {
 };
 
 export default DirectoryItem;
+// background-image: linear-gradient(
+//   rgba(24, 100, 171, 0.2),
+//   rgba(24, 100, 171, 0.2)
+// ),
+// url(https://images.unsplash.com/photo-1603189343302-e603f7add05a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80);

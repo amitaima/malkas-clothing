@@ -1,4 +1,5 @@
 import { Routes, Route, Outlet } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import Home from "./routes/home/home.component";
 import Navigation from "./routes/navigation/navigation.component";
@@ -6,8 +7,26 @@ import Footer from "./routes/footer/footer.component";
 import Authentication from "./routes/authentication/authentication.component";
 import Shop from "./routes/shop/shop.component";
 import Checkout from "./routes/checkout/checkout.component";
+import { useEffect } from "react";
+import {
+  onAuthStateChangedListener,
+  signOutUser,
+  createUserDocFromAuth,
+} from "./utils/firebase/firebase.utils";
+
+import { setCurrentUser } from "./redux-store/user/user.action";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedListener((user) => {
+      if (user) createUserDocFromAuth(user);
+      dispatch(setCurrentUser(user));
+    });
+    return unsubscribe;
+  }, []);
+
   return (
     <div>
       <Routes>

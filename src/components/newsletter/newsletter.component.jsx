@@ -1,18 +1,12 @@
-import { useState, useContext, useEffect, Fragment } from "react";
+import { useState, Fragment } from "react";
 import {
-  createAuthUserWithEmail,
-  createUserDocFromAuth,
-  signInWithGooglePopup,
-  signInAuthUserWithEmail,
-  addCollectionAndDocuments,
   addNewsletterEmail,
   removeNewsletterEmail,
 } from "../../utils/firebase/firebase.utils";
-import { UserContext } from "../../contexts/user.context";
 import FormInput from "../form-input/form-input.component";
 import "./newsletter.styles.scss";
 import Button from "../button/button.component";
-import GoogleButton from "react-google-button";
+
 
 const defaultFormFields = {
   email: "",
@@ -55,28 +49,14 @@ const NewsLetter = () => {
 
     try {
       const response = await addNewsletterEmail(formFields);
-      console.log(response);
-      // sign in user
-      // const { user } = await signInAuthUserWithEmail(email, fullName);
-      // setCurrentUser(user);
+      // console.log(response);
+
       seterrorMsg("");
       resetFormFields();
       setunsubscribe(true);
       setHidden("1");
-      // window.location.href = "/";
     } catch (error) {
-      // switch (error.code) {
-      //   case "1":
-      //     alert(`${error.message}, Please try again`);
-      //     break;
-      //   case "2":
-      //     alert(`${error.message}, Please try again`);
-      //     break;
-      //   default:
-      //     console.log(error.message);
-      // }
       seterrorMsg(`${error.message}, Please try again`);
-      // alert(`${error.message}, Please try again`);
       resetFormFields();
     }
   };
@@ -85,29 +65,13 @@ const NewsLetter = () => {
 
     try {
       const response = await removeNewsletterEmail(formFields);
-      console.log(response);
-      // sign in user
-      // const { user } = await signInAuthUserWithEmail(email, fullName);
-      // setCurrentUser(user);
+      // console.log(response);
       seterrorMsg("");
       resetFormFields();
       setunsubscribe(false);
       setHidden("1");
-      // window.location.href = "/";
     } catch (error) {
-      // console.log(error);
-      // switch (error.code) {
-      //   case "3":
-      //     alert("Incorrect password! Please try again");
-      //     break;
-      //   case "4":
-      //     alert("Email not found! Please try again");
-      //     break;
-      //   default:
-      //     console.log(error.code);
-      // }
       seterrorMsg(`${error.message}, Please try again`);
-      // alert(`${error.message}, Please try again`);
       resetFormFields();
     }
   };
@@ -125,7 +89,6 @@ const NewsLetter = () => {
             <h2>
               You have <br /> unsubscribed successfully
             </h2>
-            {/* <span>Thank you for joining our comunity!</span> */}
           </Fragment>
         ) : (
           <Fragment>

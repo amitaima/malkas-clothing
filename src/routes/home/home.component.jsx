@@ -10,21 +10,27 @@ function Home() {
   const categories = [
     {
       id: 1,
-      title: "hats",
-      // imageUrl:
-      //   "https://images.unsplash.com/photo-1647102164120-2a266070cc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2718&q=80",
-      imageUrl:
-        "https://images.unsplash.com/photo-1548864867-76b7425247be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80",
-      position: "top",
-    },
-    {
-      id: 2,
       title: "jackets",
       // imageUrl:
       //   "https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+      // imageUrl:
+      //   "https://images.unsplash.com/photo-1610918018841-81a67e2e0b89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+      // imageUrl:
+      //   "https://images.unsplash.com/photo-1620960306028-e0e9b17bce94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
       imageUrl:
-        "https://images.unsplash.com/photo-1610918018841-81a67e2e0b89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-      position: "top",
+        "https://images.pexels.com/photos/7772716/pexels-photo-7772716.jpeg?cs=srgb&dl=pexels-dmitriy-ganin-7772716.jpg&fm=jpg",
+      position: "center",
+    },
+    {
+      id: 2,
+      title: "hats",
+      // imageUrl:
+      //   "https://images.pexels.com/photos/921926/pexels-photo-921926.jpeg?cs=srgb&dl=pexels-s-migaj-921926.jpg&fm=jpg",
+      // imageUrl:
+      //   "https://images.pexels.com/photos/6073114/pexels-photo-6073114.jpeg?cs=srgb&dl=pexels-pavel-danilyuk-6073114.jpg&fm=jpg",
+      imageUrl:
+        "https://images.pexels.com/photos/6073113/pexels-photo-6073113.jpeg?cs=srgb&dl=pexels-pavel-danilyuk-6073113.jpg&fm=jpg",
+      position: "bottom",
     },
     {
       id: 3,
@@ -64,7 +70,7 @@ function Home() {
       <Hero></Hero>
       <Directory categories={categories} className="category"></Directory>
       <Directory categories={genders} className="gender"></Directory>
-      <NewsLetter/>
+      <NewsLetter />
     </Fragment>
   );
 }

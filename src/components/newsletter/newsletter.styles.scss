@@ -1,3 +1,9 @@
+$accent-color: #0c3256;
+$accent-color-tint: #114678;
+$accent-color-shade: #071e33;
+$main-color: #333;
+$sub-color: #777;
+
 .section-newsletter {
   display: flex;
   align-items: center;
@@ -37,6 +43,7 @@
       font-size: 3.2rem;
       text-transform: uppercase;
       text-align: center;
+      color: $accent-color;
       // margin: 1rem 0;
       // align-self: center;
     }
@@ -59,6 +66,7 @@
       font-size: 3.2rem;
       margin: 1rem 0;
       align-self: center;
+      color: $accent-color;
     }
 
     span {

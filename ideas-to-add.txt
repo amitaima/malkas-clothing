@@ -22,7 +22,7 @@ PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
 
 9. Implement Product page 
 
-10. Implement search
+10. Implement search -------------- V (could add recommended products when no search is entered)
 
 11. Implement pay and checkout steps
 
@@ -31,3 +31,11 @@ PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
 13. Add genders to products so you can categorize by gender
 
 14. Mobile navigation menu
+
+15. Specialize site based on user: 
+  - cart
+  - Wishlist
+  - currency
+  - name
+  - shipping address
+  Create a user sorage in DB when user signs up named by the auth UID and inside put everything to empty until addition later

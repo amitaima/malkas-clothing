@@ -1,7 +1,7 @@
 import "./category-preview.styles.scss";
 import ProductCard from "../product-card/product-card.component";
 import { RiArrowDropRightLine } from "react-icons/ri";
-import { RiArrowLeftLine } from "react-icons/ri";
+import { RiArrowUpSLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 const CategoryPreview = ({ title, products }) => {

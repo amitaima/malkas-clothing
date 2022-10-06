@@ -1,17 +1,56 @@
 import { Fragment, useContext, useState, useEffect } from "react";
-import { Routes, Route, Outlet, Link } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../redux-store/user/user.selector";
+
 import "./navigation.styles.scss";
 import { RiSearchLine } from "react-icons/ri";
-import { UserContext } from "../../contexts/user.context";
+
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CartIcon from "../../components/cart-icon/cart-icon.components";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.components";
-import { CartContext, CartProvider } from "../../contexts/cart.context";
+import { CartContext } from "../../contexts/cart.context";
+import { selectCategoriesMap } from "../../redux-store/categories/category.selector";
+import SearchDropdown from "../../components/search-dropdown/search-dropdown.component";
+import { getCategoriesandDocuments } from "../../utils/firebase/firebase.utils";
+import { useDispatch } from "react-redux";
+import { setCategories } from "../../redux-store/categories/category.action";
+import { RiArrowUpSLine } from "react-icons/ri";
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getCategoriesMap = async () => {
+      const categoriesArr = await getCategoriesandDocuments("categories");
+      dispatch(setCategories(categoriesArr));
+      return categoriesArr;
+    };
+    getCategoriesMap();
+  }, []);
+  const currentUser = useSelector(selectCurrentUser);
   const { isCartOpen } = useContext(CartContext);
+  const [searchDropClass, setsearchDropClass] = useState(false);
   const [stickyClass, setStickyClass] = useState("");
+  const [searchField, setSearchField] = useState(""); // [state, setState]
+  const categoriesMap = useSelector(selectCategoriesMap);
+  const allProducts = Object.values(categoriesMap).flat();
+  const [filteredProducts, setfilteredProducts] = useState(allProducts);
+  // console.log(filteredProducts);
+
+  // Search
+  // gfds;
+  useEffect(() => {
+    const newFilteredProducts = allProducts.filter((product) =>
+      product.name.toLowerCase().includes(searchField)
+    );
+    setfilteredProducts(newFilteredProducts);
+  }, [searchField]);
+
+  const onSearchChange = (event) => {
+    const searchFieldString = event.target.value.toLowerCase();
+    setSearchField(searchFieldString); // A rerender triggers by the change of 'searchField' (state)
+  };
 
   // STICKY NAV //
   useEffect(() => {
@@ -27,10 +66,17 @@ const Navigation = () => {
     }
   };
 
-  // const signOutHandler = async () => {
-  //   await signOutUser();
-  //   setCurrentUser(null);
-  // };
+  const openSearch = () => {
+    console.log("openSearch");
+    setsearchDropClass(true);
+    // setIsCartOpen(true);
+  };
+
+  const closeSearch = () => {
+    console.log("closeSearch");
+    setsearchDropClass(false);
+    // setIsCartOpen(false);
+  };
 
   return (
     <Fragment>
@@ -42,6 +88,8 @@ const Navigation = () => {
               className="search-input"
               placeholder="Search"
               type="search"
+              onChange={onSearchChange}
+              onFocus={openSearch}
               required
             ></input>
             {/* <span className="search-text">Search</span> */}
@@ -76,6 +124,9 @@ const Navigation = () => {
               className="search-input"
               placeholder="Search"
               type="search"
+              onChange={onSearchChange}
+              value={searchField}
+              onFocus={openSearch}
               required
             ></input>
             {/* <span className="search-text">Search</span> */}
@@ -131,6 +182,26 @@ const Navigation = () => {
           </ul>
           <div className={`cart-dropdown-div ${stickyClass ? "" : "hidden"}`}>
             {isCartOpen && <CartDropdown />}
+          </div>
+          <div
+            onClick={closeSearch}
+            className={`search-dropdown-div ${
+              !searchDropClass ? "hide-search" : ""
+            }`}
+          >
+            <SearchDropdown
+              className={!searchDropClass ? "hide-search" : ""}
+              products={filteredProducts}
+              searchField={searchField}
+            ></SearchDropdown>
+            {/* <span
+              onClick={closeSearch}
+              className={`close-dropdown ${
+                !searchDropClass ? "hide-search" : ""
+              }`}
+            >
+              <RiArrowUpSLine className="arrow-icon" />
+            </span> */}
           </div>
         </nav>
       </header>

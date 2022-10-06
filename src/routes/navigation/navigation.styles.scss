@@ -1,6 +1,13 @@
+$accent-color: #0c3256;
+$accent-color-tint: #114678;
+$accent-color-shade: #071e33;
+$main-color: #333;
+$sub-color: #777;
+
 .App-header {
   padding: 1.8rem 4.8rem;
   height: 15rem;
+  position: relative;
 }
 
 .logo {
@@ -45,7 +52,7 @@
 .nav-link-sticky:hover,
 .nav-link:hover,
 .nav-link:active {
-  color: #333;
+  color: $accent-color-tint;
 }
 
 .nav-header {
@@ -58,10 +65,10 @@
 
 .cart-link:hover {
   .cart-icon {
-    color: #333;
+    color: $accent-color-tint;
   }
   .cart-num {
-    color: #333;
+    color: $accent-color-tint;
   }
 }
 
@@ -113,7 +120,7 @@
 .search-input:focus {
   outline: 0;
   box-shadow: none;
-  border-bottom: 1px solid #777;
+  border-bottom: 1px solid $main-color;
   cursor: text;
 }
 
@@ -127,10 +134,10 @@
 .search-btn:hover,
 .search-btn:active {
   .search-icon {
-    color: #333;
+    color: $accent-color-tint;
   }
   .search-input::placeholder {
-    color: #333;
+    color: $accent-color-tint;
   }
 }
 
@@ -147,15 +154,52 @@
     display: block;
     content: "";
     padding-bottom: 1.8rem;
-    border-bottom: 1px solid #777;
+    border-bottom: 1px solid $accent-color-tint;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
   }
 
   .nav-link:hover::after,
   .nav-link:active::after {
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid $accent-color;
     transform: scaleX(1);
+  }
+
+  .search-dropdown-div {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 15rem;
+    left: 0;
+    z-index: 2;
+    // background-color: rgba(7, 30, 51, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    &.hide-search {
+      display: none;
+    }
+    .close-dropdown {
+      position: absolute;
+      // top: 45rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+
+      background-color: #fff;
+      width: 6.4rem;
+      height: 3.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      .arrow-icon {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+    }
+    .hide-search {
+      display: none;
+    }
   }
 }
 
@@ -205,4 +249,13 @@
   // .sticky .section-hero {
   //   margin-top: 9.6rem;
   // }
+  .search-dropdown-div {
+    top: 7rem;
+    .section-search {
+      // top: 7rem;
+    }
+    .close-dropdown {
+      // top: 37rem;
+    }
+  }
 }

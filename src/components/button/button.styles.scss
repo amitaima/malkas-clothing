@@ -1,3 +1,9 @@
+$accent-color: #0c3256;
+$accent-color-tint: #114678;
+$accent-color-shade: #071e33;
+$main-color: #333;
+$sub-color: #777;
+
 .button-container {
   min-width: 16.5rem;
   width: auto;
@@ -6,7 +12,7 @@
   line-height: 5rem;
   padding: 0 3.5rem 0 3.5rem;
   font-size: 1.5rem;
-  background-color: #333;
+  background-color: $accent-color;
   color: white;
   text-transform: uppercase;
   font-weight: bolder;
@@ -18,9 +24,9 @@
 
   &:hover {
     background-color: white;
-    color: #333;
+    color: $accent-color;
     // border: 1px solid #333;
-    box-shadow: 0 0 0 1px #333;
+    box-shadow: 0 0 0 1px $accent-color;
   }
 
   &.google-sign-in {
@@ -35,11 +41,11 @@
 
   &.inverted {
     background-color: white;
-    color: #333;
-    border: 1px solid #333;
+    color: $accent-color;
+    border: 1px solid $accent-color;
 
     &:hover {
-      background-color: #333;
+      background-color: $accent-color;
       color: white;
       border: none;
     }
@@ -47,5 +53,6 @@
 
   &.no-border {
     border: none;
+    box-shadow: none;
   }
 }

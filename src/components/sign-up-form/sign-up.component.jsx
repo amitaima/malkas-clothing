@@ -1,9 +1,8 @@
-import { useState, useContext } from "react";
+import { useState} from "react";
 import {
   createAuthUserWithEmail,
   createUserDocFromAuth,
 } from "../../utils/firebase/firebase.utils";
-import { UserContext } from "../../contexts/user.context";
 import FormInput from "../form-input/form-input.component";
 import "./sign-up.styles.scss";
 import Button from "../button/button.component";

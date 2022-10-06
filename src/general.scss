@@ -34,11 +34,13 @@ Letter spacing:
 
 --- 02 Colors ---
 
-Primary: 
-Tints: 
-Shades: 
-Accents:
-GREYS: #555 #333 #6f6f6f #767676
+Primary: #333
+ - Tints: 
+ - Shades: 
+ Accents: #0c3256 
+ - Tints: #114678
+ - Shades: #071e33
+GREYS: #333 #555 #777 #6f6f6f #767676
 
 --- 03 Transitions ---
 
@@ -58,6 +60,11 @@ SPACING SYSTEM (px):
  - 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
 
 */
+$accent-color: #0c3256;
+$accent-color-tint: #114678;
+$accent-color-shade: #071e33;
+$main-color: #333;
+$sub-color: #777;
 
 /* Makes it so only keyboard focus works */
 :focus:not(:focus-visible) {
