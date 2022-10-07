@@ -11,7 +11,7 @@ const SearchDropdown = ({ products, searchField, className, ...props }) => {
 
   return (
     <Fragment>
-      <section className={`section-search ${className}`}>
+      <section className={`section-search dropdown_animation--1 ${className}`}>
         {/* <div className="search-dropdown-container"> */}
         <div className={`search-items ${!products.length ? "empty" : "not"}`}>
           {products.length && searchField ? (

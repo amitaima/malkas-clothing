@@ -18,16 +18,6 @@ import { setCategories } from "../../redux-store/categories/category.action";
 import { RiArrowUpSLine } from "react-icons/ri";
 
 const Navigation = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const getCategoriesMap = async () => {
-      const categoriesArr = await getCategoriesandDocuments("categories");
-      dispatch(setCategories(categoriesArr));
-      return categoriesArr;
-    };
-    getCategoriesMap();
-  }, []);
   const currentUser = useSelector(selectCurrentUser);
   const { isCartOpen } = useContext(CartContext);
   const [searchDropClass, setsearchDropClass] = useState(false);
@@ -38,6 +28,16 @@ const Navigation = () => {
   const [filteredProducts, setfilteredProducts] = useState(allProducts);
   // console.log(filteredProducts);
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getCategoriesMap = async () => {
+      const categoriesArr = await getCategoriesandDocuments("categories");
+      dispatch(setCategories(categoriesArr));
+      return categoriesArr;
+    };
+    getCategoriesMap();
+  }, []);
   // Search
   // gfds;
   useEffect(() => {
@@ -115,7 +115,7 @@ const Navigation = () => {
               </Link>
             </li>
           </ul>
-          {isCartOpen && <CartDropdown />}
+          {/* {isCartOpen && <CartDropdown />} */}
         </div>
         <nav className={`nav-menu ${stickyClass}`}>
           <button className={`search-btn ${stickyClass ? "" : "hidden"}`}>
@@ -180,7 +180,7 @@ const Navigation = () => {
               </Link>
             </li>
           </ul>
-          <div className={`cart-dropdown-div ${stickyClass ? "" : "hidden"}`}>
+          <div className={`cart-dropdown-div ${!isCartOpen && "hide-cart"}`}>
             {isCartOpen && <CartDropdown />}
           </div>
           <div
@@ -188,6 +188,7 @@ const Navigation = () => {
             className={`search-dropdown-div ${
               !searchDropClass ? "hide-search" : ""
             }`}
+            aria-hidden={!searchDropClass ? true : false}
           >
             <SearchDropdown
               className={!searchDropClass ? "hide-search" : ""}

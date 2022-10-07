@@ -40,7 +40,7 @@ Primary: #333
  Accents: #0c3256 
  - Tints: #114678
  - Shades: #071e33
-GREYS: #333 #555 #777 #6f6f6f #767676
+GREYS: #333 #555 #777 #6f6f6f #767676 #aaa
 
 --- 03 Transitions ---
 
@@ -92,4 +92,27 @@ section {
 
 .hidden {
   display: none !important; // Checking if doestnt work return to navigation.scss and newsletter.scss
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background-color: #fff;
+  width: 8px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border: 1px solid transparent;
+  background-clip: content-box;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+  border: 1px solid transparent;
+  background-clip: content-box;
+  border-radius: 10px;
 }

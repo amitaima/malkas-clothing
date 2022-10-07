@@ -24,9 +24,13 @@ const CartDropdown = () => {
     <div
       onMouseEnter={open}
       onMouseLeave={close}
-      className="cart-dropdown-container"
+      className="cart-dropdown-container dropdown_animation--1"
     >
-      <div className={`cart-items ${!cartItems.length ? "empty" : "not"}`}>
+      <div
+        className={`cart-items scrollable ${
+          !cartItems.length ? "empty" : "not"
+        }`}
+      >
         {cartItems.length ? (
           cartItems.map((item) => {
             return <CartItem key={item.id} cartItem={item} />;
@@ -36,7 +40,7 @@ const CartDropdown = () => {
         )}
       </div>
       {/* <Link className="link-to-checkout" to="/checkout"> */}
-      <Button onClick={goToCheckout}>Go to checkout</Button>
+      <Button onClick={goToCheckout}>Checkout</Button>
       {/* </Link> */}
     </div>
   );

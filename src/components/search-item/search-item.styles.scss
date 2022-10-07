@@ -35,7 +35,8 @@ $sub-color: #777;
     position: absolute;
     border: none;
     top: 13.5rem;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
+    padding: 0 2.4rem;
     // height: 1rem;
     // width: 30%;
     // top: 33rem;
@@ -118,6 +119,10 @@ $sub-color: #777;
 
     .name {
       font-weight: 500;
+      width: 15rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .price {

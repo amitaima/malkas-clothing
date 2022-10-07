@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 const CategoriesPage = () => {
   const categoriesMap = useSelector(selectCategoriesMap);
   const allProducts = Object.values(categoriesMap).flat();
-  console.log(allProducts);
 
   useEffect(() => {
     window.scrollTo(0, 0);
