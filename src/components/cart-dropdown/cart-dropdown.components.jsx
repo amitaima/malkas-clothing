@@ -1,18 +1,22 @@
 import "./cart-dropdown.styles.scss";
 import Button from "../button/button.component";
-import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { CartContext } from "../../contexts/cart.context";
 import CartItem from "../cart-item/cart-item.component";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCartItems } from "../../redux-store/cart/cart.selector";
+import { setIsCartOpen } from "../../redux-store/cart/cart.action";
 
 const CartDropdown = () => {
-  const { setIsCartOpen, cartItems } = useContext(CartContext);
+  const dispatch = useDispatch();
+
+  const cartItems = useSelector(selectCartItems);
+
   const navigate = useNavigate();
   const close = () => {
-    setIsCartOpen(false);
+    dispatch(setIsCartOpen(false));
   };
   const open = () => {
-    setIsCartOpen(true);
+    dispatch(setIsCartOpen(true));
   };
 
   const goToCheckout = () => {
@@ -27,7 +31,7 @@ const CartDropdown = () => {
       className="cart-dropdown-container dropdown_animation--1"
     >
       <div
-        className={`cart-items scrollable ${
+        className={`cart-items scrollable opacity-animation ${
           !cartItems.length ? "empty" : "not"
         }`}
       >
@@ -40,7 +44,9 @@ const CartDropdown = () => {
         )}
       </div>
       {/* <Link className="link-to-checkout" to="/checkout"> */}
-      <Button onClick={goToCheckout}>Checkout</Button>
+      <Button className="opacity-animation" onClick={goToCheckout}>
+        Checkout
+      </Button>
       {/* </Link> */}
     </div>
   );

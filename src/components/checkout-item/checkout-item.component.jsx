@@ -1,12 +1,17 @@
 import "./checkout-item.styles.scss";
 import { RiCloseFill } from "react-icons/ri";
 import { RiAddLine, RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
-import { useContext } from "react";
-import { CartContext } from "../../contexts/cart.context";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  removeItemFromCart,
+  addQuantity,
+  removeQuantity,
+} from "../../redux-store/cart/cart.action";
+import { selectCartItems } from "../../redux-store/cart/cart.selector";
 
 const CheckoutItem = ({ cartItem }) => {
-  const { removeItemFromCart, addQuantity, removeQuantity } =
-    useContext(CartContext);
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
 
   const { name, price, imageUrl, quantity } = cartItem;
   return (
@@ -27,14 +32,14 @@ const CheckoutItem = ({ cartItem }) => {
         <div className="quantity">
           <RiArrowUpSLine
             onClick={() => {
-              addQuantity(cartItem);
+              dispatch(addQuantity(cartItems, cartItem));
             }}
             className="arrow-icon"
           />
           <span className="quantity-number">{quantity}</span>
           <RiArrowDownSLine
             onClick={() => {
-              removeQuantity(cartItem);
+              dispatch(removeQuantity(cartItems, cartItem));
             }}
             className="arrow-icon"
           />
@@ -44,7 +49,7 @@ const CheckoutItem = ({ cartItem }) => {
       <span className="price">${quantity * price}</span>
       <div
         onClick={() => {
-          removeItemFromCart(cartItem);
+          dispatch(removeItemFromCart(cartItems, cartItem));
         }}
         className="remove-button"
       >

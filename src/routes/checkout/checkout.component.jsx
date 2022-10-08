@@ -1,16 +1,21 @@
 import "./checkout.styles.scss";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
-import { useContext } from "react";
-import { CartContext } from "../../contexts/cart.context";
+
 import Button from "../../components/button/button.component";
 import { useEffect } from "react";
 
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectCartItems,
+  selectCartCount,
+  selectCartTotal,
+} from "../../redux-store/cart/cart.selector";
+
 const Checkout = () => {
-  const { cartItems, cartCount } = useContext(CartContext);
-  const subTotal = cartItems.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
+  const cartItems = useSelector(selectCartItems);
+  const cartCount = useSelector(selectCartCount);
+  const cartTotal = useSelector(selectCartTotal);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -33,7 +38,7 @@ const Checkout = () => {
       <div className="checkout-summary">
         <div className="subtotal">
           <span>SUBTOTAL</span>
-          <span>${subTotal}</span>
+          <span>${cartTotal}</span>
         </div>
         <Button>Proceed To Checkout</Button>
       </div>

@@ -1,12 +1,14 @@
 import "./cart-item.styles.scss";
 import { GrTrash } from "react-icons/gr";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { useContext } from "react";
-import { CartContext } from "../../contexts/cart.context";
+import { useDispatch, useSelector } from "react-redux";
+import { removeItemFromCart } from "../../redux-store/cart/cart.action";
+import { selectCartItems } from "../../redux-store/cart/cart.selector";
 
 const CartItem = ({ cartItem }) => {
   const { name, price, imageUrl, quantity } = cartItem;
-  const { removeItemFromCart } = useContext(CartContext);
+  const cartItems = useSelector(selectCartItems);
+  const dispatch = useDispatch();
 
   return (
     <div className="cart-item-container">
@@ -16,17 +18,21 @@ const CartItem = ({ cartItem }) => {
         </div>
         <div className="item-details">
           <span className="name">{name}</span>
+          <span className="total-price">COLOR: Red</span>
+          <span className="total-price">SIZE: M</span>
           <div className="price-and-quantity">
-            <span className="price">${price}</span>
             <span className="quantity">QTY: {quantity}</span>
+            <span className="price">$ {quantity * price}</span>
           </div>
-          <span className="quantity">Subtotal: ${quantity * price}</span>
+          {/* <span className="total-price">
+            Subtotal: <span>$ {quantity * price}</span>
+          </span> */}
         </div>
       </div>
       <div className="div-trash-icon">
         <FaRegTrashAlt
           onClick={() => {
-            removeItemFromCart(cartItem);
+            dispatch(removeItemFromCart(cartItems, cartItem));
           }}
           className="trash-icon"
         />

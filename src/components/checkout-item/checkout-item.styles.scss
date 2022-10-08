@@ -69,7 +69,11 @@
   }
 
   .remove-button {
-    padding-left: 12px;
+    // text-align: center;
+    // align-self: center;
+    // justify-self: center;
+    // padding-left: 12px;
+    margin: 0 auto;
     cursor: pointer;
     .remove-icon {
       width: 2.4rem;

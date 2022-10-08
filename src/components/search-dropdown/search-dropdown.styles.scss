@@ -41,6 +41,9 @@
 .dropdown_animation--1 {
   animation: growDown 300ms ease-in-out forwards;
   transform-origin: top center;
+  .opacity-animation {
+    animation: opacityDropdown 0.5s ease-in-out forwards;
+  }
 }
 
 @keyframes growDown {
@@ -52,5 +55,17 @@
   // }
   100% {
     transform: scaleY(1);
+  }
+}
+
+@keyframes opacityDropdown {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

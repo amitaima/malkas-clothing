@@ -36,9 +36,10 @@
 
       .name {
         // justify-self: top;
-        font-size: 16px;
+        font-size: 1.4rem;
         font-weight: 500;
-        padding-bottom: 0.8rem;
+        letter-spacing: 0.5px;
+        // padding-bottom: 0.8rem;
         width: 90%;
         // white-space: nowrap;
         // overflow: hidden;
@@ -47,13 +48,21 @@
 
       .price-and-quantity {
         display: flex;
-        gap: 1.6rem;
+        gap: 2.4rem;
         justify-content: center;
         align-items: center;
+        font-size: 1.2rem;
 
         .price {
+          // font-size: 1.2rem;
           font-weight: 500;
         }
+      }
+      .total-price {
+        span {
+          font-weight: 500;
+        }
+        font-size: 1.2rem;
       }
     }
   }

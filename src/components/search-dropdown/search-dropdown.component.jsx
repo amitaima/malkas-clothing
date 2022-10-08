@@ -1,19 +1,25 @@
 import "./search-dropdown.styles.scss";
 import Button from "../button/button.component";
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { CartContext } from "../../contexts/cart.context";
 import SearchItem from "../search-item/search-item.component";
 
+import { useDispatch, useSelector } from "react-redux";
+import { selectCartItems } from "../../redux-store/cart/cart.selector";
+
 const SearchDropdown = ({ products, searchField, className, ...props }) => {
-  const { setIsCartOpen, cartItems } = useContext(CartContext);
+  const cartItems = useSelector(selectCartItems);
   const navigate = useNavigate();
 
   return (
     <Fragment>
       <section className={`section-search dropdown_animation--1 ${className}`}>
         {/* <div className="search-dropdown-container"> */}
-        <div className={`search-items ${!products.length ? "empty" : "not"}`}>
+        <div
+          className={`search-items opacity-animation ${
+            !products.length ? "empty" : "not"
+          }`}
+        >
           {products.length && searchField ? (
             products
               .filter((_, index) => index < 6)

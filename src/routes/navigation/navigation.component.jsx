@@ -9,7 +9,7 @@ import { RiSearchLine } from "react-icons/ri";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CartIcon from "../../components/cart-icon/cart-icon.components";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.components";
-import { CartContext } from "../../contexts/cart.context";
+import { selectIsCartOpen } from "../../redux-store/cart/cart.selector";
 import { selectCategoriesMap } from "../../redux-store/categories/category.selector";
 import SearchDropdown from "../../components/search-dropdown/search-dropdown.component";
 import { getCategoriesandDocuments } from "../../utils/firebase/firebase.utils";
@@ -19,7 +19,7 @@ import { RiArrowUpSLine } from "react-icons/ri";
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
-  const { isCartOpen } = useContext(CartContext);
+  const isCartOpen = useSelector(selectIsCartOpen);
   const [searchDropClass, setsearchDropClass] = useState(false);
   const [stickyClass, setStickyClass] = useState("");
   const [searchField, setSearchField] = useState(""); // [state, setState]
@@ -184,7 +184,6 @@ const Navigation = () => {
             {isCartOpen && <CartDropdown />}
           </div>
           <div
-            onClick={closeSearch}
             className={`search-dropdown-div ${
               !searchDropClass ? "hide-search" : ""
             }`}
@@ -195,14 +194,13 @@ const Navigation = () => {
               products={filteredProducts}
               searchField={searchField}
             ></SearchDropdown>
-            {/* <span
+            <div
               onClick={closeSearch}
-              className={`close-dropdown ${
+              className={`search-dropdown-div ${
                 !searchDropClass ? "hide-search" : ""
               }`}
-            >
-              <RiArrowUpSLine className="arrow-icon" />
-            </span> */}
+              aria-hidden={!searchDropClass ? true : false}
+            ></div>
           </div>
         </nav>
       </header>
