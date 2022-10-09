@@ -5,12 +5,17 @@ import { useState, useEffect } from "react";
 import ProductCard from "../../components/product-card/product-card.component";
 import { RiArrowLeftLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import { selectCategoriesMap } from "../../redux-store/categories/category.selector";
+import {
+  selectCategoriesMap,
+  selectCategoriesIsLoading,
+} from "../../redux-store/categories/category.selector";
 import { useSelector } from "react-redux";
+import Spinner from "../../components/spinner/spinner.component";
 
 const Category = () => {
   const { category } = useParams();
   const categoriesMap = useSelector(selectCategoriesMap);
+  const isLoading = useSelector(selectCategoriesIsLoading);
   const [products, setProducts] = useState(categoriesMap[category]);
 
   useEffect(() => {
@@ -28,14 +33,18 @@ const Category = () => {
         </Link>
         <h2 className="category-title">{category.toUpperCase()}</h2>
       </div>
-      <div className="category-grid">
-        {products &&
-          products.map((product) => {
-            return (
-              <ProductCard product={product} key={product.id}></ProductCard>
-            );
-          })}
-      </div>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <div className="category-grid">
+          {products &&
+            products.map((product) => {
+              return (
+                <ProductCard product={product} key={product.id}></ProductCard>
+              );
+            })}
+        </div>
+      )}
     </div>
     // <section className="section-shop">
     //   {Object.keys(categoriesMap).map((title) => {

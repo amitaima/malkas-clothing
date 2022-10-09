@@ -25,11 +25,11 @@ function Home() {
       id: 2,
       title: "hats",
       // imageUrl:
-      //   "https://images.pexels.com/photos/921926/pexels-photo-921926.jpeg?cs=srgb&dl=pexels-s-migaj-921926.jpg&fm=jpg",
-      // imageUrl:
-      //   "https://images.pexels.com/photos/6073114/pexels-photo-6073114.jpeg?cs=srgb&dl=pexels-pavel-danilyuk-6073114.jpg&fm=jpg",
+      //   "https://images.pexels.com/photos/8986021/pexels-photo-8986021.jpeg?cs=srgb&dl=pexels-pavel-danilyuk-8986021.jpg&fm=jpg",
       imageUrl:
-        "https://images.pexels.com/photos/6073113/pexels-photo-6073113.jpeg?cs=srgb&dl=pexels-pavel-danilyuk-6073113.jpg&fm=jpg",
+        "https://images.pexels.com/photos/6072749/pexels-photo-6072749.jpeg?cs=srgb&dl=pexels-pavel-danilyuk-6072749.jpg&fm=jpg",
+      // imageUrl:
+      //   "https://images.pexels.com/photos/6073113/pexels-photo-6073113.jpeg?cs=srgb&dl=pexels-pavel-danilyuk-6073113.jpg&fm=jpg",
       position: "bottom",
     },
     {
