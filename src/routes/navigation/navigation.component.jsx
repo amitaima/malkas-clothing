@@ -14,7 +14,7 @@ import { selectCategoriesMap } from "../../redux-store/categories/category.selec
 import SearchDropdown from "../../components/search-dropdown/search-dropdown.component";
 import { getCategoriesandDocuments } from "../../utils/firebase/firebase.utils";
 import { useDispatch } from "react-redux";
-import { fetchCategoriesAsync } from "../../redux-store/categories/category.action";
+import { fetchCategoriesStart } from "../../redux-store/categories/category.action";
 import { RiArrowUpSLine } from "react-icons/ri";
 
 const Navigation = () => {
@@ -31,7 +31,7 @@ const Navigation = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCategoriesAsync());
+    dispatch(fetchCategoriesStart());
   }, []);
   // Search
   // gfds;

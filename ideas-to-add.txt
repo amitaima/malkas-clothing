@@ -39,3 +39,5 @@ PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
   - name
   - shipping address
   Create a user sorage in DB when user signs up named by the auth UID and inside put everything to empty until addition later
+
+16. All pictures in website to my own storage online and after size decrease

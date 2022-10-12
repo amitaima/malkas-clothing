@@ -7,7 +7,7 @@ import "./shop.styles.scss";
 import { useEffect } from "react";
 import { getCategoriesandDocuments } from "../../utils/firebase/firebase.utils";
 
-import { fetchCategoriesAsync } from "../../redux-store/categories/category.action";
+import { fetchCategoriesStart } from "../../redux-store/categories/category.action";
 
 const Shop = () => {
   useEffect(() => {
@@ -17,7 +17,7 @@ const Shop = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCategoriesAsync());
+    dispatch(fetchCategoriesStart());
   }, []);
 
   return (

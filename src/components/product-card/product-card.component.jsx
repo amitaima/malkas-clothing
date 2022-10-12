@@ -59,7 +59,7 @@ const ProductCard = ({ product }) => {
       </div>
       <Button
         buttonType="inverted"
-        className="no-border"
+        className="no-border add-to-cart"
         onClick={handleAddToCart}
       >
         Add to cart

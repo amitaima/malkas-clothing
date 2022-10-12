@@ -7,7 +7,7 @@ import Footer from "./routes/footer/footer.component";
 import Authentication from "./routes/authentication/authentication.component";
 import Shop from "./routes/shop/shop.component";
 import Checkout from "./routes/checkout/checkout.component";
-import { useEffect } from "react";
+import { useEffect, componentDidMount } from "react";
 import {
   onAuthStateChangedListener,
   signOutUser,
@@ -20,6 +20,8 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    const loadingLogo = document.querySelector(".loading-logo");
+    loadingLogo.style.display = "none";
     const unsubscribe = onAuthStateChangedListener((user) => {
       if (user) createUserDocFromAuth(user);
       dispatch(setCurrentUser(user));
