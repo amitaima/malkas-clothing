@@ -4,10 +4,12 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { removeItemFromCart } from "../../redux-store/cart/cart.action";
 import { selectCartItems } from "../../redux-store/cart/cart.selector";
+import { selectCurrentUser } from "../../redux-store/user/user.selector";
 
 const CartItem = ({ cartItem }) => {
   const { name, price, imageUrl, quantity } = cartItem;
   const cartItems = useSelector(selectCartItems);
+  const currentUser = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
 
   return (
@@ -32,7 +34,7 @@ const CartItem = ({ cartItem }) => {
       <div className="div-trash-icon">
         <FaRegTrashAlt
           onClick={() => {
-            dispatch(removeItemFromCart(cartItems, cartItem));
+            dispatch(removeItemFromCart(cartItems, cartItem, currentUser));
           }}
           className="trash-icon"
         />

@@ -7,6 +7,7 @@ import CartItem from "../cart-item/cart-item.component";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectCartItems } from "../../redux-store/cart/cart.selector";
+import { selectCurrentUser } from "../../redux-store/user/user.selector";
 import {
   setIsCartOpen,
   addItemToCart,
@@ -18,9 +19,11 @@ const ProductCard = ({ product }) => {
   const [inFavorites, setInFavorites] = useState(false);
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
+  const currentUser = useSelector(selectCurrentUser);
+  const test = "test";
 
   const handleAddToCart = () => {
-    dispatch(addItemToCart(cartItems, product));
+    dispatch(addItemToCart(cartItems, product, currentUser));
     dispatch(setIsCartOpen(true));
     setTimeout(() => {
       dispatch(setIsCartOpen(false));

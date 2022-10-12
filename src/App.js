@@ -12,9 +12,10 @@ import {
   onAuthStateChangedListener,
   signOutUser,
   createUserDocFromAuth,
+  getCurrentUser,
 } from "./utils/firebase/firebase.utils";
 
-import { setCurrentUser } from "./redux-store/user/user.action";
+import { checkUserSession } from "./redux-store/user/user.action";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,11 +23,13 @@ function App() {
   useEffect(() => {
     const loadingLogo = document.querySelector(".loading-logo");
     loadingLogo.style.display = "none";
-    const unsubscribe = onAuthStateChangedListener((user) => {
-      if (user) createUserDocFromAuth(user);
-      dispatch(setCurrentUser(user));
-    });
-    return unsubscribe;
+    dispatch(checkUserSession());
+
+    // const unsubscribe = onAuthStateChangedListener((user) => {
+    //   if (user) createUserDocFromAuth(user);
+    //   dispatch(setCurrentUser(user));
+    // });
+    // return unsubscribe;
   }, []);
 
   return (

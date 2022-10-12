@@ -5,8 +5,6 @@ import { selectCurrentUser } from "../../redux-store/user/user.selector";
 
 import "./navigation.styles.scss";
 import { RiSearchLine } from "react-icons/ri";
-
-import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CartIcon from "../../components/cart-icon/cart-icon.components";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.components";
 import { selectIsCartOpen } from "../../redux-store/cart/cart.selector";
@@ -15,7 +13,9 @@ import SearchDropdown from "../../components/search-dropdown/search-dropdown.com
 import { getCategoriesandDocuments } from "../../utils/firebase/firebase.utils";
 import { useDispatch } from "react-redux";
 import { fetchCategoriesStart } from "../../redux-store/categories/category.action";
+import { signOutStart } from "../../redux-store/user/user.action";
 import { RiArrowUpSLine } from "react-icons/ri";
+import { setCart } from "../../redux-store/cart/cart.action";
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
@@ -29,6 +29,15 @@ const Navigation = () => {
   // console.log(filteredProducts);
 
   const dispatch = useDispatch();
+
+  const signOutUser = () => dispatch(signOutStart());
+
+  useEffect(() => {
+    // console.log(currentUser);/";
+    !window.location.href.includes("auth") && currentUser
+      ? dispatch(setCart(currentUser.cart))
+      : dispatch(setCart([]));
+  }, [currentUser]);
 
   useEffect(() => {
     dispatch(fetchCategoriesStart());
@@ -93,8 +102,28 @@ const Navigation = () => {
             <h1 className="logo">Malka`s</h1>
           </Link>
           <ul className="nav-list header-nav-list">
+            {!window.location.href.includes("auth") &&
+            currentUser &&
+            currentUser.displayName ? (
+              <li>
+                <span className="display-name">
+                  Hi,{" "}
+                  {currentUser.displayName
+                    .split(" ")[0]
+                    .charAt(0)
+                    .toUpperCase() +
+                    currentUser.displayName
+                      .split(" ")[0]
+                      .slice(1)
+                      .toLowerCase()}
+                </span>
+              </li>
+            ) : (
+              ""
+            )}
+
             <li>
-              {currentUser ? (
+              {!window.location.href.includes("auth") && currentUser ? (
                 <span className="nav-link" onClick={signOutUser}>
                   Sign Out
                 </span>

@@ -37,6 +37,10 @@ $sub-color: #777;
   gap: 4.8rem;
   list-style: none;
   font-size: 1.6rem;
+  .display-name {
+    color: #777;
+    // font-weight: 500;
+  }
 }
 
 .nav-link-sticky,

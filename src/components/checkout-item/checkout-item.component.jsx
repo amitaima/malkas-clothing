@@ -8,10 +8,12 @@ import {
   removeQuantity,
 } from "../../redux-store/cart/cart.action";
 import { selectCartItems } from "../../redux-store/cart/cart.selector";
+import { selectCurrentUser } from "../../redux-store/user/user.selector";
 
 const CheckoutItem = ({ cartItem }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
+  const currentUser = useSelector(selectCurrentUser);
 
   const { name, price, imageUrl, quantity } = cartItem;
   return (
@@ -32,14 +34,14 @@ const CheckoutItem = ({ cartItem }) => {
         <div className="quantity">
           <RiArrowUpSLine
             onClick={() => {
-              dispatch(addQuantity(cartItems, cartItem));
+              dispatch(addQuantity(cartItems, cartItem, currentUser));
             }}
             className="arrow-icon"
           />
           <span className="quantity-number">{quantity}</span>
           <RiArrowDownSLine
             onClick={() => {
-              dispatch(removeQuantity(cartItems, cartItem));
+              dispatch(removeQuantity(cartItems, cartItem, currentUser));
             }}
             className="arrow-icon"
           />
@@ -49,7 +51,7 @@ const CheckoutItem = ({ cartItem }) => {
       <span className="price">${quantity * price}</span>
       <div
         onClick={() => {
-          dispatch(removeItemFromCart(cartItems, cartItem));
+          dispatch(removeItemFromCart(cartItems, cartItem, currentUser));
         }}
         className="remove-button"
       >

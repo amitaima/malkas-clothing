@@ -1,3 +1,4 @@
+import { resolveTo } from "@remix-run/router";
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
@@ -124,6 +125,33 @@ export const removeNewsletterEmail = async (objectToRemove) => {
   return "Email has been removed";
 };
 
+export const updateCartDB = async (currentUser, currentCart) => {
+  console.log(currentCart);
+  console.log(currentUser);
+  const usersRef = collection(db, "users");
+  const userDocRef = doc(db, "users", currentUser.id);
+  const batch = writeBatch(db);
+
+  const user = await getDoc(userDocRef);
+
+  if (!user.exists()) {
+    console.log("error: no user signed in");
+    throw { code: "654", message: "no user signed in" };
+  }
+  batch.set(userDocRef, { ...currentUser, cart: currentCart });
+  await batch.commit();
+  return "Updated Cart";
+};
+
+export const getCartDB = async (currentUser) => {
+  const userDocRef = doc(db, "users", currentUser.id);
+  const q = query(userDocRef);
+
+  const querySnapshot = await getDocs(q);
+  const data = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+  console.log(data);
+};
+
 export const createUserDocFromAuth = async (
   userAuth,
   additionalInformation = {}
@@ -146,14 +174,17 @@ export const createUserDocFromAuth = async (
         displayName,
         email,
         createdAt,
+        cart: [],
         ...additionalInformation,
       });
     } catch (error) {
       console.log("error creating user", error);
     }
-
-    return userDocRef;
   }
+
+  const updatedUserSnapshot = await getDoc(userDocRef);
+
+  return updatedUserSnapshot;
 };
 
 export const createAuthUserWithEmail = async (email, password) => {
@@ -170,3 +201,16 @@ export const signOutUser = async () => await signOut(auth);
 
 export const onAuthStateChangedListener = (callBack) =>
   onAuthStateChanged(auth, callBack);
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unsubscribe();
+        resolve(userAuth);
+      },
+      reject
+    );
+  });
+};
