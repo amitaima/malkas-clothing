@@ -33,7 +33,7 @@ PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
 14. Mobile navigation menu
 
 15. Specialize site based on user: 
-  - cart
+  - cart ------------- V
   - Wishlist
   - currency
   - name
@@ -41,3 +41,5 @@ PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
   Create a user sorage in DB when user signs up named by the auth UID and inside put everything to empty until addition later
 
 16. All pictures in website to my own storage online and after size decrease
+
+17. Cart in DB --------------- V
