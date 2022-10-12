@@ -37,7 +37,7 @@ export function* signInWithGoogle() {
     if (!user) return;
 
     yield call(getSnapshotFromUserAuth, user);
-    if (window.location.href.includes("auth")) window.location.href = "/";
+    // if (window.location.href.includes("auth")) window.location.href = "/";
   } catch (error) {
     yield put(signInFailed(error));
   }
@@ -48,7 +48,7 @@ export function* signInWithEmail({ payload: { email, password } }) {
     if (!user) return;
 
     yield call(getSnapshotFromUserAuth, user);
-    if (window.location.href.includes("auth")) window.location.href = "/";
+    // if (window.location.href.includes("auth")) window.location.href = "/";
   } catch (error) {
     yield put(signInFailed(error));
   }
@@ -77,7 +77,7 @@ export function* signInAfterSignUp({ payload: { user, additionalDetails } }) {
   try {
     yield call(getSnapshotFromUserAuth, user, additionalDetails);
 
-    if (window.location.href.includes("auth")) window.location.href = "/";
+    // if (window.location.href.includes("auth")) window.location.href = "/";
   } catch (error) {
     yield put(signUpFailed(error));
   }

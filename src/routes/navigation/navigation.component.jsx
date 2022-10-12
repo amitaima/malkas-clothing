@@ -1,5 +1,5 @@
 import { Fragment, useContext, useState, useEffect } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../redux-store/user/user.selector";
 
@@ -29,11 +29,16 @@ const Navigation = () => {
   // console.log(filteredProducts);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const signOutUser = () => dispatch(signOutStart());
+  const signOutUser = () => {
+    dispatch(signOutStart());
+    navigate("/");
+  };
 
   useEffect(() => {
     // console.log(currentUser);/";
+    window.location.href.includes("auth") && currentUser && navigate("/");
     !window.location.href.includes("auth") && currentUser
       ? dispatch(setCart(currentUser.cart))
       : dispatch(setCart([]));
