@@ -42,8 +42,8 @@ const decreaseItemQuantity = (cartItems, productToRemove) => {
   );
 };
 
-export const setCart = (cartArr) => {
-  console.log(cartArr);
+export const setCart = (cartArr, currentUser) => {
+  updateCartDB(currentUser, cartArr);
   return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, cartArr);
 };
 

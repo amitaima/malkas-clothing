@@ -20,6 +20,7 @@ $sub-color: #777;
   cursor: pointer;
   display: flex;
   justify-content: center;
+  align-items: center;
   transition: all 0.3s;
 
   &:hover {
@@ -42,17 +43,40 @@ $sub-color: #777;
   &.inverted {
     background-color: white;
     color: $accent-color;
-    border: 1px solid $accent-color;
+    // border: 1px solid $accent-color;
+    box-shadow: 0 0 0 1px $accent-color;
 
     &:hover {
       background-color: $accent-color;
       color: white;
-      border: none;
+      // border: none;
+      box-shadow: none;
     }
   }
 
   &.no-border {
     border: none;
     box-shadow: none;
+  }
+}
+
+.btn-spinner-container {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  border: 3px solid rgba(195, 195, 195, 0.6);
+  border-radius: 50%;
+  border-top-color: #636767;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+  @keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
   }
 }

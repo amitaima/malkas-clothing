@@ -1,5 +1,6 @@
 import "./checkout.styles.scss";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
+import PaymentForm from "../../components/payment-form/payment-form.component";
 
 import Button from "../../components/button/button.component";
 import { useEffect } from "react";
@@ -42,6 +43,7 @@ const Checkout = () => {
         </div>
         <Button>Proceed To Checkout</Button>
       </div>
+      <PaymentForm />
     </section>
   );
 };
