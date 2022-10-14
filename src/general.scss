@@ -90,6 +90,18 @@ section {
   padding-bottom: 9.6rem;
 }
 
+/**************************/
+/* BELOW 544px (Phones) */
+/**************************/
+
+@media (max-width: 34em) {
+  html {
+    /* font-size: 10px; = 1 rem */
+    /* 65.5% from users font size settings */
+    font-size: 45%;
+  }
+}
+
 .hidden {
   display: none !important; // Checking if doestnt work return to navigation.scss and newsletter.scss
 }

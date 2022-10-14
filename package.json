@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@google-pay/button-react": "^3.0.0",
     "@reduxjs/toolkit": "^1.8.5",
     "@stripe/react-stripe-js": "^1.8.1",
     "@stripe/stripe-js": "^1.41.0",

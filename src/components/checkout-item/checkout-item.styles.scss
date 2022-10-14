@@ -13,18 +13,26 @@
     align-items: center;
 
     .image-container {
-      width: 30%;
-      height: 100%;
-      padding-right: 1.6rem;
+      // ** To return to fixed sizing **
+      width: 33%;
+      // height: 23rem; // ** uncomment this **
+      // padding-right: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       img {
-        width: 100%;
-        height: 23rem; // Just a number that looked good - can be changed
+        // width: 80%; // ** uncomment this **
+        width: 100%; // ** comment this **
+        // height: 20rem; // 23 - Just a number that looked good - can be changed // ** uncomment this **
+        height: 100%; // ** comment this **
+        padding: 1.2rem 2.4rem; // ** comment this
         object-fit: cover;
+        // margin-bottom: auto;
       }
     }
     .item-details {
-      width: 70%;
+      width: 67%;
       display: flex;
       flex-direction: column;
       gap: 1.4rem;
@@ -45,10 +53,11 @@
       }
     }
   }
-  .name,
+
   .quantity-container,
   .price {
     width: 14%;
+    padding-left: 1.2rem;
   }
 
   .quantity {

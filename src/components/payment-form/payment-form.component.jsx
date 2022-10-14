@@ -8,6 +8,7 @@ import { setCart } from "../../redux-store/cart/cart.action";
 
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import "./payment-form.styles.scss";
+import FormInput from "../form-input/form-input.component";
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -15,6 +16,12 @@ const PaymentForm = () => {
   const amount = useSelector(selectCartTotal);
   const currentUser = useSelector(selectCurrentUser);
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
+  const [billingDetails, setBillingDetails] = useState({
+    name: currentUser ? currentUser.displayName : "",
+    email: currentUser ? currentUser.email : "",
+    phone: "",
+  });
+
   const dispatch = useDispatch();
 
   const PaymentHandler = async (e) => {
@@ -41,16 +48,11 @@ const PaymentForm = () => {
     const paymentResult = await stripe.confirmCardPayment(client_secret, {
       payment_method: {
         card: elements.getElement(CardElement),
-        billing_details: {
-          name: currentUser ? currentUser.displayName : "guest",
-        },
+        billing_details: billingDetails,
       },
     });
 
     setIsProcessingPayment(false);
-
-    // Should clear cart from here!
-    dispatch(setCart([], currentUser));
 
     /* Change here the alert to normal error message and success message */
 
@@ -58,6 +60,8 @@ const PaymentForm = () => {
       alert(paymentResult.error);
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
+        // Should clear cart from here!
+        dispatch(setCart([], currentUser));
         alert("payment successful");
       }
     }
@@ -66,11 +70,49 @@ const PaymentForm = () => {
   return (
     <section className="section-payment">
       <form className="payment-form-container" onSubmit={PaymentHandler}>
-        <h2>Credit Card Payment</h2>
+        <h3>Credit Card Payment</h3>
+        <div className="form-inputs">
+          <FormInput
+            label="Name"
+            type="text"
+            required
+            name="name"
+            value={billingDetails.name}
+            onChange={(e) => {
+              setBillingDetails({ ...billingDetails, name: e.target.value });
+            }}
+            autoComplete="name"
+          ></FormInput>
+
+          <FormInput
+            label="Email"
+            type="email"
+            required
+            name="email"
+            value={billingDetails.email}
+            onChange={(e) => {
+              setBillingDetails({ ...billingDetails, email: e.target.value });
+            }}
+            autoComplete="email"
+          ></FormInput>
+
+          <FormInput
+            label="Phone Number"
+            type="tel"
+            required
+            name="phoneNumber"
+            value={billingDetails.phone}
+            onChange={(e) => {
+              setBillingDetails({ ...billingDetails, phone: e.target.value });
+            }}
+            autoComplete="tel"
+          ></FormInput>
+        </div>
+
         <CardElement className="card-element" />
         <Button
           isLoading={isProcessingPayment}
-          buttonType={BUTTON_TYPE_CLASSES.inverted}
+          // buttonType={BUTTON_TYPE_CLASSES.inverted}
         >
           Pay Now
         </Button>

@@ -1,0 +1,41 @@
+.payment-container {
+  width: 100%;
+  padding: 4.8rem 9.6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  h2 {
+    align-self: center;
+    font-size: 2.4rem;
+    font-weight: 600;
+    padding-bottom: 2.4rem;
+  }
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.6rem;
+    .devider {
+      width: 32rem;
+      border-bottom: 1px solid rgba(119, 119, 119, 0.5);
+    }
+    .google-pay-btn {
+      .gpay-card-info-container {
+        background-color: #0c3256;
+        border-radius: 0%;
+        height: 4.8rem;
+        transition: all 0.3s;
+        &:hover {
+          background-color: #071e33;
+        }
+      }
+    }
+  }
+
+  .order-summary-container {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 3.6rem;
+  }
+}

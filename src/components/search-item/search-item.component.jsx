@@ -7,7 +7,10 @@ import CartItem from "../cart-item/cart-item.component";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCartItems } from "../../redux-store/cart/cart.selector";
 import { selectCurrentUser } from "../../redux-store/user/user.selector";
-import { addItemToCart } from "../../redux-store/cart/cart.action";
+import {
+  addItemToCart,
+  setIsCartOpen,
+} from "../../redux-store/cart/cart.action";
 
 const SearchItem = ({ product }) => {
   const { name, price, imageUrl } = product;
@@ -20,6 +23,10 @@ const SearchItem = ({ product }) => {
 
   const handleAddToCart = () => {
     dispatch(addItemToCart(cartItems, product, currentUser));
+    dispatch(setIsCartOpen(true));
+    setTimeout(() => {
+      dispatch(setIsCartOpen(false));
+    }, 2000);
   };
 
   const handleEnter = () => {

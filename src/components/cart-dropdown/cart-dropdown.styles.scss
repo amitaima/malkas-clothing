@@ -1,14 +1,16 @@
 .cart-dropdown-container {
   position: absolute;
   width: 26rem;
-  height: 34rem;
+  // height: 34rem;
   width: 33rem;
   height: 45rem;
+  // max-height: 45rem;
   // width: 32rem;
   // height: 42rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 3.2rem;
   padding: 3.2rem;
   // border: 1px solid black;
   background-color: white;

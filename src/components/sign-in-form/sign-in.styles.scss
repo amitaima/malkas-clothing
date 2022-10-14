@@ -21,10 +21,13 @@
     .google-button {
       box-shadow: none !important;
       border-radius: 0 !important;
+      transition: all 0.3s;
       // font-weight: bold;
 
       &:hover {
         background-color: #3b70c5 !important;
+        // background-color: #0c3256 !important;
+        // background-color: #114678 !important;
       }
     }
   }

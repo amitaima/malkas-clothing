@@ -1,9 +1,9 @@
 import "./checkout.styles.scss";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
-import PaymentForm from "../../components/payment-form/payment-form.component";
 
 import Button from "../../components/button/button.component";
 import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -16,6 +16,11 @@ const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
   const cartCount = useSelector(selectCartCount);
   const cartTotal = useSelector(selectCartTotal);
+  const navigate = useNavigate();
+
+  const toPaymentPage = () => {
+    navigate("/payment");
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -41,9 +46,8 @@ const Checkout = () => {
           <span>SUBTOTAL</span>
           <span>${cartTotal}</span>
         </div>
-        <Button>Proceed To Checkout</Button>
+        <Button onClick={toPaymentPage}>Proceed To Checkout</Button>
       </div>
-      <PaymentForm />
     </section>
   );
 };

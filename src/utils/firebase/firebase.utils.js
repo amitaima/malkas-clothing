@@ -128,6 +128,10 @@ export const removeNewsletterEmail = async (objectToRemove) => {
 export const updateCartDB = async (currentUser, currentCart) => {
   console.log(currentCart);
   console.log(currentUser);
+  if (!currentUser) {
+    console.log("error: user not loaded yet");
+    throw { code: "654", message: "no user signed in" };
+  }
   const usersRef = collection(db, "users");
   const userDocRef = doc(db, "users", currentUser.id);
   const batch = writeBatch(db);

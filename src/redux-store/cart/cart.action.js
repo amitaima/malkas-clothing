@@ -43,7 +43,7 @@ const decreaseItemQuantity = (cartItems, productToRemove) => {
 };
 
 export const setCart = (cartArr, currentUser) => {
-  updateCartDB(currentUser, cartArr);
+  currentUser && updateCartDB(currentUser, cartArr);
   return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, cartArr);
 };
 
@@ -52,7 +52,7 @@ export const setIsCartOpen = (bool) =>
 
 export const addItemToCart = (cartItems, productToAdd, currentUser) => {
   const newCartItems = addCartItem(cartItems, productToAdd);
-  updateCartDB(currentUser, newCartItems);
+  currentUser && updateCartDB(currentUser, newCartItems);
   return createAction(
     CART_ACTION_TYPES.SET_CART_ITEMS,
     newCartItems,
@@ -61,7 +61,7 @@ export const addItemToCart = (cartItems, productToAdd, currentUser) => {
 };
 export const removeItemFromCart = (cartItems, productToRemove, currentUser) => {
   const newCartItems = removeCartItem(cartItems, productToRemove);
-  updateCartDB(currentUser, newCartItems);
+  currentUser && updateCartDB(currentUser, newCartItems);
   return createAction(
     CART_ACTION_TYPES.SET_CART_ITEMS,
     newCartItems,
@@ -70,7 +70,7 @@ export const removeItemFromCart = (cartItems, productToRemove, currentUser) => {
 };
 export const addQuantity = (cartItems, productToAdd, currentUser) => {
   const newCartItems = increaseItemQuantity(cartItems, productToAdd);
-  updateCartDB(currentUser, newCartItems);
+  currentUser && updateCartDB(currentUser, newCartItems);
   return createAction(
     CART_ACTION_TYPES.SET_CART_ITEMS,
     newCartItems,
@@ -79,7 +79,7 @@ export const addQuantity = (cartItems, productToAdd, currentUser) => {
 };
 export const removeQuantity = (cartItems, productToRemove, currentUser) => {
   const newCartItems = decreaseItemQuantity(cartItems, productToRemove);
-  updateCartDB(currentUser, newCartItems);
+  currentUser && updateCartDB(currentUser, newCartItems);
   return createAction(
     CART_ACTION_TYPES.SET_CART_ITEMS,
     newCartItems,

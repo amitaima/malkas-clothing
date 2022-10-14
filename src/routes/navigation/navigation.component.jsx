@@ -15,7 +15,7 @@ import { useDispatch } from "react-redux";
 import { fetchCategoriesStart } from "../../redux-store/categories/category.action";
 import { signOutStart } from "../../redux-store/user/user.action";
 import { RiArrowUpSLine } from "react-icons/ri";
-import { setCart } from "../../redux-store/cart/cart.action";
+import { setCart, setCartNoUser } from "../../redux-store/cart/cart.action";
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
@@ -40,8 +40,8 @@ const Navigation = () => {
     // console.log(currentUser);/";
     window.location.href.includes("auth") && currentUser && navigate("/");
     !window.location.href.includes("auth") && currentUser
-      ? dispatch(setCart(currentUser.cart))
-      : dispatch(setCart([]));
+      ? dispatch(setCart(currentUser.cart, currentUser))
+      : dispatch(setCart([],null));
   }, [currentUser]);
 
   useEffect(() => {
