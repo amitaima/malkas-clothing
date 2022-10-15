@@ -1,17 +1,7 @@
 import "./order-summary.styles.scss";
 import OrderSummaryItem from "../order-summary-item/order-summary-item.component";
 
-import { useDispatch, useSelector } from "react-redux";
-import {
-  selectCartItems,
-  selectCartTotal,
-} from "../../redux-store/cart/cart.selector";
-
-const OrderSummary = () => {
-  const cartItems = useSelector(selectCartItems);
-  const cartTotal = useSelector(selectCartTotal);
-  console.log(cartItems);
-
+const OrderSummary = ({ cartItems, cartTotal }) => {
   return (
     <section className="order-container">
       <div className="order-header">

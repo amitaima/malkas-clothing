@@ -7,7 +7,6 @@ import FormInput from "../form-input/form-input.component";
 import "./newsletter.styles.scss";
 import Button from "../button/button.component";
 
-
 const defaultFormFields = {
   email: "",
   fullName: "",
@@ -28,7 +27,7 @@ const NewsLetter = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const [hidden, setHidden] = useState("0");
   const [unsubscribe, setunsubscribe] = useState(false);
-  const [errorMsg, seterrorMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
   const { email, fullName } = formFields;
 
   // useEffect(() => {
@@ -51,12 +50,12 @@ const NewsLetter = () => {
       const response = await addNewsletterEmail(formFields);
       // console.log(response);
 
-      seterrorMsg("");
+      setErrorMsg("");
       resetFormFields();
       setunsubscribe(true);
       setHidden("1");
     } catch (error) {
-      seterrorMsg(`${error.message}, Please try again`);
+      setErrorMsg(`${error.message}, Please try again`);
       resetFormFields();
     }
   };
@@ -66,12 +65,12 @@ const NewsLetter = () => {
     try {
       const response = await removeNewsletterEmail(formFields);
       // console.log(response);
-      seterrorMsg("");
+      setErrorMsg("");
       resetFormFields();
       setunsubscribe(false);
       setHidden("1");
     } catch (error) {
-      seterrorMsg(`${error.message}, Please try again`);
+      setErrorMsg(`${error.message}, Please try again`);
       resetFormFields();
     }
   };
@@ -141,7 +140,7 @@ const NewsLetter = () => {
         <span
           onClick={() => {
             setHidden("2");
-            seterrorMsg("");
+            setErrorMsg("");
           }}
           className="unsubscribe"
         >
@@ -175,7 +174,7 @@ const NewsLetter = () => {
         <span
           onClick={() => {
             setHidden("0");
-            seterrorMsg("");
+            setErrorMsg("");
           }}
           className="unsubscribe"
         >

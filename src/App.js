@@ -8,6 +8,8 @@ import Authentication from "./routes/authentication/authentication.component";
 import Shop from "./routes/shop/shop.component";
 import Checkout from "./routes/checkout/checkout.component";
 import PaymentPage from "./routes/payment-page/payment-page.component";
+import Payment from "./routes/payment/payment.component";
+import PaymentConfirmation from "./routes/payment-confirmation/payment-confirmation.component";
 import { useEffect, componentDidMount } from "react";
 import {
   onAuthStateChangedListener,
@@ -41,7 +43,9 @@ function App() {
           <Route path={"auth"} element={<Authentication />} />
           <Route path={"shop/*"} element={<Shop />} />
           <Route path={"checkout"} element={<Checkout />} />
-          <Route path={"payment"} element={<PaymentPage />} />
+          <Route path={"payment/*"} element={<Payment />} />
+          {/* <Route path={"payment/"} element={<PaymentPage />} />
+          <Route path={"payment/"} element={<PaymentPage />} /> */}
         </Route>
       </Routes>
       <Footer />

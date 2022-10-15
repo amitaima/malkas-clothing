@@ -70,7 +70,7 @@ const PaymentPage = () => {
       </div>
       <div className="order-summary-container">
         <h2>Order Summary</h2>
-        <OrderSummary />
+        <OrderSummary cartItems={cartItems} cartTotal={cartTotal} />
         {/* <div
           className={`cart-items scrollable opacity-animation ${
             !cartItems.length ? "empty" : "not"
