@@ -8,7 +8,6 @@ import {
   selectCartItems,
 } from "../../redux-store/cart/cart.selector";
 import { selectCurrentUser } from "../../redux-store/user/user.selector";
-import { setCart } from "../../redux-store/cart/cart.action";
 
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import "./payment-form.styles.scss";
@@ -58,7 +57,7 @@ const PaymentForm = () => {
 
     setIsProcessingPayment(true);
     setErrorMsg("");
-
+    /* RUN NETLIFY DEV AND NOT NPM START FOR STRIPE TO WORK */
     const response = await fetch("/.netlify/functions/create-payment-intent", {
       method: "post",
       headers: {

@@ -15,6 +15,7 @@ import Button, {
   BUTTON_TYPE_CLASSES,
 } from "../../components/button/button.component";
 import { IoCheckmarkOutline } from "react-icons/io5";
+import { addOrderDB } from "../../utils/firebase/firebase.utils";
 
 const PaymentConfirmation = () => {
   // const cartItems = useSelector(selectCartItems);
@@ -24,8 +25,25 @@ const PaymentConfirmation = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
+  let today = new Date();
+  const dd = String(today.getDate()).padStart(2, "0");
+  const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  const yyyy = today.getFullYear();
+  today = dd + "/" + mm + "/" + yyyy;
+
   const { name, email, phone } = location.state.billingDetails;
   const { cartItems, cartTotal } = location.state;
+  const newOrder = {
+    items: cartItems,
+    total: cartTotal,
+    date: today,
+    address: "Moreshet, Levona 294",
+    name: name,
+    email: email,
+    phone: phone,
+  };
+
+  if (currentUser) addOrderDB(currentUser, newOrder);
   // console.log(location.state.billingDetails);
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -62,7 +80,7 @@ const PaymentConfirmation = () => {
             <span>{email}</span>
             <span>{phone}</span>
             <span>{"Moreshet, Levona 294"}</span>
-            <span>{"15/10/2022 16:34"}</span>
+            <span>{today}</span>
             <span>$ {cartTotal}</span>
           </div>
         </div>
