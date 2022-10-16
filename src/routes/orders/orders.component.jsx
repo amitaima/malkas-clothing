@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 import OrderHistory from "../order-history/order-history.component";
-
+import OrderInfo from "../order-info/order-info.component";
 const Orders = () => {
   useEffect(() => {
     window.scrollTo(0, 0);

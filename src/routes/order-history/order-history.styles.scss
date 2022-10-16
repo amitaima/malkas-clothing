@@ -1,0 +1,19 @@
+.order-history-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 6.4rem;
+  row-gap: 3.6rem;
+  padding: 4.8rem 9.6rem;
+  max-width: 150rem;
+  margin: 0 auto;
+
+  .order-previews-div {
+    // max-width: 150rem;
+    padding: 0rem 1.6rem;
+    margin: 0 auto;
+  }
+
+  .spinner-div {
+    grid-column: span 2;
+  }
+}

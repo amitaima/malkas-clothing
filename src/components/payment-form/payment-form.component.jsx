@@ -71,6 +71,7 @@ const PaymentForm = () => {
     const {
       paymentIntent: { client_secret },
     } = response;
+    // console.log(response.paymentIntent.client_secret);
 
     const paymentResult = await stripe.confirmCardPayment(client_secret, {
       payment_method: {
@@ -78,13 +79,14 @@ const PaymentForm = () => {
         billing_details: billingDetails,
       },
     });
+    console.log(paymentResult);
 
     setIsProcessingPayment(false);
 
     /* Change here the alert to normal error message and success message */
 
     if (paymentResult.error) {
-      console.log(paymentResult.error.code);
+      console.log(paymentResult.error);
       console.log(errorCodes[paymentResult.error.code]);
       setErrorMsg(
         errorCodes[paymentResult.error.code]

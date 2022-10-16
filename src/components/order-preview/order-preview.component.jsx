@@ -1,21 +1,22 @@
-import "./category-preview.styles.scss";
+import "./order-preview.styles.scss";
 import ProductCard from "../product-card/product-card.component";
 import { RiArrowDropRightLine } from "react-icons/ri";
 import { RiArrowUpSLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import OrderPreviewItem from "../order-preview-item/order-preview-item.component";
 
-const OrderPreview = ({ title, items }) => {
+const OrderPreview = ({ title, cartItems, cartTotal }) => {
   return (
-    <div className="category-preview-container">
+    <div className="order-preview-container">
       <h2 className="title-container">
         <Link className="title-link" to={title}>
-          <span className="title">{title.toUpperCase()}</span>
+          <span className="title">{`Order ${title.slice(5)}`}</span>
           <RiArrowDropRightLine className="arrow-icon" />
         </Link>
+        <span>ESTIMATED DELIVERY: SUNDAY, 25 OCTOBER 2022</span>
       </h2>
       <div className="preview">
-        {items
+        {cartItems
           .filter((_, index) => index < 4)
           .map((product) => {
             return (
@@ -23,9 +24,6 @@ const OrderPreview = ({ title, items }) => {
                 product={product}
                 key={product.id}
               ></OrderPreviewItem>
-            );
-            return (
-              <ProductCard product={product} key={product.id}></ProductCard>
             );
           })}
       </div>

@@ -1,4 +1,4 @@
-.payment-confirmation-container {
+.order-info-container {
   display: flex;
   // width: 70%;
   flex-direction: column;
@@ -13,15 +13,41 @@
   .confirmation-msg-div {
     display: flex;
     flex-direction: column;
+    width: 50%;
+    max-width: 150rem;
     gap: 2.4rem;
     // justify-content: center;
     align-items: center;
-    .check-icon {
-      width: 4.8rem;
-      height: 4.8rem;
-      color: #3d5b78;
-      border: 3px solid #3d5b78;
-      border-radius: 50%;
+    position: relative;
+    .back-link {
+      // padding-bottom: 2.4rem;
+      // justify-self: flex-start;
+      justify-self: left;
+      display: flex;
+      // gap: 0.4rem;
+      align-items: center;
+      width: fit-content;
+      text-decoration: none;
+      position: absolute;
+      top: 0;
+      left: 3.6rem;
+      cursor: pointer;
+      .title {
+        font-size: 2.4rem;
+        color: #333;
+      }
+
+      .arrow-icon {
+        color: #333;
+        width: 3.2rem;
+        height: 3.2rem;
+        transition: all 0.3s ease-out;
+      }
+      &:hover {
+        .arrow-icon {
+          // transform: translateX(-1rem);
+        }
+      }
     }
 
     .payment-successful {
@@ -29,6 +55,7 @@
       letter-spacing: 0.7px;
       color: #3d5b78;
       font-weight: 500;
+      text-transform: capitalize;
     }
 
     .thank-you-msg {
@@ -65,7 +92,7 @@
       .product-info {
         .image-container {
           img {
-            height: 20rem; // Just a number that looked good - can be changed
+            height: 16rem; // Just a number that looked good - can be changed
           }
         }
       }

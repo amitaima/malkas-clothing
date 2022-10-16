@@ -1,11 +1,18 @@
-.category-preview-container {
+.order-preview-container {
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   margin-bottom: 3.6rem;
+  width: 100%;
 
   .title-container {
+    padding-bottom: 2.4rem;
+    span {
+      color: #777;
+      font-weight: 400;
+    }
     .title-link {
-      padding-bottom: 2.4rem;
+      padding-bottom: 1.2rem;
       display: flex;
       // gap: 0.4rem;
       align-items: center;
@@ -13,8 +20,10 @@
       text-decoration: none;
       cursor: pointer;
       .title {
+        font-weight: 600;
         font-size: 2.4rem;
         color: #333;
+        text-transform: uppercase;
       }
 
       .arrow-icon {

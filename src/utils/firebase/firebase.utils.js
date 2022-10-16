@@ -128,7 +128,6 @@ export const removeNewsletterEmail = async (objectToRemove) => {
 };
 
 export const updateCartDB = async (currentUser, currentCart) => {
-  console.log("updateCartDB", currentUser);
   if (!currentUser) {
     console.log("error: user not loaded yet");
     throw { code: "654", message: "no user signed in" };
@@ -173,41 +172,11 @@ export const addOrderDB = async (currentUser, newOrder) => {
     console.log("error: no user signed in");
     throw { code: "654", message: "no user signed in" };
   }
-  // console.log("test");
-  // const userOrdersRef = doc(db, "users", currentUser.id, "orders");
-  // console.log(userOrdersRef);
-  // const orders = await getDoc(userOrdersRef);
-  // console.log(orders);
-  // const userNewOrderRef = doc(
-  //   db,
-  //   "users",
-  //   currentUser.id,
-  //   "orders",
-  //   "order 1"
-  //   // orders.length + 1
-  // );
-  // const allOrders = user._document.data.value.mapValue.fields.orders;
   const myOrders = user.data().orders;
-  // console.log(user._document.data.value.mapValue.fields.orders);
-  // const update = {};
-  // update[`orders.${allOrders.length + 1}`] = newOrder;
-  // console.log(allOrders.mapValue.fields);
-  console.log(myOrders);
-  // console.log(Object.keys(allOrders).length + 1);
 
   batch.update(userDocRef, {
-    // ...user,
-    // orders: { order3: newOrder },
-    // update,
-    // `orders.${orders.length + 1}`: newOrder,
-    // "orders.order2": newOrder,
-    // [orders[allOrders.length + 1]]: newOrder,
     [`orders.order${Object.keys(myOrders).length + 1}`]: newOrder,
   });
-  // batch.set(userDocRef, {
-  //   ...currentUser,
-  //   orders: { order1: newOrder, order2: newOrder,order3: newOrder },
-  // });
   await batch.commit();
   return "Added Order";
 };
@@ -224,14 +193,7 @@ export const getOrdersDB = async (currentUser) => {
     throw { code: "654", message: "no user signed in" };
   }
   const myOrders = user.data().orders;
-  console.log(myOrders);
   return myOrders;
-  // const q = query(userOrdersRef);
-
-  // const querySnapshot = await getDocs(q);
-  // const data = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
-  // console.log(data);
-  // return data;
 };
 
 export const createUserDocFromAuth = async (

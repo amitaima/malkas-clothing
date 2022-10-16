@@ -1,9 +1,11 @@
-import OrderSummary from "../../components/order-summary/order-summary.component";
 import { getOrdersDB } from "../../utils/firebase/firebase.utils";
 import { selectCurrentUser } from "../../redux-store/user/user.selector";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useState } from "react";
+import OrderPreview from "../../components/order-preview/order-preview.component";
+import "./order-history.styles.scss";
+import Spinner from "../../components/spinner/spinner.component";
 
 const OrderHistory = () => {
   const currentUser = useSelector(selectCurrentUser);
@@ -22,52 +24,34 @@ const OrderHistory = () => {
   };
   useEffect(() => {
     window.scrollTo(0, 0);
-    getOrders();
-  }, []);
+    if (currentUser) {
+      getOrders();
+      console.log(allOrders);
+    }
+  }, [currentUser]); // maybe AllOrders ?
   // useEffect(() => {
   // }, [allOrders]);
 
   return (
     <section className="order-history-container">
-      {allOrders &&
+      {allOrders && currentUser ? (
         allOrders.map((order) => (
-          <div>
-            <h3>{order[0]}</h3>
-            <OrderSummary
+          <div className="order-previews-div">
+            <OrderPreview
               key={order[0]}
+              title={order[0]}
               cartItems={order[1].items}
               cartTotal={order[1].total}
             />
           </div>
-        ))}
+        ))
+      ) : (
+        <div className="spinner-div">
+          <Spinner />
+        </div>
+      )}
     </section>
   );
 };
 
 export default OrderHistory;
-
-/*
-order5
-: 
-address
-: 
-"Moreshet, Levona 294"
-date
-: 
-"16/10/2022"
-email
-: 
-"amitai.malka@gmail.com"
-items
-: 
-(3) [{…}, {…}, {…}]
-name
-: 
-"Amitai Malka"
-phone
-: 
-"0584966113"
-total
-: 
-78
-*/

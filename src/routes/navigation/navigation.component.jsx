@@ -41,7 +41,7 @@ const Navigation = () => {
     window.location.href.includes("auth") && currentUser && navigate("/");
     !window.location.href.includes("auth") && currentUser
       ? dispatch(setCart(currentUser.cart, currentUser))
-      : dispatch(setCart([],null));
+      : dispatch(setCart([], null));
   }, [currentUser]);
 
   useEffect(() => {
@@ -111,17 +111,19 @@ const Navigation = () => {
             currentUser &&
             currentUser.displayName ? (
               <li>
-                <span className="display-name">
-                  Hi,{" "}
-                  {currentUser.displayName
-                    .split(" ")[0]
-                    .charAt(0)
-                    .toUpperCase() +
-                    currentUser.displayName
+                <Link className="name-link" to="/order-history">
+                  <span className="display-name">
+                    Hi,{" "}
+                    {currentUser.displayName
                       .split(" ")[0]
-                      .slice(1)
-                      .toLowerCase()}
-                </span>
+                      .charAt(0)
+                      .toUpperCase() +
+                      currentUser.displayName
+                        .split(" ")[0]
+                        .slice(1)
+                        .toLowerCase()}
+                  </span>
+                </Link>
               </li>
             ) : (
               ""
