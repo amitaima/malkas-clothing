@@ -1,0 +1,27 @@
+$accent-color: #0c3256;
+$accent-color-tint: #114678;
+$accent-color-shade: #071e33;
+$main-color: #333;
+$sub-color: #777;
+
+.product-card-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  // height: 45rem;
+  align-items: center;
+
+  .img-div {
+    // overflow: hidden;
+    width: 100%;
+    height: 25rem;
+    margin-bottom: 5px;
+    border: none;
+    img {
+      width: 100%;
+      height: 25rem;
+      object-fit: cover;
+      display: block;
+    }
+  }
+}

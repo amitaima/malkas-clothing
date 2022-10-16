@@ -18,6 +18,7 @@ import {
   getCurrentUser,
 } from "./utils/firebase/firebase.utils";
 import OrderHistory from "./routes/order-history/order-history.component";
+import Orders from "./routes/orders/orders.component";
 
 import { checkUserSession } from "./redux-store/user/user.action";
 
@@ -45,7 +46,7 @@ function App() {
           <Route path={"shop/*"} element={<Shop />} />
           <Route path={"checkout"} element={<Checkout />} />
           <Route path={"payment/*"} element={<Payment />} />
-          <Route path={"orders"} element={<OrderHistory />} />
+          <Route path={"order-history/*"} element={<Orders />} />
           {/* <Route path={"payment/"} element={<PaymentPage />} />
           <Route path={"payment/"} element={<PaymentPage />} /> */}
         </Route>

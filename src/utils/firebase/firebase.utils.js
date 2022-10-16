@@ -162,7 +162,6 @@ export const getCartDB = async (currentUser) => {
 
 export const addOrderDB = async (currentUser, newOrder) => {
   // console.log(newOrder);
-  console.log("addOrderDB", currentUser);
   if (!currentUser) {
     console.log("error: user not loaded yet");
     throw { code: "654", message: "no user signed in" };
@@ -214,13 +213,25 @@ export const addOrderDB = async (currentUser, newOrder) => {
 };
 
 export const getOrdersDB = async (currentUser) => {
-  const userOrdersRef = doc(db, "users", currentUser.id);
-  const q = query(userOrdersRef);
+  if (!currentUser) {
+    console.log("error: user not loaded yet");
+    throw { code: "654", message: "no user signed in" };
+  }
+  const userDocRef = doc(db, "users", currentUser.id);
+  const user = await getDoc(userDocRef);
+  if (!user.exists()) {
+    console.log("error: no user signed in");
+    throw { code: "654", message: "no user signed in" };
+  }
+  const myOrders = user.data().orders;
+  console.log(myOrders);
+  return myOrders;
+  // const q = query(userOrdersRef);
 
-  const querySnapshot = await getDocs(q);
-  const data = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
-  console.log(data);
-  return data;
+  // const querySnapshot = await getDocs(q);
+  // const data = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+  // console.log(data);
+  // return data;
 };
 
 export const createUserDocFromAuth = async (

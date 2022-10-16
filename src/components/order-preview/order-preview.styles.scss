@@ -1,0 +1,39 @@
+.category-preview-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3.6rem;
+
+  .title-container {
+    .title-link {
+      padding-bottom: 2.4rem;
+      display: flex;
+      // gap: 0.4rem;
+      align-items: center;
+      width: fit-content;
+      text-decoration: none;
+      cursor: pointer;
+      .title {
+        font-size: 2.4rem;
+        color: #333;
+      }
+
+      .arrow-icon {
+        color: #333;
+        width: 3.2rem;
+        height: 3.2rem;
+        transition: all 0.3s ease-out;
+      }
+      &:hover {
+        .arrow-icon {
+          transform: translateX(1rem);
+        }
+      }
+    }
+  }
+
+  .preview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1.6rem;
+  }
+}
