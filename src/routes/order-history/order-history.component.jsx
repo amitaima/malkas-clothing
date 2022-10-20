@@ -36,9 +36,8 @@ const OrderHistory = () => {
     <section className="order-history-container">
       {allOrders && currentUser ? (
         allOrders.map((order) => (
-          <div className="order-previews-div">
+          <div key={order[0]} className="order-previews-div">
             <OrderPreview
-              key={order[0]}
               title={order[0]}
               cartItems={order[1].items}
               cartTotal={order[1].total}

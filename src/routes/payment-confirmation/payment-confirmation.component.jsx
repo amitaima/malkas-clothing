@@ -31,13 +31,15 @@ const PaymentConfirmation = () => {
   const yyyy = today.getFullYear();
   today = dd + "/" + mm + "/" + yyyy;
 
-  const { name, email, phone } = location.state.billingDetails;
+  const { email, phone } = location.state.billingDetails;
+  const { name, country, city, line1, postal_code } =
+    location.state.shippingDetails;
   const { cartItems, cartTotal } = location.state;
   const newOrder = {
     items: cartItems,
     total: cartTotal,
     date: today,
-    address: "Moreshet, Levona 294",
+    address: `${line1}, ${city}, ${country}, ${postal_code}`,
     name: name,
     email: email,
     phone: phone,
@@ -79,7 +81,7 @@ const PaymentConfirmation = () => {
             <span>{name}</span>
             <span>{email}</span>
             <span>{phone}</span>
-            <span>{"Moreshet, Levona 294"}</span>
+            <span>{`${line1}, ${city}, ${country}, ${postal_code}`}</span>
             <span>{today}</span>
             <span>$ {cartTotal}</span>
           </div>

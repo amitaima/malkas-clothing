@@ -17,3 +17,9 @@
     grid-column: span 2;
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .order-history-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

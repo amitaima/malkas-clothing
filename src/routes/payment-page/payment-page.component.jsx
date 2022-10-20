@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import OrderSummary from "../../components/order-summary/order-summary.component";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -28,6 +28,7 @@ const PaymentPage = () => {
       <div className="form-container">
         <h2>Payment</h2>
         <PaymentForm />
+
         <span className="devider" />
         <GooglePayButton
           className="google-pay-btn"

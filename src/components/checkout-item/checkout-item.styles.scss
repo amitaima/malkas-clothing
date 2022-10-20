@@ -25,7 +25,9 @@
         // width: 80%; // ** uncomment this **
         width: 100%; // ** comment this **
         // height: 20rem; // 23 - Just a number that looked good - can be changed // ** uncomment this **
-        height: 100%; // ** comment this **
+        // height: 100%; // ** comment this **
+        min-width: 13rem;
+        aspect-ratio: 8/9;
         padding: 1.2rem 2.4rem; // ** comment this
         object-fit: cover;
         // margin-bottom: auto;

@@ -2,12 +2,22 @@
   // height: 70rem;
   // width: 50rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-bottom: 0;
+  width: 100%;
+  .forms-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    max-width: 130rem;
+  }
   .payment-form-container {
     // height: 10rem;
-    min-width: 50rem;
+    // min-width: 50rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,10 +38,12 @@
     }
     .form-inputs {
       width: 40rem;
+      width: 80%;
       margin-top: -2.4rem;
     }
     .card-element {
       width: 40rem;
+      width: 80%;
     }
 
     .button-container {

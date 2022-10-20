@@ -16,12 +16,16 @@
 
     .image-container {
       width: 30%;
+      // min-width: 9rem;
       height: 100%;
       // padding-right: 1.6rem;
 
       img {
         width: 100%;
-        height: 10rem; // Just a number that looked good - can be changed
+        // min-height: 6rem;
+        min-width: 6.4rem;
+        aspect-ratio: 3/4;
+        // min-height: 10rem; // Just a number that looked good - can be changed
         object-fit: cover;
       }
     }

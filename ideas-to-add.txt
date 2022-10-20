@@ -46,3 +46,7 @@ PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
 17. Cart in DB --------------- V
 
 18. Save orders in db and view them ------------ V
+
+19. Add My profile page
+
+20. Add product page

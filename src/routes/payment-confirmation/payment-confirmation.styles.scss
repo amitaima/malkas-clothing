@@ -65,7 +65,9 @@
       .product-info {
         .image-container {
           img {
-            height: 20rem; // Just a number that looked good - can be changed
+            // height: 20rem; // Just a number that looked good - can be changed
+            min-width: 8rem;
+            aspect-ratio: 3/4;
           }
         }
       }

@@ -92,7 +92,8 @@
       .product-info {
         .image-container {
           img {
-            height: 16rem; // Just a number that looked good - can be changed
+            aspect-ratio: 3/4;
+            // height: 16rem; // Just a number that looked good - can be changed
           }
         }
       }
