@@ -38,12 +38,11 @@ PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
   - currency
   - name ------------- V
   - shipping address
-  - orders
-  Create a user sorage in DB when user signs up named by the auth UID and inside put everything to empty until addition later
+  - orders ------------- V
 
 16. All pictures in website to my own storage online and after size decrease ------------- Directory - V
   All product pictures should be same aspect ration (2/3?)
 
 17. Cart in DB --------------- V
 
-18. Save orders in db and view them
+18. Save orders in db and view them ------------ V
