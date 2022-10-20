@@ -14,7 +14,7 @@ import { getCategoriesandDocuments } from "../../utils/firebase/firebase.utils";
 import { useDispatch } from "react-redux";
 import { fetchCategoriesStart } from "../../redux-store/categories/category.action";
 import { signOutStart } from "../../redux-store/user/user.action";
-import { RiArrowUpSLine } from "react-icons/ri";
+import { RiArrowUpSLine, RiArrowDropDownFill } from "react-icons/ri";
 import { setCart, setCartNoUser } from "../../redux-store/cart/cart.action";
 
 const Navigation = () => {
@@ -110,8 +110,8 @@ const Navigation = () => {
             {!window.location.href.includes("auth") &&
             currentUser &&
             currentUser.displayName ? (
-              <li>
-                <Link className="name-link" to="/order-history">
+              <li className="dropdown dropdown-2">
+                <div className="name-container">
                   <span className="display-name">
                     Hi,{" "}
                     {currentUser.displayName
@@ -123,7 +123,30 @@ const Navigation = () => {
                         .slice(1)
                         .toLowerCase()}
                   </span>
-                </Link>
+                  <RiArrowDropDownFill className="arrow-icon" />
+                </div>
+                <ul class="dropdown_menu dropdown_menu-2">
+                  <li class="dropdown_item dropdown_item--1">
+                    <Link className="dropdown-link" to="/order-history">
+                      My Orders
+                    </Link>
+                  </li>
+                  <li class="dropdown_item dropdown_item--2">
+                    <Link className="dropdown-link" to="/">
+                      My Profile
+                    </Link>
+                  </li>
+                  <li class="dropdown_item dropdown_item--3">
+                    <Link className="dropdown-link" to="/">
+                      Settings
+                    </Link>
+                  </li>
+                  <li class="dropdown_item dropdown_item--4">
+                    <Link className="dropdown-link" to="/">
+                      Sign Out
+                    </Link>
+                  </li>
+                </ul>
               </li>
             ) : (
               ""

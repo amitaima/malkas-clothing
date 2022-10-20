@@ -37,11 +37,107 @@ $sub-color: #777;
   gap: 4.8rem;
   list-style: none;
   font-size: 1.6rem;
-  .name-link {
-    text-decoration: none;
-    .display-name {
-      color: #777;
-      // font-weight: 500;
+
+  .dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    perspective: 1000px;
+    z-index: 100;
+    color: #777;
+    transition: all 0.3s;
+
+    &:hover {
+      color: #114678;
+      cursor: pointer;
+      .dropdown_menu li {
+        display: block;
+      }
+    }
+
+    .dropdown_menu {
+      position: absolute;
+      top: 100%;
+      left: -50%;
+      width: 200%;
+      perspective: 1000px;
+      z-index: -1;
+      // box-shadow: 0 2.4rem 2.4rem rgb(0 0 0 / 5%);
+
+      &.dropdown_menu-2 {
+        @for $num from 1 through 4 {
+          .dropdown_item--#{$num} {
+            transform-origin: top center;
+            animation: rotateX 300ms ($num * 60ms) ease-in-out forwards;
+          }
+        }
+
+        @keyframes rotateX {
+          0% {
+            opacity: 0;
+            transform: rotateX(-90deg);
+          }
+          50% {
+            transform: rotateX(-20deg);
+          }
+          100% {
+            opacity: 1;
+            transform: rotateX(0deg);
+          }
+        }
+
+        .dropdown_item {
+          text-align: center;
+          padding: 1.8rem 0;
+          .dropdown-link {
+            font-size: 1.6rem;
+            text-decoration: none;
+            color: #777;
+          }
+          &:hover {
+            .dropdown-link {
+              color: #114678;
+            }
+          }
+          &:first-child {
+            padding-top: 3.6rem;
+          }
+          &:last-child {
+            padding-bottom: 3.6rem;
+          }
+        }
+      }
+
+      li {
+        display: none;
+        color: #777;
+        background-color: #fff;
+        padding: 10px 20px;
+        font-size: 16px;
+        opacity: 0;
+        &:hover {
+          color: #114678;
+        }
+      }
+    }
+
+    .name-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // gap: 0.5rem;
+
+      .display-name {
+        // font-weight: 500;
+      }
+      .arrow-icon {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+      &:hover {
+        color: #114678;
+      }
     }
   }
 }
