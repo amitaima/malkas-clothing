@@ -50,3 +50,5 @@ PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
 19. Add My profile page
 
 20. Add product page
+
+21. Implement asos api for products https://asos2.p.rapidapi.com

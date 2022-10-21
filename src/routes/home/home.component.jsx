@@ -20,6 +20,8 @@ function Home() {
       // imageUrl:
       //   "https://images.pexels.com/photos/7772716/pexels-photo-7772716.jpeg?cs=srgb&dl=pexels-dmitriy-ganin-7772716.jpg&fm=jpg",
       imageUrl: "https://i.ibb.co/S7FkXPs/jacket-directory-img-1-small.jpg",
+      // imageUrl:
+      //   "images.asos-media.com/products/tommy-jeans-elevated-retro-sneakers-in-white/202405950-1-white",
       position: "center",
     },
     {

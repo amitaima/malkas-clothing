@@ -7,10 +7,12 @@ import { selectCartItems } from "../../redux-store/cart/cart.selector";
 import { selectCurrentUser } from "../../redux-store/user/user.selector";
 
 const CartItem = ({ cartItem }) => {
-  const { name, price, imageUrl, quantity } = cartItem;
+  const { name, imageUrl, quantity, colour } = cartItem;
+  const price = cartItem.price.current.value;
   const cartItems = useSelector(selectCartItems);
   const currentUser = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
+  console.log(cartItem);
 
   return (
     <div className="cart-item-container">
@@ -20,7 +22,7 @@ const CartItem = ({ cartItem }) => {
         </div>
         <div className="item-details">
           <span className="name">{name}</span>
-          <span className="total-price">COLOR: Red</span>
+          <span className="total-price">COLOR: {colour}</span>
           <span className="total-price">SIZE: M</span>
           <div className="price-and-quantity">
             <span className="quantity">QTY: {quantity}</span>
