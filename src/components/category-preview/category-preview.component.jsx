@@ -14,13 +14,13 @@ const CategoryPreview = ({ title, categoryId }) => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "56ba5e2393msh1d93f944bee08b9p1fed26jsn9090a00eb2df",
+        "X-RapidAPI-Key": "bcf58f0bdcmsh81a1cf9c9f7cbc9p170c8ajsn747c59ec1ee3",
         "X-RapidAPI-Host": "asos2.p.rapidapi.com",
       },
     };
 
     fetch(
-      `https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=0&categoryId=${categoryId}&limit=48&country=US&sort=freshness&currency=USD&sizeSchema=US&lang=en-US`,
+      `https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=0&categoryId=${categoryId}&limit=4&country=US&sort=freshness&currency=USD&sizeSchema=US&lang=en-US`,
       options
     )
       .then((response) => response.json())
