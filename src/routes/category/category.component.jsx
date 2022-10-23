@@ -18,11 +18,10 @@ const Category = () => {
   const isLoading = useSelector(selectCategoriesIsLoading);
   const [products, setProducts] = useState(categoriesMap[category]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useEffect(() => {}, []);
   useEffect(() => {
     setProducts(categoriesMap[category]);
+    window.scrollTo(0, 0);
   }, [category, categoriesMap]);
 
   return (

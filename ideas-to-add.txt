@@ -8,7 +8,7 @@ PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
 
 2. Wishlist - Like the Addition of cart just for a Wishlist
 
-3. Alert when adding item to cart - should be the cart dropdown with only the added item
+3. Alert when adding item to cart - should be the cart dropdown with only the added item ---------- ? V ?
 
 4. Sizes and colors in products
 
@@ -48,5 +48,3 @@ PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
 18. Save orders in db and view them ------------ V
 
 19. Add My profile page
-
-20. Add product page

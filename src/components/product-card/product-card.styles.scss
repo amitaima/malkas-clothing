@@ -6,6 +6,7 @@ $sub-color: #777;
 
 .product-card-container {
   width: 100%;
+  // position: relative;
   display: flex;
   flex-direction: column;
   // height: 45rem;
@@ -33,7 +34,7 @@ $sub-color: #777;
     opacity: 0;
     position: absolute;
     border: none;
-    top: 33rem;
+    top: 35rem;
     // height: 1rem;
     // width: 30%;
     // top: 33rem;
@@ -105,7 +106,7 @@ $sub-color: #777;
     gap: 0.4rem;
     font-size: 1.6rem;
     color: #333;
-    padding: 1.2rem 0;
+    padding: 0.4rem 0;
 
     .companyName {
       font-size: 1.2rem;
@@ -114,11 +115,24 @@ $sub-color: #777;
       letter-spacing: 1px;
     }
 
-    .name {
-      font-weight: 500;
+    .name-div {
+      height: 4.8rem;
+      .name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        // word-wrap: break-word;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* number of lines to show */
+        // line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
     }
 
     .price {
+      font-weight: 500;
+      // position: absolute;
+      // bottom: 1rem;
+      // left: 0;
     }
   }
 }

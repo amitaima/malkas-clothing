@@ -69,7 +69,9 @@ const ProductCard = ({ product }) => {
       </Button>
       <div className="info">
         <span className="companyName">MALKA'S</span>
-        <span className="name">{name}</span>
+        <div className="name-div">
+          <span className="name">{name}</span>
+        </div>
         <span className="price">$ {price}</span>
       </div>
     </div>
