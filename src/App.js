@@ -19,6 +19,7 @@ import {
 } from "./utils/firebase/firebase.utils";
 import OrderHistory from "./routes/order-history/order-history.component";
 import Orders from "./routes/orders/orders.component";
+import Wishlist from "./routes/wishlist/wishlist.component";
 
 import { checkUserSession } from "./redux-store/user/user.action";
 
@@ -44,6 +45,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path={"auth"} element={<Authentication />} />
           <Route path={"shop/*"} element={<Shop />} />
+          <Route path={"wishlist"} element={<Wishlist />} />
           <Route path={"checkout"} element={<Checkout />} />
           <Route path={"payment/*"} element={<Payment />} />
           <Route path={"order-history/*"} element={<Orders />} />

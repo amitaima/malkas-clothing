@@ -1,0 +1,79 @@
+.wishlist-item-container {
+  width: 100%;
+  display: flex;
+  min-height: 10rem;
+  border-bottom: 1px solid rgba(119, 119, 119, 0.5);
+  padding: 1.6rem 0;
+  font-size: 1.6rem;
+  align-items: center;
+  .product-info {
+    width: 50%;
+    display: flex;
+    gap: 2.4rem;
+    align-items: center;
+
+    .image-container {
+      // ** To return to fixed sizing **
+      width: 33%;
+      // height: 23rem; // ** uncomment this **
+      // padding-right: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        // width: 80%; // ** uncomment this **
+        width: 100%; // ** comment this **
+        // height: 20rem; // 23 - Just a number that looked good - can be changed // ** uncomment this **
+        // height: 100%; // ** comment this **
+        min-width: 13rem;
+        aspect-ratio: 8/9;
+        padding: 1.2rem 2.4rem; // ** comment this
+        object-fit: cover;
+        // margin-bottom: auto;
+      }
+    }
+    .item-details {
+      width: 67%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+
+      .name,
+      .quantity,
+      .price {
+        width: 100%;
+      }
+      span {
+        color: #777;
+        font-size: 1.4rem;
+        &.name {
+          font-size: 1.6rem;
+          color: #333;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  .price {
+    width: 25%;
+    text-align: center;
+    // padding-left: 1.2rem;
+  }
+
+  .remove-button {
+    // text-align: center;
+    // align-self: center;
+    // justify-self: center;
+    // padding-left: 12px;
+    // width: 25%;
+    // text-align: center;
+    margin: 0 auto;
+    cursor: pointer;
+    .remove-icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      color: #555;
+    }
+  }
+}

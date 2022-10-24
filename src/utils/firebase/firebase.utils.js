@@ -151,12 +151,60 @@ export const updateCartDB = async (currentUser, currentCart) => {
 };
 
 export const getCartDB = async (currentUser) => {
-  const userDocRef = doc(db, "users", currentUser.id, "cart");
-  const q = query(userDocRef);
+  if (!currentUser) {
+    console.log("error: user not loaded yet");
+    throw { code: "654", message: "no user signed in" };
+  }
+  const userDocRef = doc(db, "users", currentUser.id);
+  const user = await getDoc(userDocRef);
+  if (!user.exists()) {
+    console.log("error: no user signed in");
+    throw { code: "654", message: "no user signed in" };
+  }
+  const myCart = user.data().cart;
+  return myCart;
+};
 
-  const querySnapshot = await getDocs(q);
-  const data = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
-  console.log(data);
+export const updateWishlistDB = async (currentUser, currentWishlist) => {
+  if (!currentUser) {
+    console.log("error: user not loaded yet");
+    throw { code: "654", message: "no user signed in" };
+  }
+  const usersRef = collection(db, "users");
+  const userDocRef = doc(db, "users", currentUser.id);
+  const batch = writeBatch(db);
+
+  const user = await getDoc(userDocRef);
+
+  if (!user.exists()) {
+    console.log("error: no user signed in");
+    throw { code: "654", message: "no user signed in" };
+  }
+  if (!user.data().wishlist) {
+    batch.set(userDocRef, { ...currentUser, wishlist: currentWishlist });
+  } else {
+    batch.update(userDocRef, {
+      wishlist: currentWishlist,
+    });
+  }
+
+  await batch.commit();
+  return "Updated Wishlist";
+};
+
+export const getWishlistDB = async (currentUser) => {
+  if (!currentUser) {
+    console.log("error: user not loaded yet");
+    throw { code: "654", message: "no user signed in" };
+  }
+  const userDocRef = doc(db, "users", currentUser.id);
+  const user = await getDoc(userDocRef);
+  if (!user.exists()) {
+    console.log("error: no user signed in");
+    throw { code: "654", message: "no user signed in" };
+  }
+  const myWishlist = user.data().wishlist;
+  return myWishlist;
 };
 
 export const addOrderDB = async (currentUser, newOrder) => {
@@ -221,6 +269,7 @@ export const createUserDocFromAuth = async (
         email,
         createdAt,
         cart: [],
+        wishlist: [],
         orders: {},
         ...additionalInformation,
       });

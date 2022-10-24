@@ -1,16 +1,16 @@
-.cart-icon-container {
+.wishlist-icon-container {
   display: flex;
   // flex-direction: column;
   // gap: 0.8rem;
-  align-items: center;
   color: #777;
-  .cart-icon {
+  align-items: center;
+  .wishlist-icon {
     width: 2.4rem;
     height: 2.4rem;
     // transform: scale(1.5);
     transition: all 0.3s;
   }
-  .cart-num {
+  .wishlist-num {
     width: 2.4rem;
     text-align: center;
     font-size: 1.8rem;

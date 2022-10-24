@@ -1,26 +1,36 @@
 import Button from "../button/button.component";
 import "./product-card.styles.scss";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import CartItem from "../cart-item/cart-item.component";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectCartItems } from "../../redux-store/cart/cart.selector";
+import { selectWishlistItems } from "../../redux-store/wishlist/wishlist.selector";
 import { selectCurrentUser } from "../../redux-store/user/user.selector";
 import {
   setIsCartOpen,
   addItemToCart,
 } from "../../redux-store/cart/cart.action";
+import {
+  setIsWishlistOpen,
+  addItemToWishlist,
+  removeItemFromWishlist,
+} from "../../redux-store/wishlist/wishlist.action";
 
 const ProductCard = ({ product }) => {
   const { name, price, imageUrl } = product;
-  const [fillHeart, setFillHeart] = useState(false);
   const [inFavorites, setInFavorites] = useState(false);
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
+  const wishlistItems = useSelector(selectWishlistItems);
+  const [fillHeart, setFillHeart] = useState(false);
   const currentUser = useSelector(selectCurrentUser);
-  const test = "test";
+
+  const checkFavorite = () => {
+    wishlistItems.map((item) => item.id === product.id && setInFavorites(true));
+  };
 
   const handleAddToCart = () => {
     dispatch(addItemToCart(cartItems, product, currentUser));
@@ -38,8 +48,18 @@ const ProductCard = ({ product }) => {
     setFillHeart(false);
   };
   const handleClick = () => {
-    inFavorites ? setInFavorites(false) : setInFavorites(true);
+    if (inFavorites) {
+      setInFavorites(false);
+      dispatch(removeItemFromWishlist(wishlistItems, product, currentUser));
+    } else {
+      setInFavorites(true);
+      dispatch(addItemToWishlist(wishlistItems, product, currentUser));
+    }
   };
+
+  useEffect(() => {
+    checkFavorite();
+  }, []);
 
   return (
     <div className="product-card-container">

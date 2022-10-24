@@ -5,6 +5,7 @@ import { selectCurrentUser } from "../../redux-store/user/user.selector";
 
 import "./navigation.styles.scss";
 import { RiSearchLine } from "react-icons/ri";
+import WishlistIcon from "../../components/wishlist-icon/wishlist-icon.component";
 import CartIcon from "../../components/cart-icon/cart-icon.components";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.components";
 import { selectIsCartOpen } from "../../redux-store/cart/cart.selector";
@@ -16,6 +17,7 @@ import { fetchCategoriesStart } from "../../redux-store/categories/category.acti
 import { signOutStart } from "../../redux-store/user/user.action";
 import { RiArrowUpSLine, RiArrowDropDownFill } from "react-icons/ri";
 import { setCart, setCartNoUser } from "../../redux-store/cart/cart.action";
+import { setWishlist } from "../../redux-store/wishlist/wishlist.action";
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
@@ -42,13 +44,15 @@ const Navigation = () => {
     !window.location.href.includes("auth") && currentUser
       ? dispatch(setCart(currentUser.cart, currentUser))
       : dispatch(setCart([], null));
+    !window.location.href.includes("auth") && currentUser
+      ? dispatch(setWishlist(currentUser.wishlist, currentUser))
+      : dispatch(setWishlist([], null));
   }, [currentUser]);
 
   useEffect(() => {
     dispatch(fetchCategoriesStart());
   }, []);
   // Search
-  // gfds;
   useEffect(() => {
     const newFilteredProducts = allProducts.filter((product) =>
       product.name.toLowerCase().includes(searchField)
@@ -154,6 +158,11 @@ const Navigation = () => {
               </Link>
             )}
             <li>
+              <Link className="nav-link wishlist-link" to="/wishlist">
+                <WishlistIcon></WishlistIcon>
+              </Link>
+            </li>
+            <li>
               <Link className="nav-link cart-link">
                 <CartIcon></CartIcon>
               </Link>
@@ -255,6 +264,11 @@ const Navigation = () => {
                 </Link>
               </li>
             )}
+            <li>
+              <Link className="nav-link-sticky wishlist-link" to="/wishlist">
+                <WishlistIcon></WishlistIcon>
+              </Link>
+            </li>
             <li>
               <Link className="nav-link-sticky cart-link">
                 <CartIcon></CartIcon>

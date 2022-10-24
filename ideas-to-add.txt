@@ -32,7 +32,7 @@ PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
 
 14. Mobile navigation menu
 
-15. Specialize site based on user: 
+15. Specialize site based on user:
   - cart ------------- V
   - Wishlist
   - currency

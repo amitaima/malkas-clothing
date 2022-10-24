@@ -35,8 +35,12 @@ $sub-color: #777;
   justify-content: center;
   align-items: center;
   gap: 4.8rem;
+  // gap: 2.4rem;
   list-style: none;
   font-size: 1.6rem;
+  &.header-nav-list {
+    gap: 3.2rem;
+  }
 
   .dropdown {
     display: flex;
@@ -167,10 +171,12 @@ $sub-color: #777;
 }
 
 .cart-link:hover {
-  .cart-icon {
+  .cart-icon-container {
     color: $accent-color-tint;
   }
-  .cart-num {
+}
+.wishlist-link:hover {
+  .wishlist-icon-container {
     color: $accent-color-tint;
   }
 }
@@ -348,6 +354,7 @@ $sub-color: #777;
   .header-nav-list {
     align-self: flex-start;
     justify-self: right;
+    gap: 3.6rem;
     .nav-link-sticky {
       text-transform: none;
       letter-spacing: 0;

@@ -1,7 +1,7 @@
 import Button from "../button/button.component";
 import "./search-item.styles.scss";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import CartItem from "../cart-item/cart-item.component";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,15 +11,26 @@ import {
   addItemToCart,
   setIsCartOpen,
 } from "../../redux-store/cart/cart.action";
+import { selectWishlistItems } from "../../redux-store/wishlist/wishlist.selector";
+import {
+  setIsWishlistOpen,
+  addItemToWishlist,
+  removeItemFromWishlist,
+} from "../../redux-store/wishlist/wishlist.action";
 
 const SearchItem = ({ product }) => {
   const { name, price, imageUrl } = product;
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const currentUser = useSelector(selectCurrentUser);
+  const wishlistItems = useSelector(selectWishlistItems);
 
   const [fillHeart, setFillHeart] = useState(false);
   const [inFavorites, setInFavorites] = useState(false);
+
+  const checkFavorite = () => {
+    wishlistItems.map((item) => item.id === product.id && setInFavorites(true));
+  };
 
   const handleAddToCart = () => {
     dispatch(addItemToCart(cartItems, product, currentUser));
@@ -37,8 +48,18 @@ const SearchItem = ({ product }) => {
     setFillHeart(false);
   };
   const handleClick = () => {
-    inFavorites ? setInFavorites(false) : setInFavorites(true);
+    if (inFavorites) {
+      setInFavorites(false);
+      dispatch(removeItemFromWishlist(wishlistItems, product, currentUser));
+    } else {
+      setInFavorites(true);
+      dispatch(addItemToWishlist(wishlistItems, product, currentUser));
+    }
   };
+
+  useEffect(() => {
+    checkFavorite();
+  }, []);
 
   return (
     <div className="search-item-container">
