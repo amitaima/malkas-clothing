@@ -49,9 +49,13 @@
       }
     }
   }
-  .name,
-  .quantity,
-  .price {
-    width: 14%;
+  .quantity-value,
+  .price-value {
+    width: 15%;
+    text-align: center;
+  }
+  .total-value {
+    width: 20%;
+    text-align: center;
   }
 }

@@ -23,7 +23,7 @@ const Wishlist = () => {
 
   return (
     <section className="wishlist-container">
-      {/* <h1>Checkout</h1> */}
+      <h1>Wishlist</h1>
       <div className="wishlist-header">
         <span className="header-block">WISHLIST ({wishlistCount})</span>
         <span className="header-block">PRICE</span>

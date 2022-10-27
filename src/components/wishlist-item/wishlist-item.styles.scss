@@ -7,14 +7,14 @@
   font-size: 1.6rem;
   align-items: center;
   .product-info {
-    width: 50%;
+    width: 70%;
     display: flex;
-    gap: 2.4rem;
+    gap: 1.8rem;
     align-items: center;
 
     .image-container {
       // ** To return to fixed sizing **
-      width: 33%;
+      width: 25%;
       // height: 23rem; // ** uncomment this **
       // padding-right: 1.6rem;
       display: flex;
@@ -35,6 +35,8 @@
     }
     .item-details {
       width: 67%;
+      align-self: stretch;
+      padding: 2.4rem 0;
       display: flex;
       flex-direction: column;
       gap: 1.4rem;
@@ -43,6 +45,11 @@
       .quantity,
       .price {
         width: 100%;
+      }
+      .price {
+        font-size: 1.6rem;
+        margin-top: auto;
+        font-weight: 600;
       }
       span {
         color: #777;
@@ -55,25 +62,35 @@
       }
     }
   }
-  .price {
-    width: 25%;
-    text-align: center;
-    // padding-left: 1.2rem;
-  }
-
-  .remove-button {
-    // text-align: center;
-    // align-self: center;
-    // justify-self: center;
-    // padding-left: 12px;
-    // width: 25%;
-    // text-align: center;
-    margin: 0 auto;
-    cursor: pointer;
-    .remove-icon {
-      width: 2.4rem;
-      height: 2.4rem;
-      color: #555;
+  // .price {
+  //   width: 25%;
+  //   text-align: center;
+  //   // padding-left: 1.2rem;
+  // }
+  .wishlist-actions {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    align-self: stretch;
+    padding: 1.2rem 2.4rem;
+    .remove-button {
+      text-align: center;
+      // align-self: center;
+      // justify-self: center;
+      // padding-left: 12px;
+      // width: 25%;
+      // text-align: center;
+      cursor: pointer;
+      .remove-icon {
+        width: 2.4rem;
+        height: 2.4rem;
+        color: #555;
+      }
+    }
+    .add-to-cart {
+      // width: 20%;
     }
   }
 }

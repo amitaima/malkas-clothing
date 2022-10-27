@@ -15,9 +15,9 @@ const OrderSummaryItem = ({ cartItem }) => {
           <span className="size">Size: S</span>
         </div>
       </div>
-      <span className="quantity">{quantity}</span>
-      <span className="price">${price}</span>
-      <span className="price">${quantity * price}</span>
+      <span className="quantity-value">{quantity}</span>
+      <span className="price-value">${price}</span>
+      <span className="total-value">${quantity * price}</span>
     </div>
   );
 };
