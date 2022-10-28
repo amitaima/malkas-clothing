@@ -13,6 +13,7 @@
     "cp-react-px-shipping": "^1.1.12",
     "dotenv": "^16.0.3",
     "firebase": "^9.10.0",
+    "hamburger-react": "^2.5.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",

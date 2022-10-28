@@ -23,12 +23,12 @@ const Wishlist = () => {
 
   return (
     <section className="wishlist-container">
-      <h1>Wishlist</h1>
-      <div className="wishlist-header">
+      <h1 className="page-header">Wishlist</h1>
+      {/* <div className="wishlist-header">
         <span className="header-block">WISHLIST ({wishlistCount})</span>
         <span className="header-block">PRICE</span>
         <span className="header-block">REMOVE</span>
-      </div>
+      </div> */}
       <div className="product-list">
         {wishlistItems.map((item) => {
           return <WishlistItem key={item.id} wishlistItem={item} />;

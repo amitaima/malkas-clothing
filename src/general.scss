@@ -91,12 +91,30 @@ section {
 }
 
 /**************************/
+/* BELOW 1200px (Phones) */
+/**************************/
+
+@media (max-width: 75em) {
+  html {
+    /* font-size: 9px; = 1 rem */
+    /* 65.5% from users font size settings */
+    font-size: 56.25%;
+  }
+  body {
+    margin-top: 10rem;
+  }
+  .hero-img {
+    height: 93vh !important;
+  }
+}
+
+/**************************/
 /* BELOW 544px (Phones) */
 /**************************/
 
 @media (max-width: 34em) {
   html {
-    /* font-size: 10px; = 1 rem */
+    /* font-size: 7.2px; = 1 rem */
     /* 65.5% from users font size settings */
     font-size: 45%;
   }
@@ -127,4 +145,16 @@ section {
   border: 1px solid transparent;
   background-clip: content-box;
   border-radius: 10px;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
