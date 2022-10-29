@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 
 import CategoriesPage from "../categories-page/categories-page.component";
 import Category from "../category/category.component";
+import Product from "../product/product.component";
 import "./shop.styles.scss";
 import { useEffect } from "react";
 import { getCategoriesandDocuments } from "../../utils/firebase/firebase.utils";
@@ -24,6 +25,7 @@ const Shop = () => {
     <Routes>
       <Route index element={<CategoriesPage />} />
       <Route path=":category" element={<Category />} />
+      
     </Routes>
   );
 };

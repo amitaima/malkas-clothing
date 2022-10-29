@@ -1,0 +1,53 @@
+.aside-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 500;
+  }
+  span {
+    font-size: 1.8rem;
+    font-weight: 400;
+  }
+  .size-selector {
+    border-radius: 0;
+    color: #333;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.6rem;
+    padding: 1.2rem;
+  }
+  .aside-actions-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2.4rem;
+    .aside-cart-btn {
+      flex-grow: 1;
+    }
+    .favorite-div {
+      width: 4rem;
+      height: 4rem;
+      // margin: 1.2rem;
+      background-color: #e7ebee;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      transition: all 0.3s;
+      cursor: pointer;
+      // opacity: 0.8;
+      // transform: scale(0.8);
+      &.active {
+        // opacity: 1;
+        // transform: scale(1);
+      }
+      .favorite-icon {
+        width: 2.4rem;
+        height: 2.4rem;
+        color: #0c3256;
+        transition: all 0.3s;
+      }
+    }
+  }
+}

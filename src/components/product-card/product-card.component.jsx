@@ -2,6 +2,7 @@ import Button from "../button/button.component";
 import "./product-card.styles.scss";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import CartItem from "../cart-item/cart-item.component";
 
@@ -23,6 +24,7 @@ const ProductCard = ({ product }) => {
   const { name, price, imageUrl } = product;
   const [inFavorites, setInFavorites] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cartItems = useSelector(selectCartItems);
   const wishlistItems = useSelector(selectWishlistItems);
   const [fillHeart, setFillHeart] = useState(false);
@@ -47,7 +49,7 @@ const ProductCard = ({ product }) => {
   const handleLeave = () => {
     setFillHeart(false);
   };
-  const handleClick = () => {
+  const handleFavoritesClick = () => {
     if (inFavorites) {
       setInFavorites(false);
       dispatch(removeItemFromWishlist(wishlistItems, product, currentUser));
@@ -57,19 +59,27 @@ const ProductCard = ({ product }) => {
     }
   };
 
+  const goToProduct = () => {
+    navigate(`/product/${product.id}`, {
+      state: {
+        product,
+      },
+    });
+  };
+
   useEffect(() => {
     checkFavorite();
   }, []);
 
   return (
     <div className="product-card-container">
-      <div className="img-div">
+      <div className="img-div" onClick={goToProduct}>
         <img src={imageUrl} alt={`Product photo of a ${name}`} />
       </div>
       <div
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}
-        onClick={handleClick}
+        onClick={handleFavoritesClick}
         className={`favorite-div ${inFavorites ? "active" : ""}`}
       >
         {inFavorites ? (

@@ -20,21 +20,21 @@ PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
 
 8. Change currency by country
 
-9. Implement Product page 
+9. Implement Product page
 
 10. Implement search -------------- V (could add recommended products when no search is entered)
 
-11. Implement pay and checkout steps
+11. Implement pay and checkout steps -------------- V
 
 12. Recommended items in checkout and in product pages
 
 13. Add genders to products so you can categorize by gender
 
-14. Mobile navigation menu
+14. Mobile navigation menu ------------- V
 
 15. Specialize site based on user:
   - cart ------------- V
-  - Wishlist
+  - Wishlist ------------ V
   - currency
   - name ------------- V
   - shipping address
