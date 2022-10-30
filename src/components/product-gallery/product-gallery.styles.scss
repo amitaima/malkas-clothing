@@ -43,6 +43,11 @@
   }
   .gallery-carousel {
     position: relative;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    flex-grow: 1;
     .carousel-img {
       width: 100%;
       height: 100%;

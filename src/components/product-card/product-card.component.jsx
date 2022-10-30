@@ -73,30 +73,34 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="product-card-container">
-      <div className="img-div" onClick={goToProduct}>
-        <img src={imageUrl} alt={`Product photo of a ${name}`} />
+      <div className="img-btn-div">
+        <div className="img-div" onClick={goToProduct}>
+          <img src={imageUrl} alt={`Product photo of a ${name}`} />
+        </div>
+        <div
+          onMouseEnter={handleEnter}
+          onMouseLeave={handleLeave}
+          onClick={handleFavoritesClick}
+          className={`favorite-div ${inFavorites ? "active" : ""}`}
+        >
+          {inFavorites ? (
+            <RiHeart3Fill className="favorite-icon" />
+          ) : fillHeart ? (
+            <RiHeart3Fill className="favorite-icon" />
+          ) : (
+            <RiHeart3Line className="favorite-icon" />
+          )}
+        </div>
+        <div className="btn-div">
+          <Button
+            buttonType="inverted"
+            className="no-border add-to-cart"
+            onClick={handleAddToCart}
+          >
+            Add to cart
+          </Button>
+        </div>
       </div>
-      <div
-        onMouseEnter={handleEnter}
-        onMouseLeave={handleLeave}
-        onClick={handleFavoritesClick}
-        className={`favorite-div ${inFavorites ? "active" : ""}`}
-      >
-        {inFavorites ? (
-          <RiHeart3Fill className="favorite-icon" />
-        ) : fillHeart ? (
-          <RiHeart3Fill className="favorite-icon" />
-        ) : (
-          <RiHeart3Line className="favorite-icon" />
-        )}
-      </div>
-      <Button
-        buttonType="inverted"
-        className="no-border add-to-cart"
-        onClick={handleAddToCart}
-      >
-        Add to cart
-      </Button>
       <div className="info">
         <span className="companyName">MALKA'S</span>
         <div className="name-div">
