@@ -1,8 +1,8 @@
 import "./recommended-items.styles.scss";
+
 import { selectCategoriesMap } from "../../redux-store/categories/category.selector";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-
 import ProductCard from "../product-card/product-card.component";
 
 const RecommendedItems = () => {
@@ -14,9 +14,16 @@ const RecommendedItems = () => {
 
   useEffect(() => {
     if (products.length) return;
+    if (!categoriesMap) return;
+    if (!allProducts) return;
     setProducts(allProducts.slice(randomNum, randomNum + 4));
-    console.log(allProducts.slice(randomNum, randomNum + 4));
-  }, [products]);
+  }, [allProducts]);
+  useEffect(() => {
+    if (products.length) return;
+    if (!categoriesMap) return;
+    if (!allProducts) return;
+    setProducts(allProducts.slice(randomNum, randomNum + 4));
+  }, [categoriesMap]);
 
   return (
     <section className="section-recommended-items">

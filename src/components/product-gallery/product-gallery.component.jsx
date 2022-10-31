@@ -1,5 +1,5 @@
 import "./product-gallery.styles.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
 import { RiShareLine } from "react-icons/ri";
 
@@ -30,6 +30,9 @@ const ProductGallery = ({ product }) => {
     }
     setCurrentImg([currentImg[0] - 1, SIDE_IMAGES[currentImg[0] - 2]]);
   };
+  useEffect(() => {
+    setCurrentImg([0, product.imageUrl]);
+  }, [product]);
 
   return (
     <div className="gallery-container">

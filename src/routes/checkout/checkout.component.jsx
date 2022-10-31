@@ -11,6 +11,8 @@ import {
   selectCartCount,
   selectCartTotal,
 } from "../../redux-store/cart/cart.selector";
+import RecommendedItems from "../../components/recommended-items/recommended-items.components";
+import { Fragment } from "react";
 
 const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
@@ -27,28 +29,31 @@ const Checkout = () => {
   }, []);
 
   return (
-    <section className="checkout-container">
-      {/* <h1>Checkout</h1> */}
-      <div className="checkout-header">
-        <span className="header-block">SHOPPING BAG ({cartCount})</span>
-        <span className="header-block">QTY</span>
-        <span className="header-block">PRICE</span>
-        <span className="header-block">TOTAL</span>
-        <span className="header-block">REMOVE</span>
-      </div>
-      <div className="product-list">
-        {cartItems.map((item) => {
-          return <CheckoutItem key={item.id} cartItem={item} />;
-        })}
-      </div>
-      <div className="checkout-summary">
-        <div className="subtotal">
-          <span>SUBTOTAL</span>
-          <span>${cartTotal}</span>
+    <Fragment>
+      <section className="checkout-container">
+        {/* <h1>Checkout</h1> */}
+        <div className="checkout-header">
+          <span className="header-block">SHOPPING BAG ({cartCount})</span>
+          <span className="header-block">QTY</span>
+          <span className="header-block">PRICE</span>
+          <span className="header-block">TOTAL</span>
+          <span className="header-block">REMOVE</span>
         </div>
-        <Button onClick={toPaymentPage}>Proceed To Checkout</Button>
-      </div>
-    </section>
+        <div className="product-list">
+          {cartItems.map((item) => {
+            return <CheckoutItem key={item.id} cartItem={item} />;
+          })}
+        </div>
+        <div className="checkout-summary">
+          <div className="subtotal">
+            <span>SUBTOTAL</span>
+            <span>${cartTotal}</span>
+          </div>
+          <Button onClick={toPaymentPage}>Proceed To Checkout</Button>
+        </div>
+      </section>
+      <RecommendedItems />
+    </Fragment>
   );
 };
 
