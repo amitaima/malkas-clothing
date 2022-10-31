@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ProductGallery from "../../components/product-gallery/product-gallery.component";
 import ProductAside from "../../components/product-aside/product-aside.component";
+import RecommendedItems from "../../components/recommended-items/recommended-items.components";
 
 const Product = () => {
   const location = useLocation();
@@ -10,7 +11,6 @@ const Product = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log("inside product page");
   }, []);
 
   return (
@@ -23,7 +23,7 @@ const Product = () => {
           <ProductAside product={product} />
         </aside>
       </section>
-      <section>Recommended items</section>
+      <RecommendedItems />
     </div>
   );
 };

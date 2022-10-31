@@ -20,6 +20,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      align-self: stretch;
+      // flex-grow: 1;
 
       img {
         // width: 80%; // ** uncomment this **
