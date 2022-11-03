@@ -3,7 +3,10 @@ import { useLocation } from "react-router-dom";
 import ProductGallery from "../../components/product-gallery/product-gallery.component";
 import ProductAside from "../../components/product-aside/product-aside.component";
 import RecommendedItems from "../../components/recommended-items/recommended-items.components";
-import { selectCategoriesMap } from "../../redux-store/categories/category.selector";
+import {
+  selectCategoriesMap,
+  selectCategoriesIsLoading,
+} from "../../redux-store/categories/category.selector";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
@@ -11,12 +14,12 @@ const Product = () => {
   const location = useLocation();
   const [product, setProduct] = useState({});
   const categoriesMap = useSelector(selectCategoriesMap);
-
+  const isLoading = useSelector(selectCategoriesIsLoading);
   const allProducts = Object.values(categoriesMap).flat();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log(JSON.parse(localStorage.getItem("current-product")));
+    // console.log(JSON.parse(localStorage.getItem("current-product")));
     if (
       localStorage.getItem("current-product") === null ||
       location.state?.product

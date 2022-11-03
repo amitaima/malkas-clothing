@@ -86,12 +86,17 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  position: absolute;
+  width: 100%;
+}
+
 section {
   padding-bottom: 9.6rem;
 }
 
 /**************************/
-/* BELOW 1200px (Phones) */
+/* BELOW 1200px (Big Tablets) */
 /**************************/
 
 @media (max-width: 75em) {
@@ -105,6 +110,9 @@ section {
   }
   .hero-img {
     height: 93vh !important;
+  }
+  .hero {
+    left: 50% !important;
   }
 }
 

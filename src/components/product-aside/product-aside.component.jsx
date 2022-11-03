@@ -11,15 +11,30 @@ import {
   removeItemFromWishlist,
   addItemToWishlist,
 } from "../../redux-store/wishlist/wishlist.action";
+import {
+  setIsCartOpen,
+  addItemToCart,
+} from "../../redux-store/cart/cart.action";
+import { selectCartItems } from "../../redux-store/cart/cart.selector";
 import { selectCurrentUser } from "../../redux-store/user/user.selector";
 
 const ProductAside = ({ product }) => {
   const { name, price } = product;
   const dispatch = useDispatch();
   const [inFavorites, setInFavorites] = useState(false);
+  const cartItems = useSelector(selectCartItems);
   const wishlistItems = useSelector(selectWishlistItems);
   const currentUser = useSelector(selectCurrentUser);
   const [fillHeart, setFillHeart] = useState(false);
+
+  const handleAddToCart = () => {
+    dispatch(addItemToCart(cartItems, product, currentUser));
+    dispatch(setIsCartOpen(true));
+    setTimeout(() => {
+      dispatch(setIsCartOpen(false));
+    }, 2000);
+  };
+
   const checkFavorite = () => {
     wishlistItems.map((item) => item.id === product.id && setInFavorites(true));
   };
@@ -59,7 +74,9 @@ const ProductAside = ({ product }) => {
         </select>
       </div>
       <div className="aside-actions-div">
-        <Button className="aside-cart-btn inverted">Add To Cart</Button>
+        <Button onClick={handleAddToCart} className="aside-cart-btn inverted">
+          Add To Cart
+        </Button>
         <div
           onMouseEnter={handleEnter}
           onMouseLeave={handleLeave}
