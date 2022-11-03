@@ -24,12 +24,20 @@
   }
 }
 
-@media (max-width: 45em) {
+@media (max-width: 34em) {
   .category {
     .categories-container {
       flex-direction: column;
       gap: 2.4rem;
       padding: 0 4.8rem;
+      .directory-item-container {
+        height: 30vh;
+      }
+    }
+  }
+  .gender {
+    .categories-container {
+      flex-direction: column;
       .directory-item-container {
         height: 30vh;
       }
