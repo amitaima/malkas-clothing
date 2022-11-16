@@ -8,18 +8,19 @@ import {
   selectCategoriesIsLoading,
 } from "../../redux-store/categories/category.selector";
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
+import Spinner from "../../components/spinner/spinner.component";
 
 const Product = () => {
   const location = useLocation();
   const [product, setProduct] = useState({});
   const categoriesMap = useSelector(selectCategoriesMap);
-  const isLoading = useSelector(selectCategoriesIsLoading);
+  // const isLoading = useSelector(selectCategoriesIsLoading);
   const allProducts = Object.values(categoriesMap).flat();
-
   useEffect(() => {
     window.scrollTo(0, 0);
     // console.log(JSON.parse(localStorage.getItem("current-product")));
+    if (allProducts.length === 0) return;
     if (
       localStorage.getItem("current-product") === null ||
       location.state?.product
@@ -27,9 +28,23 @@ const Product = () => {
       setProduct(location.state.product);
       localStorage.setItem("current-product", JSON.stringify(product));
     } else {
-      setProduct(JSON.parse(localStorage.getItem("current-product")));
+      if (localStorage.getItem("current-product")) {
+        if (
+          JSON.parse(localStorage.getItem("current-product")).id.toString() ===
+          window.location.pathname.slice(9)
+        ) {
+          setProduct(JSON.parse(localStorage.getItem("current-product")));
+        } else {
+          setProduct(
+            allProducts.filter(
+              (product) =>
+                product.id.toString() === window.location.pathname.slice(9)
+            )[0]
+          );
+        }
+      }
     }
-  }, [window.location.href]);
+  }, [window.location.href, allProducts]);
   // useEffect(() => {
   //   if (!product.length) {
   //     if (location.state) {
@@ -81,15 +96,21 @@ const Product = () => {
 
   return (
     <div>
-      <section className="product-container">
-        <div className="product-gallery-div">
-          <ProductGallery product={product} />
-        </div>
-        <aside className="product-aside-div">
-          <ProductAside product={product} />
-        </aside>
-      </section>
-      <RecommendedItems />
+      {Object.keys(product).length === 0 ? (
+        <Spinner />
+      ) : (
+        <Fragment>
+          <section className="product-container">
+            <div className="product-gallery-div">
+              <ProductGallery product={product} />
+            </div>
+            <aside className="product-aside-div">
+              <ProductAside product={product} />
+            </aside>
+          </section>
+          <RecommendedItems />
+        </Fragment>
+      )}
     </div>
   );
 };

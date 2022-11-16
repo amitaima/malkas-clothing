@@ -17,20 +17,19 @@ const RecommendedItems = () => {
   const isLoading = useSelector(selectCategoriesIsLoading);
   const allProducts = Object.values(categoriesMap).flat();
   const randomNum = Math.floor(Math.random() * allProducts.length) - 4;
-  // const [products, setProducts] = useState(
-  //   allProducts.slice(randomNum, randomNum + 4)
-  // );
-  const products = allProducts.slice(randomNum, randomNum + 4);
+  const [products, setProducts] = useState(
+    allProducts.slice(randomNum, randomNum + 4)
+  );
+  // const products = allProducts.slice(randomNum, randomNum + 4);
   // console.log(products);
   // const products = allProducts.slice(randomNum, randomNum + 4);
 
-  // useEffect(() => {
-  //   console.log(allProducts);
-  //   if (products.length) return;
-  //   if (!categoriesMap) return;
-  //   if (!allProducts) return;
-  //   setProducts(allProducts.slice(randomNum, randomNum + 4));
-  // }, [allProducts]);
+  useEffect(() => {
+    if (!categoriesMap) return;
+    if (!allProducts) return;
+    const randomNum = Math.floor(Math.random() * allProducts.length) - 4;
+    setProducts(allProducts.slice(randomNum, randomNum + 4));
+  }, [isLoading, window.location.href]);
   // useEffect(() => {
   //   console.log(allProducts);
   //   if (products.length) return;
@@ -41,7 +40,10 @@ const RecommendedItems = () => {
 
   return (
     <Fragment>
-      {isLoading ? (
+      {products.length === 0
+        ? setProducts(allProducts.slice(randomNum, randomNum + 4))
+        : ""}
+      {products.length === 0 ? (
         <Spinner />
       ) : (
         <section className="section-recommended-items">

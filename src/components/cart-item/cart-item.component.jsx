@@ -5,8 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeItemFromCart } from "../../redux-store/cart/cart.action";
 import { selectCartItems } from "../../redux-store/cart/cart.selector";
 import { selectCurrentUser } from "../../redux-store/user/user.selector";
+import { memo } from "react";
 
-const CartItem = ({ cartItem }) => {
+const CartItem = memo(({ cartItem }) => {
   const { name, price, imageUrl, quantity } = cartItem;
   const cartItems = useSelector(selectCartItems);
   const currentUser = useSelector(selectCurrentUser);
@@ -41,6 +42,6 @@ const CartItem = ({ cartItem }) => {
       </div>
     </div>
   );
-};
+});
 
 export default CartItem;

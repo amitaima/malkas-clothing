@@ -5,6 +5,7 @@ import CartItem from "../cart-item/cart-item.component";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCartItems } from "../../redux-store/cart/cart.selector";
 import { setIsCartOpen } from "../../redux-store/cart/cart.action";
+import { useCallback, useMemo } from "react";
 
 const CartDropdown = () => {
   const dispatch = useDispatch();
@@ -19,10 +20,10 @@ const CartDropdown = () => {
     dispatch(setIsCartOpen(true));
   };
 
-  const goToCheckout = () => {
+  const goToCheckout = useCallback(() => {
     navigate("/checkout");
     close();
-  };
+  }, []);
 
   return (
     <div
