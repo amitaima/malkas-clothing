@@ -58,7 +58,7 @@ const OrderInfo = () => {
     <section className="order-info-container">
       {thisOrder && thisOrder !== [] && thisOrder[1] ? (
         <Fragment>
-          <div className="confirmation-msg-div">
+          <section className="confirmation-msg-div">
             <Link className="back-link" to="../">
               <RiArrowLeftLine className="arrow-icon" />
             </Link>
@@ -68,7 +68,7 @@ const OrderInfo = () => {
             <p className="thank-you-msg">
               The order has been shipped and should arrive shorlty, Thank you!
             </p>
-          </div>
+          </section>
           <h3 className="order-summary-title">Order Summary</h3>
           <div className="order-summary-div">
             <OrderSummary

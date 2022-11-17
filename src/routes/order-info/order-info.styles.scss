@@ -6,19 +6,24 @@
   // margin: 0 auto;
   // justify-content: center;
   align-items: center;
-  padding: 4.8rem 9.6rem;
+  // padding: 4.8rem 9.6rem;
   padding-bottom: 9.6rem;
   // border-right: 1px solid #114678;
   // border-left: 1px solid #114678;
+
   .confirmation-msg-div {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
     max-width: 150rem;
     gap: 2.4rem;
+    padding: 0;
     // justify-content: center;
     align-items: center;
     position: relative;
+    @media (max-width: 34em) {
+      width: 100%;
+    }
     .back-link {
       // padding-bottom: 2.4rem;
       // justify-self: flex-start;
@@ -30,7 +35,7 @@
       text-decoration: none;
       position: absolute;
       top: 0;
-      left: 3.6rem;
+      left: 0;
       cursor: pointer;
       .title {
         font-size: 2.4rem;
@@ -63,6 +68,7 @@
       color: #777;
       text-align: center;
       line-height: 1.5;
+      padding: 0 2.4rem;
 
       .user-email {
         font-weight: 500;
@@ -81,6 +87,7 @@
     max-width: 150rem;
     min-width: 50rem;
     .order-container {
+      padding-bottom: 0;
       .order-summary {
         align-self: center;
         border-top: 0px solid rgba(119, 119, 119, 0.5);
@@ -107,6 +114,10 @@
     gap: 3.2rem;
     align-items: center;
     padding-bottom: 4.8rem;
+    @media (max-width: 34em) {
+      gap: 1rem;
+      padding-bottom: 1.2rem;
+    }
     .details-info-div {
       span {
         font-size: 1.6rem;
@@ -115,6 +126,9 @@
       display: flex;
       gap: 15rem;
       align-items: flex-start;
+      @media (max-width: 34em) {
+        gap: 1rem;
+      }
       .details-title {
         display: flex;
         flex-direction: column;
