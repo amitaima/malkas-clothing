@@ -25,7 +25,7 @@ const Category = () => {
   }, [category, categoriesMap]);
 
   return (
-    <div className="category-page-container">
+    <section className="category-page-container">
       <div className="category-title-container">
         <Link className="back-link" to="../">
           <RiArrowLeftLine className="arrow-icon" />
@@ -44,7 +44,7 @@ const Category = () => {
             })}
         </div>
       )}
-    </div>
+    </section>
     // <section className="section-shop">
     //   {Object.keys(categoriesMap).map((title) => {
     //     const products = categoriesMap[title];

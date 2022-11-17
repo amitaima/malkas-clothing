@@ -41,6 +41,7 @@ $sub-color: #777;
       opacity: 0;
       transform: scale(0.5);
       transition: all 0.3s;
+      visibility: hidden;
       button {
         width: 80%;
         margin: 0 auto;
@@ -54,6 +55,9 @@ $sub-color: #777;
         // font-size: 1rem;
         // color: rgba(51, 51, 51, 0);
         // display: none;
+        @media screen and (max-width: 34em) {
+          padding: 0;
+        }
       }
     }
 
@@ -69,12 +73,14 @@ $sub-color: #777;
       justify-content: center;
       display: flex;
       opacity: 0;
+      visibility: hidden;
       transform: scale(0.5);
       transition: all 0.3s;
       cursor: pointer;
       &.active {
         opacity: 0.8;
         transform: scale(0.8);
+        visibility: visible;
       }
       .favorite-icon {
         width: 2.4rem;
@@ -85,27 +91,31 @@ $sub-color: #777;
     }
   }
 
-  &:hover {
-    img {
-      // opacity: 0.8;
-    }
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      img {
+        // opacity: 0.8;
+      }
 
-    .btn-div {
-      // width: 80%;
-      // height: 5rem;
-      // top: 32.5rem;
-      opacity: 1;
-      // font-size: 1.5rem;
-      transform: scale(1);
-      // color: #333;
-      // display: flex;
-    }
+      .btn-div {
+        // width: 80%;
+        // height: 5rem;
+        // top: 32.5rem;
+        opacity: 1;
+        // font-size: 1.5rem;
+        transform: scale(1);
+        visibility: visible;
+        // color: #333;
+        // display: flex;
+      }
 
-    .favorite-div {
-      transform: scale(1);
-      opacity: 1;
+      .favorite-div {
+        transform: scale(1);
+        opacity: 1;
+        visibility: visible;
 
-      .favorite-icon {
+        .favorite-icon {
+        }
       }
     }
   }

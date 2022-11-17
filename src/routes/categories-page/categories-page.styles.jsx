@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const CategoriesPageContainer = styled.section`
   max-width: 150rem;
-  padding: 4.8rem 9.6rem;
+
   margin: 0 auto;
 `;
+// padding: 4.8rem 9.6rem;
 
 //   .category-title {
 //     font-size: 2.4rem;

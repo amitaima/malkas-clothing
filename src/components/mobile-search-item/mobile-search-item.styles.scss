@@ -17,6 +17,9 @@ $sub-color: #777;
     display: flex;
     gap: 1.8rem;
     align-items: center;
+    @media screen and (max-width: 34em) {
+      gap: 2.8rem;
+    }
 
     .image-container {
       // ** To return to fixed sizing **
@@ -42,7 +45,7 @@ $sub-color: #777;
     .item-details {
       width: 67%;
       align-self: stretch;
-      padding: 2.4rem 0;
+      padding: 0;
       display: flex;
       flex-direction: column;
       gap: 1.4rem;

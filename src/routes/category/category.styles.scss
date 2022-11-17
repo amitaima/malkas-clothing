@@ -1,6 +1,6 @@
 .category-page-container {
   max-width: 150rem;
-  padding: 4.8rem 9.6rem;
+  // padding: 4.8rem 9.6rem;
   margin: 0 auto;
 
   .category-title-container {
@@ -48,6 +48,11 @@
     grid-template-columns: repeat(4, 1fr);
     column-gap: 1.6rem;
     row-gap: 4rem;
+    @media (max-width: 34em) {
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      grid-template-rows: auto auto;
+      overflow: hidden;
+    }
     // max-width: 150rem;
     // padding: 4.8rem 9.6rem;
     // margin: 0 auto;
