@@ -23,6 +23,13 @@ $sub-color: #777;
   align-items: center;
   transition: all 0.3s;
 
+  @media screen and (max-width: 34em) {
+    // display: block;
+    // opacity: 0.9;
+    min-width: unset;
+    padding: 0 1rem;
+  }
+
   &:hover {
     background-color: white;
     color: $accent-color;

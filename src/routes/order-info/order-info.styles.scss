@@ -77,8 +77,9 @@
   }
 
   .order-summary-div {
-    width: 50%;
+    // width: 50%;
     max-width: 150rem;
+    min-width: 50rem;
     .order-container {
       .order-summary {
         align-self: center;

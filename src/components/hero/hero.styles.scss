@@ -65,6 +65,9 @@ $sub-color: #777;
     text-transform: uppercase;
     font-family: "Playfair Display", serif;
     font-weight: 400;
+    @media screen and (max-width: 34em) {
+      font-size: 7rem;
+    }
   }
 
   p {
@@ -96,9 +99,11 @@ $sub-color: #777;
         }
 
         &:hover {
-          background-color: rgba(255, 255, 255, 0);
-          color: #0c3256;
-          box-shadow: 0 0 0 1px #0c3256;
+          // background-color: rgba(255, 255, 255, 0);
+          // color: #0c3256;
+          // box-shadow: 0 0 0 1px #0c3256;
+          color: #fff;
+          background-color: #071e33;
           // box-shadow: 0 0 0 1px #fff;
         }
       }

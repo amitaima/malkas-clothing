@@ -67,6 +67,10 @@ $sub-color: #777;
       width: 200%;
       perspective: 1000px;
       z-index: -1;
+      @media (max-width: 34em) {
+        width: 100%;
+        left: 0;
+      }
       // box-shadow: 0 2.4rem 2.4rem rgb(0 0 0 / 5%);
 
       &.dropdown_menu-2 {
@@ -418,7 +422,7 @@ $sub-color: #777;
   // padding: 1.8rem 3.6rem;
   height: 10rem;
   .search-btn {
-    margin-right: 4.8rem;
+    margin-right: 5.4rem;
     // z-index: 999;
   }
   .mobile-search-container {
@@ -529,16 +533,25 @@ $sub-color: #777;
       left: 50%;
       transform: translateX(-50%);
       padding: 3.6rem;
+      .name-container {
+        width: max-content;
+        .display-name {
+        }
+      }
+      @media (max-width: 34em) {
+        left: 0;
+        transform: unset;
+      }
     }
     .mobile-nav-list {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 32px;
+      gap: 3.2rem;
       list-style: none;
       .nav-link {
-        font-size: 32px;
+        font-size: 4rem;
         text-decoration: none;
         color: #777;
         cursor: pointer;

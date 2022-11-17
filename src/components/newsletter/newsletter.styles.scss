@@ -8,8 +8,19 @@ $sub-color: #777;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 9.6rem;
+  // padding-bottom: 9.6rem;
   position: relative;
+  @media screen and (max-width: 34em) {
+    padding-left: 4.8rem;
+    padding-right: 4.8rem;
+  }
+  h2 {
+    text-align: center;
+    font-size: 3.2rem;
+    @media screen and (max-width: 34em) {
+      font-size: 2.4rem;
+    }
+  }
   .error-msg {
     font-size: 1.8rem;
     color: rgba(255, 85, 85, 0.8);
@@ -40,9 +51,7 @@ $sub-color: #777;
     align-items: center;
     justify-content: center;
     h2 {
-      font-size: 3.2rem;
       text-transform: uppercase;
-      text-align: center;
       color: $accent-color;
       // margin: 1rem 0;
       // align-self: center;
@@ -63,7 +72,6 @@ $sub-color: #777;
 
     h2 {
       text-transform: uppercase;
-      font-size: 3.2rem;
       margin: 1rem 0;
       align-self: center;
       color: $accent-color;
@@ -74,7 +82,7 @@ $sub-color: #777;
       font-size: 1.8rem;
     }
     .unsubscribe {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       padding-top: 2.4rem;
       cursor: pointer;
     }
@@ -87,6 +95,9 @@ $sub-color: #777;
       // justify-content: space-between;
       .newsletter-btn {
         width: 25rem;
+        @media screen and (max-width: 34em) {
+          width: 20rem;
+        }
       }
     }
   }

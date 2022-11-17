@@ -74,7 +74,7 @@ function Home() {
     <Fragment>
       <Hero></Hero>
       <Directory categories={categories} className="category"></Directory>
-      <Directory categories={genders} className="gender"></Directory>
+      <Directory categories={genders} className="gender full-width"></Directory>
       <NewsLetter />
     </Fragment>
   );
