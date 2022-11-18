@@ -13,6 +13,7 @@ const SIDE_IMAGES = [
 const ProductGallery = ({ product }) => {
   // console.log(product);
   const [currentImg, setCurrentImg] = useState([0, product.imageUrl]);
+  const [isLoading, setIsLoading] = useState(true);
   const getNewImgUrl = (imgIndex, highQuality, firstImg = false) => {
     if (Object.keys(product).length === 0) return "";
     return product.imageUrl
@@ -63,12 +64,35 @@ const ProductGallery = ({ product }) => {
     setCurrentImg([currentImg[0] - 1, getNewImgUrl(currentImg[0], true)]);
   };
   useEffect(() => {
+    if (!product) return;
+    /* Loading new images before preview */
+    const img = new Image();
+    img.src = getNewImgUrl(1, true, true);
+    img.onload = function () {
+      setIsLoading(true);
+      // console.log("done 1");
+      img.src = getNewImgUrl(2, true);
+      img.onload = function () {
+        setIsLoading(true);
+        // console.log("done 2");
+        img.src = getNewImgUrl(3, true);
+        img.onload = function () {
+          setIsLoading(true);
+          // console.log("done 3");
+          img.src = getNewImgUrl(4, true);
+          img.onload = function () {
+            setIsLoading(false);
+            // console.log("done 4");
+          };
+        };
+      };
+    };
     setCurrentImg([0, getNewImgUrl(1, true, true)]);
   }, [product]);
 
   return (
     <div className="gallery-container">
-      {Object.keys(product).length === 0 ? (
+      {Object.keys(product).length === 0 || isLoading === true ? (
         <Spinner />
       ) : (
         <Fragment>

@@ -7,6 +7,13 @@
   align-items: stretch;
   // align-content: stretch;
   // padding: 0 2.4rem;
+  @media screen and (max-width: 34em) {
+    gap: 2.4rem;
+  }
+  @media screen and (max-width: 28em) {
+    flex-direction: column-reverse;
+    gap: 1.8rem;
+  }
 
   .gallery-aside-wrapper {
     // flex-grow: 1;
@@ -15,11 +22,17 @@
     justify-content: space-between;
     align-items: center;
     min-height: 100%;
+    @media screen and (max-width: 28em) {
+      flex-direction: row;
+    }
     .gallery-aside-list {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 2.4rem;
+      @media screen and (max-width: 28em) {
+        flex-direction: row;
+      }
 
       .gallery-aside-item {
         cursor: pointer;
@@ -48,6 +61,8 @@
     -webkit-user-select: none;
     -ms-user-select: none;
     flex-grow: 1;
+    @media screen and (max-width: 28em) {
+    }
     .carousel-img {
       width: 100%;
       height: 100%;

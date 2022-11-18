@@ -39,6 +39,7 @@
     .aside-cart-btn {
       flex-grow: 1;
       padding: 1.2rem;
+      height: 5rem;
     }
     .favorite-div {
       width: 4rem;
@@ -65,49 +66,67 @@
       }
     }
   }
-  .aside-delivery {
-    background-color: #e7ebee;
+  .aside-info {
     display: flex;
+    gap: 3.2rem;
     flex-direction: column;
-    gap: 1.2rem;
-    padding: 1.8rem 2.4rem;
-    .delivery-span {
+    @media screen and (max-width: 45em) {
+      flex-direction: row;
+      justify-content: space-between;
+      // flex-wrap: wrap;
+    }
+    .aside-delivery {
+      background-color: #e7ebee;
       display: flex;
-      gap: 0.8rem;
-      align-items: center;
+      flex-direction: column;
+      gap: 1.2rem;
+      padding: 1.8rem 2.4rem;
+      @media screen and (max-width: 45em) {
+        width: 100%;
+        justify-content: center;
+      }
+      .delivery-span {
+        display: flex;
+        gap: 0.8rem;
+        align-items: center;
 
-      .delivery-icon {
-        width: 2.4rem;
-        height: 2.4rem;
-        stroke: #333;
-        stroke-width: 1px;
+        .delivery-icon {
+          width: 2.4rem;
+          height: 2.4rem;
+          stroke: #333;
+          stroke-width: 1px;
+        }
+        .return-icon {
+          transform: scaleX(-1);
+        }
       }
-      .return-icon {
-        transform: scaleX(-1);
+      span {
+        font-size: 1.4rem;
+        a {
+          color: #333;
+        }
       }
     }
-    span {
-      font-size: 1.4rem;
-      a {
+    .aside-product-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      @media screen and (max-width: 45em) {
+        width: 100%;
+        align-items: center;
+      }
+      .product-details-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #777;
+        text-transform: uppercase;
+      }
+      .product-details-list {
+        font-size: 1.6rem;
         color: #333;
+        line-height: 1.5;
+        padding-left: 2.4rem;
       }
-    }
-  }
-  .aside-product-details {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    .product-details-title {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #777;
-      text-transform: uppercase;
-    }
-    .product-details-list {
-      font-size: 1.6rem;
-      color: #333;
-      line-height: 1.5;
-      padding-left: 2.4rem;
     }
   }
 }

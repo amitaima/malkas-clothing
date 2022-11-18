@@ -48,7 +48,7 @@ const RecommendedItems = () => {
       ) : (
         <section className="section-recommended-items">
           <h2 className="recommended-title">YOU MIGHT ALSO LIKE</h2>
-          <div className="recommended-div flex-row">
+          <div className="recommended-div">
             {products.map((product) => {
               return <ProductCard key={product.name} product={product} />;
             })}

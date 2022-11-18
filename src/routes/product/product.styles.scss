@@ -2,16 +2,25 @@
   max-width: 130rem;
   // height: 60vh;
   margin: 0 auto;
-  padding: 0 9.6rem;
+  // padding: 0 9.6rem;
   display: flex;
   gap: 3.6rem;
   align-items: flex-start;
+  @media screen and (max-width: 45em) {
+    flex-direction: column;
+  }
   .product-gallery-div {
     width: 70%;
     height: 100%;
+    @media screen and (max-width: 45em) {
+      width: 100%;
+    }
   }
   .product-aside-div {
     width: 30%;
     height: 100%;
+    @media screen and (max-width: 45em) {
+      width: 100%;
+    }
   }
 }

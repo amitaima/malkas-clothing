@@ -74,7 +74,7 @@ const ProductAside = ({ product }) => {
         </select>
       </div>
       <div className="aside-actions-div">
-        <Button onClick={handleAddToCart} className="aside-cart-btn inverted">
+        <Button onClick={handleAddToCart} className="aside-cart-btn">
           Add To Cart
         </Button>
         <div
@@ -92,28 +92,30 @@ const ProductAside = ({ product }) => {
           )}
         </div>
       </div>
-      <div className="aside-delivery">
-        <span className="delivery-span">
-          <TbTruckDelivery className="delivery-icon" />
-          Free Delivery
-        </span>
-        <span className="delivery-span">
-          <TbTruckReturn className="delivery-icon return-icon" />
-          Free Returns
-        </span>
-        <span>
-          Ts&Cs apply. <a href="#">More delivery info</a>
-        </span>
-      </div>
-      <div className="aside-product-details">
-        <span className="product-details-title">Product Details</span>
-        <ul className="product-details-list">
-          <li>That new-jacket feeling</li>
-          <li>Spread collar</li>
-          <li>Button placket</li>
-          <li>Functional pockets</li>
-          <li>Slim fit</li>
-        </ul>
+      <div className="aside-info">
+        <div className="aside-delivery">
+          <span className="delivery-span">
+            <TbTruckDelivery className="delivery-icon" />
+            Free Delivery
+          </span>
+          <span className="delivery-span">
+            <TbTruckReturn className="delivery-icon return-icon" />
+            Free Returns
+          </span>
+          <span>
+            Ts&Cs apply. <a href="#">More delivery info</a>
+          </span>
+        </div>
+        <div className="aside-product-details">
+          <span className="product-details-title">Product Details</span>
+          <ul className="product-details-list">
+            <li>That new-jacket feeling</li>
+            <li>Spread collar</li>
+            <li>Button placket</li>
+            <li>Functional pockets</li>
+            <li>Slim fit</li>
+          </ul>
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 .section-recommended-items {
-  padding: 4.8rem 9.6rem;
+  // padding: 4.8rem 9.6rem;
   .recommended-title {
     font-size: 1.8rem;
     color: #333;
@@ -11,7 +11,20 @@
     max-width: 80rem;
     margin: 0 auto;
     // width: 70%;
-    padding: 0 2.4rem;
+    // padding: 0 2.4rem;
     gap: 2.4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1.6rem;
+    @media (max-width: 34em) {
+      // grid-template-columns: repeat(3, 1fr);
+      // grid-template-rows: auto auto;
+      // grid-auto-rows: 0px;
+      // overflow: hidden;
+      grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
+      grid-template-rows: minmax(100px, auto);
+      grid-auto-rows: 0;
+      overflow: hidden;
+    }
   }
 }
