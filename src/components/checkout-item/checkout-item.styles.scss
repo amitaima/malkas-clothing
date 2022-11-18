@@ -11,6 +11,9 @@
     display: flex;
     gap: 2.4rem;
     align-items: center;
+    @media (max-width: 34em) {
+      width: 64%;
+    }
 
     .image-container {
       // ** To return to fixed sizing **
@@ -61,6 +64,14 @@
   .price {
     width: 14%;
     padding-left: 1.2rem;
+    @media (max-width: 34em) {
+      // width: 21%;
+    }
+  }
+  .total-price {
+    @media (max-width: 34em) {
+      display: none;
+    }
   }
 
   .quantity {

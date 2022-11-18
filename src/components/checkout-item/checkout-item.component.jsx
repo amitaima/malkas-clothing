@@ -48,7 +48,7 @@ const CheckoutItem = ({ cartItem }) => {
         </div>
       </div>
       <span className="price">${price}</span>
-      <span className="price">${quantity * price}</span>
+      <span className="price total-price">${quantity * price}</span>
       <div
         onClick={() => {
           dispatch(removeItemFromCart(cartItems, cartItem, currentUser));

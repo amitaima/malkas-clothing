@@ -76,7 +76,7 @@
     align-items: flex-end;
     justify-content: space-between;
     align-self: stretch;
-    padding: 1.2rem 2.4rem;
+    padding: 1.2rem 0;
     .remove-button {
       text-align: center;
       // align-self: center;
@@ -94,7 +94,14 @@
     .add-to-cart {
       // width: 20%;
       // scale: 0.7;
-      padding: 1.2rem;
+      // padding: 1.2rem;
+      @media (max-width: 74em) {
+        padding: 0;
+      }
+      @media (max-width: 34em) {
+        width: 100%;
+        min-width: 10rem;
+      }
     }
   }
 }
