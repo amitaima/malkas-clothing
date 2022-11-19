@@ -28,7 +28,35 @@ const ProductCard = ({ product }) => {
   const cartItems = useSelector(selectCartItems);
   const wishlistItems = useSelector(selectWishlistItems);
   const [fillHeart, setFillHeart] = useState(false);
+  const [currentImg, setCurrentImg] = useState(imageUrl);
   const currentUser = useSelector(selectCurrentUser);
+
+  const getSecondImgUrl = () => {
+    if (Object.keys(product).length === 0) return "";
+    return product.imageUrl
+      .split("/")
+      .map((splitSlash, index) => {
+        if (index === 5) {
+          const lastPart = splitSlash.split("-").map((splitDash, index) => {
+            if (index === 1) return "2";
+            if (index === 2) return splitDash.split("?")[1];
+            return splitDash;
+          });
+          return (
+            lastPart[0] +
+            "-" +
+            lastPart[1] +
+            "?" +
+            "$n_640w$&wid=513&fit=constrain" // Should make this smaller if screen smaller
+            // (highQuality
+            //   ? "$n_1280w$&wid=1026&fit=constrain" // High qualit for big picture
+            //   : "$n_320w$&wid=257&fit=constrain") // Low quality for small side pictures
+          );
+        }
+        return splitSlash;
+      })
+      .join("/");
+  };
 
   const checkFavorite = () => {
     wishlistItems.map((item) => item.id === product.id && setInFavorites(true));
@@ -46,11 +74,17 @@ const ProductCard = ({ product }) => {
     }, 2000);
   };
 
-  const handleEnter = () => {
+  const handleEnterImg = () => {
+    setCurrentImg(getSecondImgUrl());
+  };
+  const handleLeaveImg = () => {
+    setCurrentImg(imageUrl);
+  };
+  const handleEnterFavorite = () => {
     setFillHeart(true);
   };
 
-  const handleLeave = () => {
+  const handleLeaveFavorite = () => {
     setFillHeart(false);
   };
   const handleFavoritesClick = () => {
@@ -77,13 +111,17 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="product-card-container">
-      <div className="img-btn-div">
+      <div
+        className="img-btn-div"
+        onMouseEnter={handleEnterImg}
+        onMouseLeave={handleLeaveImg}
+      >
         <div className="img-div" onClick={goToProduct}>
-          <img src={imageUrl} alt={`Product photo of a ${name}`} />
+          <img src={currentImg} alt={`Product photo of a ${name}`} />
         </div>
         <div
-          onMouseEnter={handleEnter}
-          onMouseLeave={handleLeave}
+          onMouseEnter={handleEnterFavorite}
+          onMouseLeave={handleLeaveFavorite}
           onClick={handleFavoritesClick}
           className={`favorite-div ${inFavorites ? "active" : ""}`}
         >

@@ -4,7 +4,7 @@ IDEAS TO ADD:
 
 0. Add cart and search to floating navbar ------------- V
 
-1. Hover on products changes to different picture of product
+1. Hover on products changes to different picture of product ----------- V
 
 2. Wishlist - Like the Addition of cart just for a Wishlist ------------- V
 
