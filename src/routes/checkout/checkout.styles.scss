@@ -45,6 +45,9 @@
 
       &:last-child {
         width: 8%;
+        @media screen and (max-width: 50em) {
+          visibility: hidden;
+        }
       }
     }
   }

@@ -24,6 +24,7 @@
       align-items: center;
       justify-content: center;
       align-self: stretch;
+      cursor: pointer;
 
       img {
         // width: 80%; // ** uncomment this **
@@ -55,6 +56,14 @@
           font-size: 1.6rem;
           color: #333;
           font-weight: 500;
+          cursor: pointer;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2; /* number of lines to show */
+          -webkit-box-orient: vertical;
+          @media (max-width: 34em) {
+          }
         }
       }
     }

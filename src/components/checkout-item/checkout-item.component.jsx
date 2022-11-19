@@ -9,21 +9,33 @@ import {
 } from "../../redux-store/cart/cart.action";
 import { selectCartItems } from "../../redux-store/cart/cart.selector";
 import { selectCurrentUser } from "../../redux-store/user/user.selector";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutItem = ({ cartItem }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const currentUser = useSelector(selectCurrentUser);
+  const navigate = useNavigate();
 
-  const { name, price, imageUrl, quantity } = cartItem;
+  const goToProduct = () => {
+    navigate(`/product/${id}`, {
+      state: {
+        product: { ...cartItem, quantity: 1 },
+      },
+    });
+  };
+
+  const { name, price, imageUrl, quantity, id } = cartItem;
   return (
     <div className="checkout-item-container">
       <div className="product-info">
-        <div className="image-container">
+        <div className="image-container" onClick={goToProduct}>
           <img src={imageUrl} alt={`Product photo of a ${name}`} />
         </div>
         <div className="item-details">
-          <span className="name">{name}</span>
+          <span className="name" onClick={goToProduct}>
+            {name}
+          </span>
           {/* <span className="price">${price}</span> */}
           <span className="color">Color: red</span>
           <span className="size">Size: S</span>

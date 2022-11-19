@@ -10,12 +10,14 @@ import {
   setIsCartOpen,
 } from "../../redux-store/cart/cart.action";
 import { selectCartItems } from "../../redux-store/cart/cart.selector";
+import { useNavigate } from "react-router-dom";
 
 const WishlistItem = ({ wishlistItem }) => {
   const dispatch = useDispatch();
   const wishlistItems = useSelector(selectWishlistItems);
   const currentUser = useSelector(selectCurrentUser);
   const cartItems = useSelector(selectCartItems);
+  const navigate = useNavigate();
 
   const handleAddToCart = () => {
     dispatch(
@@ -28,15 +30,26 @@ const WishlistItem = ({ wishlistItem }) => {
     }, 2000);
   };
 
-  const { name, price, imageUrl } = wishlistItem;
+  const { name, price, imageUrl, id } = wishlistItem;
+
+  const goToProduct = () => {
+    navigate(`/product/${id}`, {
+      state: {
+        product: wishlistItem,
+      },
+    });
+  };
+
   return (
     <div className="wishlist-item-container">
       <div className="product-info">
-        <div className="image-container">
+        <div className="image-container" onClick={goToProduct}>
           <img src={imageUrl} alt={`Product photo of a ${name}`} />
         </div>
         <div className="item-details">
-          <span className="name">{name}</span>
+          <span className="name" onClick={goToProduct}>
+            {name}
+          </span>
           {/* <span className="price">${price}</span> */}
           <span className="color">Color: red</span>
           <span className="size">Size: S</span>

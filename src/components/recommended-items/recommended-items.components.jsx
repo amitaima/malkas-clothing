@@ -15,35 +15,41 @@ const RecommendedItems = () => {
   const dispatch = useDispatch();
   const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
-  const allProducts = Object.values(categoriesMap).flat();
-  const randomNum = Math.floor(Math.random() * allProducts.length) - 4;
-  const [products, setProducts] = useState(
-    allProducts.slice(randomNum, randomNum + 4)
-  );
+  let allProducts = [];
+  // const allProducts = Object.values(categoriesMap).flat();
+  // const randomNum = Math.floor(Math.random() * allProducts.length) - 4;
+  // const [products, setProducts] = useState(
+  //   allProducts.slice(randomNum, randomNum + 4)
+  // );
+  const [products, setProducts] = useState([]);
   // const products = allProducts.slice(randomNum, randomNum + 4);
   // console.log(products);
   // const products = allProducts.slice(randomNum, randomNum + 4);
+  // console.log(allProducts);
 
+  // useEffect(() => {
+  //   if (isLoading) return;
+  //   if (!categoriesMap) return;
+  //   const allProducts = Object.values(categoriesMap).flat();
+  //   if (!allProducts) return;
+  //   const randomNum = Math.floor(Math.random() * allProducts.length) - 4;
+  //   setProducts(allProducts.slice(randomNum, randomNum + 4));
+  // }, [isLoading, window.location.href]);
   useEffect(() => {
+    if (isLoading) return;
     if (!categoriesMap) return;
+    allProducts = Object.values(categoriesMap).flat();
     if (!allProducts) return;
     const randomNum = Math.floor(Math.random() * allProducts.length) - 4;
     setProducts(allProducts.slice(randomNum, randomNum + 4));
   }, [isLoading, window.location.href]);
-  // useEffect(() => {
-  //   console.log(allProducts);
-  //   if (products.length) return;
-  //   if (!categoriesMap) return;
-  //   if (!allProducts) return;
-  //   setProducts(allProducts.slice(randomNum, randomNum + 4));
-  // }, [categoriesMap]);
 
   return (
     <Fragment>
-      {products.length === 0
+      {/* {products.length === 0
         ? setProducts(allProducts.slice(randomNum, randomNum + 4))
-        : ""}
-      {products.length === 0 ? (
+        : ""} */}
+      {products.length === 0 || isLoading ? (
         <Spinner />
       ) : (
         <section className="section-recommended-items">
