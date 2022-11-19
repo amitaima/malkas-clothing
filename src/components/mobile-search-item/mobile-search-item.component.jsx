@@ -17,13 +17,15 @@ import {
   addItemToWishlist,
   removeItemFromWishlist,
 } from "../../redux-store/wishlist/wishlist.action";
+import { useNavigate } from "react-router-dom";
 
 const MobileSearchItem = ({ product }) => {
-  const { name, price, imageUrl } = product;
+  const { name, price, imageUrl, id } = product;
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const currentUser = useSelector(selectCurrentUser);
   const wishlistItems = useSelector(selectWishlistItems);
+  const navigate = useNavigate();
 
   const [fillHeart, setFillHeart] = useState(false);
   const [inFavorites, setInFavorites] = useState(false);
@@ -57,6 +59,14 @@ const MobileSearchItem = ({ product }) => {
     }
   };
 
+  const goToProduct = () => {
+    navigate(`/product/${id}`, {
+      state: {
+        product,
+      },
+    });
+  };
+
   useEffect(() => {
     checkFavorite();
   }, []);
@@ -64,11 +74,13 @@ const MobileSearchItem = ({ product }) => {
   return (
     <div className="mobile-search-item-container">
       <div className="product-info">
-        <div className="image-container">
+        <div className="image-container" onClick={goToProduct}>
           <img src={imageUrl} alt={`Product photo of a ${name}`} />
         </div>
         <div className="item-details">
-          <span className="name">{name}</span>
+          <span className="name" onClick={goToProduct}>
+            {name}
+          </span>
           {/* <span className="price">${price}</span> */}
           <span className="color">Color: red</span>
           <span className="size">Size: S</span>

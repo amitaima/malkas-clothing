@@ -17,13 +17,15 @@ import {
   addItemToWishlist,
   removeItemFromWishlist,
 } from "../../redux-store/wishlist/wishlist.action";
+import { useNavigate } from "react-router-dom";
 
 const SearchItem = ({ product }) => {
-  const { name, price, imageUrl } = product;
+  const { name, price, imageUrl, id } = product;
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const currentUser = useSelector(selectCurrentUser);
   const wishlistItems = useSelector(selectWishlistItems);
+  const navigate = useNavigate();
 
   const [fillHeart, setFillHeart] = useState(false);
   const [inFavorites, setInFavorites] = useState(false);
@@ -61,9 +63,17 @@ const SearchItem = ({ product }) => {
     checkFavorite();
   }, []);
 
+  const goToProduct = () => {
+    navigate(`/product/${id}`, {
+      state: {
+        product,
+      },
+    });
+  };
+
   return (
     <div className="search-item-container">
-      <div className="img-div">
+      <div className="img-div" onClick={goToProduct}>
         <img src={imageUrl} alt={`Product photo of a ${name}`} />
       </div>
       <div

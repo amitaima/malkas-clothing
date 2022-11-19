@@ -29,6 +29,7 @@ $sub-color: #777;
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
 
       img {
         // width: 80%; // ** uncomment this **
@@ -74,6 +75,7 @@ $sub-color: #777;
           -webkit-line-clamp: 2; /* number of lines to show */
           // line-clamp: 2;
           -webkit-box-orient: vertical;
+          cursor: pointer;
         }
       }
     }
