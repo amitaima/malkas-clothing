@@ -21,6 +21,7 @@ const Checkout = () => {
   const navigate = useNavigate();
 
   const toPaymentPage = () => {
+    if (cartItems.length === 0) return;
     navigate("/payment");
   };
 
@@ -40,9 +41,13 @@ const Checkout = () => {
           <span className="header-block">REMOVE</span>
         </div>
         <div className="product-list">
-          {cartItems.map((item) => {
-            return <CheckoutItem key={item.id} cartItem={item} />;
-          })}
+          {cartItems.length > 0 ? (
+            cartItems.map((item) => {
+              return <CheckoutItem key={item.id} cartItem={item} />;
+            })
+          ) : (
+            <h2 className="empty-error">Your cart is empty</h2>
+          )}
         </div>
         <div className="checkout-summary">
           <div className="subtotal">

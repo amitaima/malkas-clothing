@@ -283,7 +283,6 @@ const Navigation = () => {
                 placeholder="Search"
                 type="search"
                 onChange={onSearchChange}
-                onFocus={openSearch}
                 required
               ></input>
               {/* <span className="search-text">Search</span> */}
