@@ -25,7 +25,6 @@ const Shop = () => {
     <Routes>
       <Route index element={<CategoriesPage />} />
       <Route path=":category" element={<Category />} />
-      
     </Routes>
   );
 };

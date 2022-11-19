@@ -1,18 +1,18 @@
 IDEAS TO ADD:
 
-PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
+ - PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
 
 0. Add cart and search to floating navbar ------------- V
 
 1. Hover on products changes to different picture of product
 
-2. Wishlist - Like the Addition of cart just for a Wishlist
+2. Wishlist - Like the Addition of cart just for a Wishlist ------------- V
 
 3. Alert when adding item to cart - should be the cart dropdown with only the added item ---------- ? V ?
 
 4. Sizes and colors in products
 
-5. Size picker when adding to cart
+5. Size picker when adding to cart ------------- ? V ?
 
 6. Sign up for newsletter section in home page -------------- V
 
@@ -20,13 +20,13 @@ PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
 
 8. Change currency by country
 
-9. Implement Product page
+9. Implement Product page ------------- V
 
 10. Implement search -------------- V (could add recommended products when no search is entered)
 
 11. Implement pay and checkout steps -------------- V
 
-12. Recommended items in checkout and in product pages
+12. Recommended items in checkout and in product pages ------------- V
 
 13. Add genders to products so you can categorize by gender
 
@@ -40,8 +40,8 @@ PRIMARY AND ACCENT COLORS FOR SITE (blue and white?)
   - shipping address
   - orders ------------- V
 
-16. All pictures in website to my own storage online and after size decrease ------------- Directory - V
-  All product pictures should be same aspect ration (2/3?)
+16. All pictures in website to my own storage online and after size decrease ------------- V
+  All product pictures should be same aspect ration (2/3?) ------------ V
 
 17. Cart in DB --------------- V
 

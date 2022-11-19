@@ -134,7 +134,7 @@ const Navigation = () => {
     // setIsCartOpen(false);
   };
   const closeMenu = () => {
-    dispatch(setIsMobileNavOpen(false));
+    setIsMobileNavOpen(false);
   };
 
   return (

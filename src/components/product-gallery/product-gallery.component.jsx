@@ -13,6 +13,7 @@ const SIDE_IMAGES = [
 const ProductGallery = ({ product }) => {
   // console.log(product);
   const [currentImg, setCurrentImg] = useState([0, product.imageUrl]);
+  // const [allImages, setAllImages] = useState([0, product.imageUrl]);
   const [isLoading, setIsLoading] = useState(true);
   const getNewImgUrl = (imgIndex, highQuality, firstImg = false) => {
     if (Object.keys(product).length === 0) return "";

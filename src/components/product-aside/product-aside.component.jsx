@@ -30,8 +30,13 @@ const ProductAside = ({ product }) => {
   const handleAddToCart = () => {
     dispatch(addItemToCart(cartItems, product, currentUser));
     dispatch(setIsCartOpen(true));
+    document.getElementsByClassName("aside-cart-btn")[0].textContent = "Added!";
+    document.getElementsByClassName("aside-cart-btn")[0].disabled = true;
     setTimeout(() => {
       dispatch(setIsCartOpen(false));
+      document.getElementsByClassName("aside-cart-btn")[0].textContent =
+        "Add To Cart";
+      document.getElementsByClassName("aside-cart-btn")[0].disabled = false;
     }, 2000);
   };
 
