@@ -38,8 +38,8 @@ const OrderInfo = () => {
 
   useEffect(() => {
     if (allOrders) {
-      console.log("allOrders: ", allOrders);
-      console.log(window.location.pathname.split("/")[2]);
+      // console.log("allOrders: ", allOrders);
+      // console.log(window.location.pathname.split("/")[2]);
       setThisOrder(
         allOrders.filter(
           (order) => window.location.pathname.split("/")[2] === order[0]
@@ -48,11 +48,11 @@ const OrderInfo = () => {
     }
   }, [allOrders]);
 
-  useEffect(() => {
-    if (thisOrder) {
-      console.log("thisOrder: ", thisOrder);
-    }
-  }, [thisOrder]);
+  // useEffect(() => {
+  //   if (thisOrder) {
+  //     console.log("thisOrder: ", thisOrder);
+  //   }
+  // }, [thisOrder]);
 
   return (
     <section className="order-info-container">

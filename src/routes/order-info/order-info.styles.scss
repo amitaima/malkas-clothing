@@ -152,4 +152,9 @@
       }
     }
   }
+  button {
+    @media (max-width: 34em) {
+      min-width: 16.5rem;
+    }
+  }
 }
