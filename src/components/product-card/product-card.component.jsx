@@ -34,10 +34,14 @@ const ProductCard = ({ product }) => {
     wishlistItems.map((item) => item.id === product.id && setInFavorites(true));
   };
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e) => {
     dispatch(addItemToCart(cartItems, product, currentUser));
+    e.target.closest(".add-to-cart").textContent = "Added!";
+    e.target.closest(".add-to-cart").disabled = true;
     dispatch(setIsCartOpen(true));
     setTimeout(() => {
+      e.target.closest(".add-to-cart").textContent = "Add To Cart";
+      e.target.closest(".add-to-cart").disabled = false;
       dispatch(setIsCartOpen(false));
     }, 2000);
   };
@@ -95,7 +99,7 @@ const ProductCard = ({ product }) => {
           <Button
             buttonType="inverted"
             className="no-border add-to-cart"
-            onClick={handleAddToCart}
+            onClick={(e) => handleAddToCart(e)}
           >
             Add to cart
           </Button>

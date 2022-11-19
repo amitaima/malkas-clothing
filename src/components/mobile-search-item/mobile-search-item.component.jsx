@@ -42,6 +42,7 @@ const MobileSearchItem = ({ product }) => {
       dispatch(setIsCartOpen(false));
     }, 2000);
   };
+  
 
   const handleEnter = () => {
     setFillHeart(true);

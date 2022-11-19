@@ -16,11 +16,13 @@ const Product = () => {
   const [product, setProduct] = useState({});
   const categoriesMap = useSelector(selectCategoriesMap);
   // const isLoading = useSelector(selectCategoriesIsLoading);
-  const allProducts = Object.values(categoriesMap).flat();
+
   useEffect(() => {
     window.scrollTo(0, 0);
     // console.log(JSON.parse(localStorage.getItem("current-product")));
-    if (allProducts.length === 0) return;
+    if (Object.keys(categoriesMap).length === 0) return;
+    const allProducts = Object.values(categoriesMap).flat();
+
     if (
       localStorage.getItem("current-product") === null ||
       location.state?.product
@@ -28,7 +30,11 @@ const Product = () => {
       setProduct(location.state.product);
       localStorage.setItem("current-product", JSON.stringify(product));
     } else {
-      if (localStorage.getItem("current-product")) {
+      if (
+        localStorage.getItem("current-product") &&
+        Object.keys(JSON.parse(localStorage.getItem("current-product")))
+          .length > 0
+      ) {
         if (
           JSON.parse(localStorage.getItem("current-product")).id.toString() ===
           window.location.pathname.slice(9)
@@ -42,9 +48,16 @@ const Product = () => {
             )[0]
           );
         }
+      } else {
+        setProduct(
+          allProducts.filter(
+            (product) =>
+              product.id.toString() === window.location.pathname.slice(9)
+          )[0]
+        );
       }
     }
-  }, [window.location.href, allProducts]);
+  }, [window.location.href, categoriesMap]);
   // useEffect(() => {
   //   if (!product.length) {
   //     if (location.state) {

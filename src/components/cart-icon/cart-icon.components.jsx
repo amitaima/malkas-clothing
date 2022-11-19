@@ -10,7 +10,6 @@ import { setIsCartOpen } from "../../redux-store/cart/cart.action";
 
 const CartIcon = () => {
   const dispatch = useDispatch();
-
   const isCartOpen = useSelector(selectIsCartOpen);
   const cartCount = useSelector(selectCartCount);
 

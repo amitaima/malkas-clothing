@@ -13,7 +13,7 @@ const SIDE_IMAGES = [
 const ProductGallery = ({ product }) => {
   // console.log(product);
   const [currentImg, setCurrentImg] = useState([0, product.imageUrl]);
-  // const [allImages, setAllImages] = useState([0, product.imageUrl]);
+  const [allImages, setAllImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const getNewImgUrl = (imgIndex, highQuality, firstImg = false) => {
     if (Object.keys(product).length === 0) return "";
@@ -48,48 +48,52 @@ const ProductGallery = ({ product }) => {
 
   const goForwards = () => {
     if (currentImg[0] === 3) {
-      setCurrentImg([0, getNewImgUrl(1, true, true)]);
+      setCurrentImg([0, allImages[0]]);
       return;
     }
-    setCurrentImg([currentImg[0] + 1, getNewImgUrl(currentImg[0] + 2, true)]);
+    setCurrentImg([currentImg[0] + 1, allImages[currentImg[0] + 1]]);
   };
   const goBackwards = () => {
     if (currentImg[0] === 1) {
-      setCurrentImg([0, getNewImgUrl(1, true, true)]);
+      setCurrentImg([0, allImages[0]]);
       return;
     }
     if (currentImg[0] === 0) {
-      setCurrentImg([3, getNewImgUrl(4, true)]);
+      setCurrentImg([3, allImages[3]]);
       return;
     }
-    setCurrentImg([currentImg[0] - 1, getNewImgUrl(currentImg[0], true)]);
+    setCurrentImg([currentImg[0] - 1, allImages[currentImg[0] - 1]]);
   };
+
   useEffect(() => {
     if (!product) return;
     /* Loading new images before preview */
     const img = new Image();
+    let allImgsArr = [];
     img.src = getNewImgUrl(1, true, true);
     img.onload = function () {
-      setIsLoading(true);
-      // console.log("done 1");
+      allImgsArr.push(img.src);
       img.src = getNewImgUrl(2, true);
       img.onload = function () {
-        setIsLoading(true);
-        // console.log("done 2");
+        allImgsArr.push(img.src);
         img.src = getNewImgUrl(3, true);
         img.onload = function () {
-          setIsLoading(true);
-          // console.log("done 3");
+          allImgsArr.push(img.src);
           img.src = getNewImgUrl(4, true);
           img.onload = function () {
+            allImgsArr.push(img.src);
+            setAllImages(allImgsArr);
             setIsLoading(false);
-            // console.log("done 4");
           };
         };
       };
     };
-    setCurrentImg([0, getNewImgUrl(1, true, true)]);
   }, [product]);
+
+  useEffect(() => {
+    if (allImages.length === 0) return;
+    setCurrentImg([0, allImages[0]]);
+  }, [allImages]);
 
   return (
     <div className="gallery-container">
@@ -102,7 +106,7 @@ const ProductGallery = ({ product }) => {
               <li
                 className="gallery-aside-item"
                 onClick={() => {
-                  setCurrentImg([0, getNewImgUrl(1, true, true)]);
+                  setCurrentImg([0, allImages[0]]);
                 }}
               >
                 <img
@@ -113,7 +117,7 @@ const ProductGallery = ({ product }) => {
               <li
                 className="gallery-aside-item"
                 onClick={() => {
-                  setCurrentImg([1, getNewImgUrl(2, true)]);
+                  setCurrentImg([1, allImages[1]]);
                 }}
               >
                 <img
@@ -124,7 +128,7 @@ const ProductGallery = ({ product }) => {
               <li
                 className="gallery-aside-item"
                 onClick={() => {
-                  setCurrentImg([2, getNewImgUrl(3, true)]);
+                  setCurrentImg([2, allImages[3]]);
                 }}
               >
                 <img
@@ -135,7 +139,7 @@ const ProductGallery = ({ product }) => {
               <li
                 className="gallery-aside-item"
                 onClick={() => {
-                  setCurrentImg([3, getNewImgUrl(4, true)]);
+                  setCurrentImg([3, allImages[4]]);
                 }}
               >
                 <img
