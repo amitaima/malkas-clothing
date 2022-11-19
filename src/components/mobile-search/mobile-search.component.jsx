@@ -23,7 +23,7 @@ const MobileSearch = ({ products, searchField, className, ...props }) => {
         <div className={`search-items ${!products.length ? "empty" : "not"}`}>
           {products.length && searchField ? (
             products
-              .filter((_, index) => index < 6)
+              // .filter((_, index) => index < 6)
               .map((product) => {
                 return (
                   <MobileSearchItem

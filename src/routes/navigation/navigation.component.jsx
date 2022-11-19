@@ -111,11 +111,16 @@ const Navigation = () => {
 
   const toggleMobileSearch = () => {
     setIsMobileSearchOpen(!isMobileSearchOpen);
+    document.body.style.overflow = "hidden";
+    document.body.style.height = "100%";
     // setIsCartOpen(true);
   };
 
   const closeMobileSearch = () => {
     setIsMobileSearchOpen(false);
+    document.body.style.overflow = "unset";
+    document.body.style.overflowX = "hidden";
+    document.body.style.height = "unset";
     // setIsCartOpen(false);
   };
   const closeMenu = () => {

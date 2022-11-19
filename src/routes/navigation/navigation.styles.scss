@@ -432,6 +432,7 @@ $sub-color: #777;
     left: 0;
     opacity: 0;
     visibility: hidden;
+    overflow: hidden;
     &.open {
       opacity: 1;
       visibility: visible;
@@ -527,6 +528,7 @@ $sub-color: #777;
     opacity: 0;
     visibility: hidden;
     transition: 0.5s;
+    overflow: hidden;
     .header-nav-list {
       position: absolute;
       top: 0;
