@@ -11,6 +11,7 @@ import {
   addItemToCart,
   setIsCartOpen,
 } from "../../redux-store/cart/cart.action";
+import { setIsSearchOpen } from "../../redux-store/search-toggle/search-toggle.action";
 import { selectWishlistItems } from "../../redux-store/wishlist/wishlist.selector";
 import {
   setIsWishlistOpen,
@@ -59,11 +60,17 @@ const SearchItem = ({ product }) => {
     }
   };
 
+  const closeSearch = () => {
+    dispatch(setIsSearchOpen(false));
+    // setIsCartOpen(false);
+  };
+
   useEffect(() => {
     checkFavorite();
   }, []);
 
   const goToProduct = () => {
+    closeSearch();
     navigate(`/product/${id}`, {
       state: {
         product,

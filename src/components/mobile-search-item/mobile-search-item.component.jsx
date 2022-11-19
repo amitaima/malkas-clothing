@@ -17,6 +17,7 @@ import {
   addItemToWishlist,
   removeItemFromWishlist,
 } from "../../redux-store/wishlist/wishlist.action";
+import { setIsMobileSearchOpen } from "../../redux-store/search-toggle/search-toggle.action";
 import { useNavigate } from "react-router-dom";
 
 const MobileSearchItem = ({ product }) => {
@@ -58,8 +59,15 @@ const MobileSearchItem = ({ product }) => {
       dispatch(addItemToWishlist(wishlistItems, product, currentUser));
     }
   };
-
+  const closeMobileSearch = () => {
+    dispatch(setIsMobileSearchOpen(false));
+    document.body.style.overflow = "unset";
+    document.body.style.overflowX = "hidden";
+    document.body.style.height = "unset";
+    // setIsCartOpen(false);
+  };
   const goToProduct = () => {
+    closeMobileSearch();
     navigate(`/product/${id}`, {
       state: {
         product,

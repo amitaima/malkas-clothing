@@ -22,6 +22,14 @@ import {
   RiCloseLine,
 } from "react-icons/ri";
 import { setCart, setCartNoUser } from "../../redux-store/cart/cart.action";
+import {
+  selectIsSearchOpen,
+  selectIsMobileSearchOpen,
+} from "../../redux-store/search-toggle/search-toggle.selector";
+import {
+  setIsSearchOpen,
+  setIsMobileSearchOpen,
+} from "../../redux-store/search-toggle/search-toggle.action";
 import { setWishlist } from "../../redux-store/wishlist/wishlist.action";
 import Hamburger from "hamburger-react";
 
@@ -31,10 +39,12 @@ import MobileSearch from "../../components/mobile-search/mobile-search.component
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
-  const [searchDropClass, setsearchDropClass] = useState(false);
+  const isSearchOpen = useSelector(selectIsSearchOpen);
+  const isMobileSearchOpen = useSelector(selectIsMobileSearchOpen);
+  // const [searchDropClass, setsearchDropClass] = useState(false);
+  // const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
   const [stickyClass, setStickyClass] = useState("");
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
   const [searchField, setSearchField] = useState(""); // [state, setState]
   const categoriesMap = useSelector(selectCategoriesMap);
   const allProducts = Object.values(categoriesMap).flat();
@@ -100,31 +110,31 @@ const Navigation = () => {
   };
 
   const openSearch = () => {
-    setsearchDropClass(true);
+    dispatch(setIsSearchOpen(true));
     // setIsCartOpen(true);
   };
 
   const closeSearch = () => {
-    setsearchDropClass(false);
+    dispatch(setIsSearchOpen(false));
     // setIsCartOpen(false);
   };
 
   const toggleMobileSearch = () => {
-    setIsMobileSearchOpen(!isMobileSearchOpen);
+    dispatch(setIsMobileSearchOpen(!isMobileSearchOpen));
     document.body.style.overflow = "hidden";
     document.body.style.height = "100%";
     // setIsCartOpen(true);
   };
 
   const closeMobileSearch = () => {
-    setIsMobileSearchOpen(false);
+    dispatch(setIsMobileSearchOpen(false));
     document.body.style.overflow = "unset";
     document.body.style.overflowX = "hidden";
     document.body.style.height = "unset";
     // setIsCartOpen(false);
   };
   const closeMenu = () => {
-    setIsMobileNavOpen(false);
+    dispatch(setIsMobileNavOpen(false));
   };
 
   return (
@@ -493,21 +503,21 @@ const Navigation = () => {
             </div>
             <div
               className={`search-dropdown-div ${
-                !searchDropClass ? "hide-search" : ""
+                !isSearchOpen ? "hide-search" : ""
               }`}
-              aria-hidden={!searchDropClass ? true : false}
+              aria-hidden={!isSearchOpen ? true : false}
             >
               <SearchDropdown
-                className={!searchDropClass ? "hide-search" : ""}
+                className={!isSearchOpen ? "hide-search" : ""}
                 products={filteredProducts}
                 searchField={searchField}
               ></SearchDropdown>
               <div
                 onClick={closeSearch}
                 className={`search-dropdown-div ${
-                  !searchDropClass ? "hide-search" : ""
+                  !isSearchOpen ? "hide-search" : ""
                 }`}
-                aria-hidden={!searchDropClass ? true : false}
+                aria-hidden={!isSearchOpen ? true : false}
               ></div>
             </div>
           </nav>

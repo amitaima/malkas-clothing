@@ -1,29 +1,24 @@
-import { CART_ACTION_TYPES } from "./cart.types";
+import { SEARCH_ACTION_TYPES } from "./search-toggle.types";
 
-const CART_INITIAL_STATE = {
-  isCartOpen: false,
-  cartItems: [],
+const SEARCH_INITIAL_STATE = {
+  isSearchOpen: false,
+  isMobileSearchOpen: false,
 };
 
-export const cartReducer = (state = CART_INITIAL_STATE, action = {}) => {
+export const searchReducer = (state = SEARCH_INITIAL_STATE, action = {}) => {
   // console.log("dispatched");
   const { type, payload } = action;
 
   switch (type) {
-    case CART_ACTION_TYPES.SET_CART_ITEMS:
+    case SEARCH_ACTION_TYPES.SET_IS_SEARCH_OPEN:
       return {
         ...state,
-        cartItems: payload,
+        isSearchOpen: payload,
       };
-    case CART_ACTION_TYPES.SET_CART_COUNT:
+    case SEARCH_ACTION_TYPES.SET_IS_MOBILE_SEARCH_OPEN:
       return {
         ...state,
-        ...payload,
-      };
-    case CART_ACTION_TYPES.SET_IS_CART_OPEN:
-      return {
-        ...state,
-        isCartOpen: payload,
+        isMobileSearchOpen: payload,
       };
     default:
       return state;
