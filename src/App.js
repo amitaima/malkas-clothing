@@ -25,6 +25,7 @@ import OrderHistory from "./routes/order-history/order-history.component";
 
 import { checkUserSession } from "./redux-store/user/user.action";
 import Spinner from "./components/spinner/spinner.component";
+import NEW_CATEGORY from "./new-category-db";
 
 const Home = lazy(() => import("./routes/home/home.component"));
 const Authentication = lazy(() =>

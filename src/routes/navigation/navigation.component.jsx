@@ -260,7 +260,7 @@ const Navigation = () => {
               </Link>
             </li>
             <li>
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="/shop/new">
                 New
               </Link>
             </li>
@@ -275,7 +275,7 @@ const Navigation = () => {
               </Link>
             </li>
             <li>
-              <Link className="nav-link" to="/">
+              <Link className="nav-link outlet" to="/shop/outlet">
                 Outlet
               </Link>
             </li>
@@ -414,7 +414,7 @@ const Navigation = () => {
                 </Link>
               </li>
               <li>
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/shop/new">
                   New
                 </Link>
               </li>
@@ -429,7 +429,7 @@ const Navigation = () => {
                 </Link>
               </li>
               <li>
-                <Link className="nav-link" to="/">
+                <Link className="nav-link outlet" to="/shop/outlet">
                   Outlet
                 </Link>
               </li>

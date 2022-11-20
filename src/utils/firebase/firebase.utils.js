@@ -74,6 +74,37 @@ export const getCategoriesandDocuments = async () => {
   return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
 };
 
+export const addNewCategory = async (newCategory) => {
+  console.log(newCategory);
+  const categoriesRef = collection(db, "categories");
+  const categoriesDocRef = doc(
+    db,
+    "categories",
+    newCategory.title.toLowerCase()
+  );
+  const batch = writeBatch(db);
+
+  const categorySnapshot = await getDoc(categoriesDocRef);
+
+  // If Category does not exist
+  // Create new category
+  if (!categorySnapshot.exists()) {
+    try {
+      const docref = doc(categoriesRef, newCategory.title.toLowerCase());
+      batch.set(docref, newCategory);
+      await batch.commit();
+      // console.log("Added email to newsletter list");
+    } catch (error) {
+      console.log("error: ", error);
+      throw { code: "2", message: "Error creating new category" };
+    }
+  } else {
+    throw { code: "1", message: "Category already exists" };
+    // return "Already signed up to newsletter";
+  }
+  return "Added new category";
+};
+
 export const addNewsletterEmail = async (objectToAdd) => {
   console.log("addNewsletterEmail");
   const newsletterRef = collection(db, "newsletter-emails");

@@ -128,7 +128,7 @@ const ProductGallery = ({ product }) => {
               <li
                 className="gallery-aside-item"
                 onClick={() => {
-                  setCurrentImg([2, allImages[3]]);
+                  setCurrentImg([2, allImages[2]]);
                 }}
               >
                 <img
@@ -139,7 +139,7 @@ const ProductGallery = ({ product }) => {
               <li
                 className="gallery-aside-item"
                 onClick={() => {
-                  setCurrentImg([3, allImages[4]]);
+                  setCurrentImg([3, allImages[3]]);
                 }}
               >
                 <img

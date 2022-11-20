@@ -18,7 +18,14 @@ const Category = () => {
   const isLoading = useSelector(selectCategoriesIsLoading);
   const [products, setProducts] = useState(categoriesMap[category]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (category.toLowerCase() === "outlet") {
+      document.getElementsByClassName("category-title")[0].style.color =
+        "#d96a6a";
+    } else {
+      document.getElementsByClassName("category-title")[0].style.color = "#333";
+    }
+  }, [window.location.href]);
   useEffect(() => {
     setProducts(categoriesMap[category]);
     window.scrollTo(0, 0);

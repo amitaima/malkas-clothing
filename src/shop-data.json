@@ -3,70 +3,60 @@
     "id": 1,
     "name": "Brown Brim",
     "imageUrl": "https://i.ibb.co/ZYW3VTp/brown-brim.png",
-    "imageUrl2": "https://images.unsplash.com/photo-1616497925733-9e506b7b7e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
     "price": 25
   },
   {
     "id": 2,
     "name": "Blue Beanie",
     "imageUrl": "https://i.ibb.co/ypkgK0X/blue-beanie.png",
-    "imageUrl2": "https://images.unsplash.com/photo-1616497925733-9e506b7b7e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
     "price": 18
   },
   {
     "id": 3,
     "name": "Brown Cowboy",
     "imageUrl": "https://i.ibb.co/QdJwgmp/brown-cowboy.png",
-    "imageUrl2": "https://images.unsplash.com/photo-1616497925733-9e506b7b7e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
     "price": 35
   },
   {
     "id": 4,
     "name": "Grey Brim",
     "imageUrl": "https://i.ibb.co/RjBLWxB/grey-brim.png",
-    "imageUrl2": "https://images.unsplash.com/photo-1616497925733-9e506b7b7e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
     "price": 25
   },
   {
     "id": 5,
     "name": "Green Beanie",
     "imageUrl": "https://i.ibb.co/YTjW3vF/green-beanie.png",
-    "imageUrl2": "https://images.unsplash.com/photo-1616497925733-9e506b7b7e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
     "price": 18
   },
   {
     "id": 6,
     "name": "Palm Tree Cap",
     "imageUrl": "https://i.ibb.co/rKBDvJX/palm-tree-cap.png",
-    "imageUrl2": "https://images.unsplash.com/photo-1616497925733-9e506b7b7e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
     "price": 14
   },
   {
     "id": 7,
     "name": "Red Beanie",
     "imageUrl": "https://i.ibb.co/bLB646Z/red-beanie.png",
-    "imageUrl2": "https://images.unsplash.com/photo-1616497925733-9e506b7b7e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
     "price": 18
   },
   {
     "id": 8,
     "name": "Wolf Cap",
     "imageUrl": "https://i.ibb.co/1f2nWMM/wolf-cap.png",
-    "imageUrl2": "https://images.unsplash.com/photo-1616497925733-9e506b7b7e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
     "price": 14
   },
   {
     "id": 9,
     "name": "Blue Snapback",
     "imageUrl": "https://i.ibb.co/X2VJP2W/blue-snapback.png",
-    "imageUrl2": "https://images.unsplash.com/photo-1616497925733-9e506b7b7e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
     "price": 16
   },
   {
     "id": 10,
     "name": "Grey Retro Cap",
     "imageUrl": "https://images.unsplash.com/photo-1616497925804-78987151de78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-    "imageUrl2": "https://images.unsplash.com/photo-1616497925733-9e506b7b7e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
     "price": 14
   }
 ]

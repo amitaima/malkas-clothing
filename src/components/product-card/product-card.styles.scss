@@ -12,6 +12,7 @@ $sub-color: #777;
   // height: 45rem;
   align-items: center;
   position: relative;
+  overflow: hidden; // If bug - remove
 
   .img-btn-div {
     align-self: stretch;

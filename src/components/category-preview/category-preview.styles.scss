@@ -3,6 +3,13 @@
   flex-direction: column;
   margin-bottom: 3.6rem;
 
+  &:last-child {
+    .title-container {
+      .title-link {
+        color: #d96a6a;
+      }
+    }
+  }
   .title-container {
     .title-link {
       padding-bottom: 2.4rem;
@@ -12,13 +19,12 @@
       width: fit-content;
       text-decoration: none;
       cursor: pointer;
+      color: #333;
       .title {
         font-size: 2.4rem;
-        color: #333;
       }
 
       .arrow-icon {
-        color: #333;
         width: 3.2rem;
         height: 3.2rem;
         transition: all 0.3s ease-out;
