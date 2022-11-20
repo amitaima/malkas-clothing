@@ -230,7 +230,7 @@ const Navigation = () => {
                 </ul>
               </li>
             ) : (
-              <Link className="nav-link" to="/auth">
+              <Link className="nav-link" to="/auth" onClick={closeMenu}>
                 Sign In
               </Link>
             )}
