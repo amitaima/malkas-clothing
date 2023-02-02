@@ -9,3 +9,4 @@ Key features
   - Mobile support + Webapp support
   - Basic search
   - Newsletter subscription
+  - Netlify support
